@@ -1,4 +1,4 @@
-boltsandfeathers_sqs SS7
+Bolts & Feathers SS7
 =======
 > boltsandfeathers_sqs SS7 top-level Squarespace development code.
 
