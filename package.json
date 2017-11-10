@@ -1,0 +1,57 @@
+{
+  "name": "Bolts & Feathers Squarespace Template",
+  "version": "2.0.1",
+  "description": "A boilerplate for building Squarespace templates",
+  "config": {
+    "staging_url": "https://baf-staging.squarespace.com",
+    "production_url": "https://baf-production.squarespace.com"
+  },
+  "scripts": {
+    "postinstall": "npm run dev",
+    "start": "npm-run-all --parallel server watch",
+    "test": "npm-run-all --parallel server:test watch",
+    "dev": "squarespace assemble && NODE_ENV=development webpack",
+    "production": "squarespace assemble && NODE_ENV=production webpack",
+    "watch": "squarespace assemble -wT & NODE_ENV=development webpack --watch",
+    "server": "npm run server:sqs:stage & browser-sync start --proxy 'localhost:9000'",
+    "server:test": "npm run server:sqs:prod & browser-sync start --proxy 'localhost:9000'",
+    "server:sqs:prod": "squarespace runserver $npm_package_config_production_url -d ./build --auto-reload --auth",
+    "server:sqs:stage": "squarespace runserver $npm_package_config_staging_url -d ./build --auto-reload --auth",
+    "clone:prod": "npm run clean && git clone $npm_package_config_production_url/template.git ./build",
+    "clone:stage": "npm run clean && git clone $npm_package_config_staging_url/template.git ./build",
+    "stage": "npm-run-all clone:stage production && squarespace deploy $npm_package_config_staging_url/template.git",
+    "deploy": "npm-run-all clone:prod production && squarespace deploy $npm_package_config_production_url/template.git",
+    "clean": "rm -rf ./build/",
+    "lint:js": "eslint ./source/js/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thismarioperez/boltsandfeathers_sqs.git"
+  },
+  "author": "thismarioperez@gmail.com",
+  "license": "MIT",
+  "devDependencies": {
+    "@squarespace/toolbelt": "^0.8.7",
+    "autoprefixer": "^7.1.6",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.1",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "browser-sync": "^2.18.5",
+    "eslint": "^4.9.0",
+    "eslint-config-squarespace": "^1.0.1",
+    "eslint-loader": "^1.9.0",
+    "file-loader": "^1.1.5",
+    "less": "^2.7.3",
+    "less-loader": "^4.0.5",
+    "npm-run-all": "^4.0.2",
+    "postcss-loader": "^2.0.8",
+    "webpack": "^3.8.1"
+  },
+  "dependencies": {
+    "@squarespace/core": "^1.0.1",
+    "normalize.css": "^7.0.0"
+  }
+}
