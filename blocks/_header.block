@@ -1,9 +1,17 @@
 <header class="header wrapper">
-  {.section website}
-  <h1>
-    <a href="/">
-      {@|apply _logo.block}
-    </a>
-  </h1>
-  {.end}
+  <div class="header--inner">
+    {#  logo  }
+    {.section website}
+    <h1>
+      <a class="logo" href="/">
+        {@|apply _logo.block}
+      </a>
+    </h1>
+    {.end}
+    {#  page title  }
+    {#  menu toggle  }
+    <div class="menu">
+      <span class="icon icon--menu"><span></span></span>
+    </div>
+  </div>
 </header>
