@@ -59,7 +59,11 @@
 // Wrapper around Logo Icon
 .logo {
   display: inline-block;
-  width: 180px;
+  width: @logoWidth;
+
+  @media @small {
+    width: @logoWidthSm;
+  }
 
   // Set svg logo fill color
   .bfLogoPath {
