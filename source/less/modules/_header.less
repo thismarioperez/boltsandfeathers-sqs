@@ -4,6 +4,21 @@
   left: 0;
   right: 0;
   z-index: @header;
-  background: @white;
+  background: fade(@white, 100%);
   height: @headerHeight;
+
+  @media @small {
+    height: @headerHeightSm;
+  }
+
+  &--inner {
+    height: 100%;
+    display: flex;    
+    flex-flow: row nowrap;
+    align-items: center;
+
+    > *:last-child {
+      margin-left: auto;
+    }
+  }
 }
