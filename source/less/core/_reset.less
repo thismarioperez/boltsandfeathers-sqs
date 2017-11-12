@@ -1,8 +1,14 @@
 /******************************************************************************
  * Core/Reset
 *******************************************************************************/
-// @import (inline) '~normalize.css/normalize.css';
 /******************************************************************************
+ * Normalize.css
+*******************************************************************************
+ * Use this for a common, cross-browser starting point.
+*******************************************************************************/
+@import (inline) '~normalize.css/normalize.css';
+
+/*******************************************************************************
  * CSS Reset
  * Add / Remove / Tweak this for your project.
  * The philosophy behind the CSS Reset is personal application customization.
@@ -48,6 +54,11 @@ q:before, q:after, blockquote:before, blockquote:after {
   content: none;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 a img {
   border: none;
 }
@@ -55,9 +66,3 @@ a img {
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
-
-// Border box size everything that's not a sqaurespace element
-*:not([class*="sqs"]) {
-  box-sizing: border-box;
-}
-
