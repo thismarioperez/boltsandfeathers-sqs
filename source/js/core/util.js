@@ -36,26 +36,48 @@ const isElementInViewport = (el) => {
 
 /**
  *
- * @description Loads app fonts from Google CDN with local fallbacks
+ * @description Single instance of webfontloader.
+ *              Loads app fonts from Google CDN with local fallbacks.
+ *              Uses a cookie to load cached fonts.
  * @method loadFonts
  * @memberof util
+ * @returns {object} {init}
  *
  */
 const loadFonts = () => {
-  WebFont.load({
+  const handleActive = () => {
+    // manipulate session storage to detect if font is cached
+    sessionStorage.setItem('fonts', 'true');
+  };
+
+  const WebFontConfig = {
+    // Try google cdn first
     google: {
       families: ['Comfortaa:400,700']
     },
+    active: handleActive,
+    // If CDN fails, use local fallback
     fontinactive: (family, fvd) => {
       if (family === 'Comfortaa') {
         WebFont.load({
           custom: {
             families: ['Comfortaa:n4,n7'],
-          }
+          },
+          active: handleActive
         });
       }
     },
-  });
+  };
+
+  const init = () => {
+    // If font is cached, add the active class as soon as possible.
+    if (sessionStorage.fonts) {
+      document.documentElement.classList.add('wf-active');
+    }
+    WebFont.load(WebFontConfig);
+  };
+
+  return { init };
 };
 
 export {
