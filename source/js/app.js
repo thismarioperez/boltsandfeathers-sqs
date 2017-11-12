@@ -12,6 +12,7 @@ import * as core from './core';
 class App {
   constructor() {
     this.core = core;
+    this.loadFonts = core.util.loadFonts;
 
     this.bindEvents();
     this.initModules();
@@ -29,6 +30,7 @@ class App {
   initModules() {
     let images = document.querySelectorAll('img[data-src]');
     core.util.loadImages(images);
+    this.loadFonts();
   }
 
   /**

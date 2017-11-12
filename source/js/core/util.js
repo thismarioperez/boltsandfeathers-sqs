@@ -4,6 +4,7 @@
  * @description App-wide utility methods
  */
 import { ImageLoader } from '@squarespace/core';
+const WebFont = require('webfontloader');
 
 /**
  * @public
@@ -33,7 +34,32 @@ const isElementInViewport = (el) => {
   }
 };
 
+/**
+ *
+ * @description Loads app fonts from Google CDN with local fallbacks
+ * @method loadFonts
+ * @memberof util
+ *
+ */
+const loadFonts = () => {
+  WebFont.load({
+    google: {
+      families: ['Comfortaa:400,700']
+    },
+    fontinactive: (family, fvd) => {
+      if (family === 'Comfortaa') {
+        WebFont.load({
+          custom: {
+            families: ['Comfortaa:n4,n7'],
+          }
+        });
+      }
+    },
+  });
+};
+
 export {
   loadImages,
-  isElementInViewport
+  isElementInViewport,
+  loadFonts
 };
