@@ -52,6 +52,7 @@
   },
   "dependencies": {
     "@squarespace/core": "^1.0.1",
-    "normalize.css": "^7.0.0"
+    "normalize.css": "^7.0.0",
+    "webfontloader": "^1.6.28"
   }
 }
