@@ -1,15 +1,83 @@
 /******************************************************************************
  * SQS/Squarespace Block Spacing
 *******************************************************************************/
+// SQS Resets
+
+.sqs-layout > .sqs-row {
+  margin: 0 !important;
+}
+
 // [class*=sqs-col] {
 //   display: inline-block;
 //   float: none !important;
 // }
-//
+
 // .sqs-block {
 //   padding: 0 !important;
 // }
-//
-// .sqs-layout > .sqs-row {
-//   margin: 0 !important;
-// }
+
+
+// Block layouts
+.sqs-block {
+  padding-left: @baseline;
+  padding-right: @baseline;
+
+  &:first-child {
+    padding-top: @baseline !important;    
+  }
+
+  &:last-child {
+    padding-bottom: @baseline !important;
+  }
+
+  & + & {
+    padding-top: @baseline !important;
+  }
+}
+
+// Block typography
+.sqs-block {
+  p + p,
+  p + ul,
+  p + ol,
+  p + h1,
+  p + h2,
+  p + h3,
+  
+  ul + p,
+  ul + ul,
+  ul + ol,
+  ul + h1,
+  ul + h2,
+  ul + h3,
+  
+  ol + p,
+  ol + ol,
+  ol + ul,
+  ol + h1,
+  ol + h2,
+  ol + h3,
+  
+  h1 + p,
+  h1 + ul,
+  h1 + ol,
+  h1 + h1,
+  h1 + h2,
+  h1 + h3,
+  
+  h2 + p,
+  h2 + ul,
+  h2 + ol,
+  h2 + h1,
+  h2 + h2,
+  h2 + h3,
+  
+  h3 + p,
+  h3 + ul,
+  h3 + ol,
+  h3 + h1,
+  h3 + h2,
+  h3 + h3 {
+    margin-top: @baseline;
+  }
+}
