@@ -3,6 +3,7 @@
 *******************************************************************************/
 @baseFontSize: 16px;
 @baseline: 20px;
+@baseline-2: @baseline * 2;
 
 body {
   .font-sans-serif;
@@ -34,7 +35,13 @@ p, .p {
   line-height: @baseline;
 }
 
-blockquote, .blockquote {}
+blockquote, .blockquote {
+  font-style: italic;
+  line-height: 1.2em;
+  .scale-font(@baseFontSize * 1.4, @baseFontSize * 1.6, 800px);
+  border-left: @baseline / 2 solid @gray;
+  padding-left: @baseline / 2;
+}
 
 ul, .ul {}
 
