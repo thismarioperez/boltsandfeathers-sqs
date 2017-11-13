@@ -1,6 +1,53 @@
 /******************************************************************************
  * Core/Typography
 *******************************************************************************/
+@baseFontSize: 16px;
+@baseline: 20px;
+
 body {
   .font-sans-serif;
+  font-size: @baseFontSize;
+  line-height: @baseline;
 }
+
+h1, .h1 {
+  text-transform: uppercase;
+  .font-sans-serif-bold;  
+}
+
+h2, .h2 {
+  .font-sans-serif-bold;  
+}
+
+h3, .h3 {
+  .font-sans-serif;
+  text-transform: uppercase;
+}
+
+h4, .h4 {}
+h5, .h5 {}
+h6, .h6 {}
+
+p, .p {
+  .font-sans-serif;
+  font-size: @baseFontSize;
+  line-height: @baseline;
+}
+
+blockquote, .blockquote {}
+
+ul, .ul {}
+
+ol, .ol {}
+
+li, .li {}
+
+strong, .strong {
+  .font-sans-serif-bold;
+}
+
+em, .em {}
+
+code, .code {}
+
+pre, .pre {}
