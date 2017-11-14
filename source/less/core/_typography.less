@@ -9,12 +9,14 @@ body {
   .font-sans-serif;
   font-size: @baseFontSize;
   line-height: @baseline;
+  letter-spacing: .08em;;
 }
 
 h1, .h1 {
   text-transform: uppercase;
   .font-sans-serif-bold;
   line-height: 1.2em;
+  letter-spacing: .2em;  
   .scale-font(@baseFontSize * 2.2, @baseFontSize * 3, @maxContentWidth);
   word-wrap: break-word;
   hyphens: auto;
@@ -22,14 +24,16 @@ h1, .h1 {
 
 h2, .h2 {
   .font-sans-serif-bold;
-  line-height: 1.2em;
+  line-height: 1.25em;
+  letter-spacing: .08em;
   .scale-font(@baseFontSize * 1.8, @baseFontSize * 2.5, @maxContentWidth);
 }
 
 h3, .h3 {
   .font-sans-serif;
   text-transform: uppercase;
-  line-height: 1.2em;
+  line-height: 1.45em;
+  letter-spacing: .2em;
   .scale-font(@baseFontSize * 1.25, @baseFontSize * 1.8, @maxContentWidth);  
 }
 
@@ -67,5 +71,5 @@ pre, .pre {}
 
 .page-title {
   .h3;
-  .scale-font(@baseFontSize * 1.2, @baseFontSize * 1.5, @maxContentWidth);
+  .scale-font(@baseFontSize, @baseFontSize * 1.2, @maxContentWidth);
 }
