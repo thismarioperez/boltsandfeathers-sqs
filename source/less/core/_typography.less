@@ -13,16 +13,24 @@ body {
 
 h1, .h1 {
   text-transform: uppercase;
-  .font-sans-serif-bold;  
+  .font-sans-serif-bold;
+  line-height: 1.2em;
+  .scale-font(@baseFontSize * 2.2, @baseFontSize * 3, @maxContentWidth);
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
 h2, .h2 {
-  .font-sans-serif-bold;  
+  .font-sans-serif-bold;
+  line-height: 1.2em;
+  .scale-font(@baseFontSize * 1.8, @baseFontSize * 2.5, @maxContentWidth);
 }
 
 h3, .h3 {
   .font-sans-serif;
   text-transform: uppercase;
+  line-height: 1.2em;
+  .scale-font(@baseFontSize * 1.25, @baseFontSize * 1.8, @maxContentWidth);  
 }
 
 h4, .h4 {}
@@ -38,9 +46,7 @@ p, .p {
 blockquote, .blockquote {
   font-style: italic;
   line-height: 1.2em;
-  .scale-font(@baseFontSize * 1.4, @baseFontSize * 1.6, 800px);
-  border-left: @baseline / 2 solid @gray;
-  padding-left: @baseline / 2;
+  .scale-font(@baseFontSize * 1.4, @baseFontSize * 1.8, @maxContentWidth);
 }
 
 ul, .ul {}
