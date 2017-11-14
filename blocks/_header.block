@@ -9,11 +9,11 @@
     </h1>
     {.end}
     {#  page title  }
-    <h1>
-      <span class="page-title">
+    <div class="header--title page-title">
+      <span>
         <span>{collection.title}</span>
       </span>
-    </h1>
+    </div>
     {#  menu toggle  }
     <div class="menu">
       <span class="icon icon--menu"><span></span></span>
