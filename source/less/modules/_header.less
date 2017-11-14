@@ -16,11 +16,14 @@
     display: flex;    
     flex-flow: row nowrap;
     align-items: center;
+
+    > *:nth-child(1) {
+      margin-right: auto;
+    }
   }
 
   &--title {
     position: relative;
-    margin-left: auto;
     height: 100%;
 
     @media @small {
