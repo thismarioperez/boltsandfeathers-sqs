@@ -33,3 +33,8 @@
   font-family: @sans-serif;
   font-weight: 700;
 }
+
+// Color Gradient Mixin
+.gradient(@type; @colors; @dir: 0deg;) {
+  background-image: ~"@{type}-gradient(@{dir}, @{colors})";
+}
