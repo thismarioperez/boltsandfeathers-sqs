@@ -28,7 +28,7 @@
     max-width: 75vw;
   }
   @media @large {
-    max-width: 1000px;
+    max-width: @maxContentWidth;
   }
 
   &:first-child {
@@ -92,12 +92,37 @@
 }
 
 // Block specific
+// Quote Block
 .sqs-block-quote {
   .sqs-block-content {
-      padding: @baseline @baseline-2 @baseline @baseline;
-      border: 1px solid @black;      
-      }
+    padding: @baseline;
+    .gradient(linear; ~"@{blue}, @{green}"; 45deg);  
+  }
   .source {
-      text-align: right;
+    margin: 0 @baseline 0 0;
+    text-align: right;
+  }
+  figure {
+    margin: @baseline;
+  }
+}
+// Text Block
+.sqs-block-html {
+  .sqs-block-content {
+    blockquote {
+      padding-left: @baseline;
+      position: relative;
+
+      &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 5px;
+        .gradient(linear; ~"@{blue}, @{green}"; 0deg);
       }
+    }
+  }
 }
