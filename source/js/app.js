@@ -12,10 +12,8 @@ import * as core from './core';
 class App {
   constructor() {
     this.core = core;
-    this.loadFonts = core.util.loadFonts();
-
-    this.bindEvents();
     this.initModules();
+    this.bindEvents();
   }
 
   /**
@@ -28,9 +26,12 @@ class App {
    *
    */
   initModules() {
+    this.core.log('App: environment is ' + this.core.env.ENV);    
     let images = document.querySelectorAll('img[data-src]');
-    core.util.loadImages(images);
-    this.loadFonts.init();
+    this.core.util.loadImages(images);
+    this.core.detect.init();
+    this.core.util.loadFonts();
+    this.core.log('App: all modules initialized');
   }
 
   /**
@@ -47,6 +48,7 @@ class App {
       let images = document.querySelectorAll('img[src]');
       core.util.loadImages(images);
     });
+    this.core.log('App: all top-level events bound');
   }
 }
 
