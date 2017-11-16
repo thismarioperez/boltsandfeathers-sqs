@@ -5,3 +5,35 @@
   padding-left: @inset;
   padding-right: @inset;
 }
+
+// Use this heirarchy to center elements inside fluid containers with unknown widths
+.ghost {
+  font-size: 0;
+
+  &:before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    margin-left: -1px;
+    vertical-align: middle;
+    width: 1px;
+  }
+
+  &--child {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+// Text align property
+.text {
+  &--left {
+    text-align: left;
+  }
+  &--center {
+    text-align: center;
+  }
+  &--right {
+    text-align: right;
+  }
+}
