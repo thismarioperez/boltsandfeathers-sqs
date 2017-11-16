@@ -1,0 +1,44 @@
+/******************************************************************************
+ * Overlays
+*******************************************************************************/
+.screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: @zLayerBehind;
+  background-color: @white;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  opacity: 0;
+  transition: opacity @baseDuration @ease,
+              z-index @baseDuration @ease,
+              visibility @baseDuration @ease;
+  visibility: hidden;
+  z-index: @zLayerBehind;
+
+  &--gradient {
+    .gradient(linear; ~'@{green}, @{blue}'; 45deg);
+  }
+
+  &.is-active {
+    opacity: 1;
+    visibility: visible;
+    z-index: @zLayerInfront;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+.intro {
+  &--logo {
+    width: @logoWidth * 2;
+    @media @small {
+      width: @logoWidthSm * 2;
+    }
+
+    path.bfLogoPath {
+      fill: @white;
+    }
+  }
+}
