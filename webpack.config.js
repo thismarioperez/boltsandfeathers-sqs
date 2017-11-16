@@ -14,6 +14,12 @@ module.exports = {
       output: { comments: !IS_PRODUCTION, beautify: !IS_PRODUCTION },
       compress: IS_PRODUCTION ? { drop_console: true } : false, // eslint-disable-line camelcase
       mangle: IS_PRODUCTION ? { except: ['_'] } : false // don't mangle lodash
+    }),
+    // Give the app scripts access to node environment variable.
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+      }
     })
   ],
 
