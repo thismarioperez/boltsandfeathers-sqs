@@ -4,7 +4,7 @@ import * as core from '../core/';
  *
  * @public
  * @namespace Intro
- * @description Performs the branded load-in screen sequence.
+ * @description Performs the branded load-in screen sequences.
  * @memberof controller
  *
  */
@@ -19,6 +19,8 @@ const Intro = {
    */
   init() {
     core.emitter.on('app--intro-teardown', this.teardown.bind(this));
+    window.addEventListener('mercury:load', this.teardown.bind(this));
+    window.addEventListener('mercury:unload', this.load.bind(this));
   },
 
   /**
@@ -33,10 +35,18 @@ const Intro = {
     setTimeout( () => {
       core.dom.intro.classList.remove( 'is-active' );
     }, 1000 );
-    // remove from dom
-    setTimeout( () => {
-      core.dom.intro.remove();
-    }, 2000 );
+  },
+
+  /**
+   *
+   * @private
+   * @method load
+   * @memberof intro.load
+   * @description adds active and load classes to intro.
+   */
+  load() {
+    core.dom.intro.classList.add( 'is-active' );
+    core.dom.intro.classList.add( 'load' );
   }
 };
 
