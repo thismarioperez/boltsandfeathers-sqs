@@ -12,7 +12,7 @@ module.exports = {
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: IS_PRODUCTION ? false : true, // must be enabled here for devtool source-map to work.
       output: { comments: !IS_PRODUCTION, beautify: !IS_PRODUCTION },
-      compress: IS_PRODUCTION ? { drop_console: true } : false, // eslint-disable-line camelcase
+      compress: IS_PRODUCTION ? true : false, // eslint-disable-line camelcase
       mangle: IS_PRODUCTION ? { except: ['_'] } : false // don't mangle lodash
     }),
     // Give the app scripts access to node environment variable.
