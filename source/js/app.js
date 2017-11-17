@@ -5,7 +5,7 @@ require( '../less/app.less' );
 import './polyfill';
 
 import * as core from './core';
-import controller from './controllers';
+import controller from './controller';
 
 /**
  *

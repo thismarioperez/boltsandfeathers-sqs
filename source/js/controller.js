@@ -6,8 +6,8 @@
  *
  */
 
-import * as core from '../core';
-import intro from './intro';
+import * as core from './core';
+import intro from './controllers/intro';
 
 const controller = {
   /**
