@@ -10,11 +10,13 @@ import env from './env';
 import log from './log';
 import detect from './detect';
 import * as util from './util';
+import emitter from './emitter';
 
 export {
   dom,
   env,
   log,
   detect,
-  util
+  util,
+  emitter
 };
