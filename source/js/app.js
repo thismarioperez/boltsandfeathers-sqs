@@ -1,6 +1,7 @@
 require( '../less/screen.less' );
 
 import * as core from './core';
+import controller from './controllers';
 
 /**
  *
@@ -12,6 +13,7 @@ import * as core from './core';
 class App {
   constructor() {
     this.core = core;
+    this.controller = controller;
     this.initModules();
     this.bindEvents();
   }
@@ -31,6 +33,8 @@ class App {
     this.core.util.loadImages(images);
     this.core.detect.init();
     this.core.util.loadFonts();
+    this.controller.init();
+    this.core.emitter.emit('app--intro-teardown');
     this.core.log('App: all modules initialized');
   }
 
