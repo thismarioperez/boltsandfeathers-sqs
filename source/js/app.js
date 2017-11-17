@@ -39,7 +39,6 @@ class App {
     this.core.detect.init();
 
     // utility
-    this.core.util.loadFonts();
 
     // controller
     this.controller.init();
