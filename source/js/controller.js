@@ -7,6 +7,7 @@
  */
 
 import * as core from './core';
+import AddScrollingClass from './controllers/AddScrollingClass';
 import Intro from './controllers/Intro';
 
 // controller modules
@@ -24,6 +25,7 @@ const controller = {
    */
   init() {
     // Initialize or register controller modules
+    AddScrollingClass.init();
     Intro.init();
     core.util.sqscontroller.register('test', test);
 
