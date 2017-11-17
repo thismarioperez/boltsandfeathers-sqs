@@ -9,6 +9,7 @@ import controller from '@squarespace/controller';
 /**
  * @public
  * @method loadImages
+ * @memberof util
  * @param  {[array]} images An array of image elements to load
  */
 const loadImages = (images) => {
@@ -36,9 +37,9 @@ const isElementInViewport = (el) => {
 
 /**
  *
- * @name sqscontroller
- * @memberof core.util
  * @description a local namespaced version of @squarespace/controller for us in the app.
+ * @method sqscontroller
+ * @memberof util
  */
 const sqscontroller = controller;
 
