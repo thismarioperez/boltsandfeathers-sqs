@@ -49,7 +49,7 @@ class App {
     this.core.util.loadImages(images);
 
     // Log when finished
-    this.core.log('App: all modules initialized');
+    this.core.log('App: modules initialized');
   }
 
   /**
@@ -66,7 +66,7 @@ class App {
       let images = document.querySelectorAll('img[src]');
       core.util.loadImages(images);
     });
-    this.core.log('App: all top-level events bound');
+    this.core.log('App: event handlers bound');
   }
 }
 
