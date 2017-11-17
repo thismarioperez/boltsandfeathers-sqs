@@ -7,7 +7,7 @@
   </head>
   <body id="{squarespace.page-id}" class="{squarespace.page-classes}">
 
-    {@|apply screen.block}
+    {@|apply app.block}
 
     <script type="text/javascript" src="/scripts/app.js"></script>
 

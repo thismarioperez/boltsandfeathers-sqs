@@ -1,4 +1,4 @@
-<div id="screen">
+<div id="app">
   {@|apply _intro.block}
   {@|apply _modal.block}
   {# @|apply _navigation.block}

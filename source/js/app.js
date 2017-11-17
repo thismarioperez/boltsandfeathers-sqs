@@ -1,5 +1,5 @@
 // stylesheet
-require( '../less/screen.less' );
+require( '../less/app.less' );
 
 // polyfills
 import './polyfill';
