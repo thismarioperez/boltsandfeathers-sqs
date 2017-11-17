@@ -33,7 +33,7 @@ class App {
    */
   initModules() {
     // Log environment
-    this.core.log('App: environment is ' + this.core.env.ENV);
+    this.core.log('App:env:' + this.core.env.ENV);
 
     // core
     this.core.detect.init();
