@@ -32,7 +32,7 @@ const detect = {
       dom.html.classList.add('is-hoverable');
     }
 
-    log('detect initialized');
+    log('detect: initialized');
   },
 
   /**
