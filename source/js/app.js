@@ -1,4 +1,8 @@
+// stylesheet
 require( '../less/screen.less' );
+
+// polyfills
+import './polyfill';
 
 import * as core from './core';
 import controller from './controllers';
