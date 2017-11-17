@@ -1,7 +1,7 @@
 import * as core from '../core';
 import debounce from 'lodash/debounce';
 
-const body = core.dom.body;
+const html = core.dom.html;
 let isBeingScrolled = false;
 
 /**
@@ -21,11 +21,11 @@ const AddScrollingClass = {
     }
 
     isBeingScrolled = true;
-    body.classList.add('is-scrolling');
+    html.classList.add('is-scrolling');
   },
 
   isStillScrolling() {
-    body.classList.remove('is-scrolling');
+    html.classList.remove('is-scrolling');
     isBeingScrolled = false;
   },
 
