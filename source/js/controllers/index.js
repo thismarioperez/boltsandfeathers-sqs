@@ -6,11 +6,12 @@
  *
  */
 
+import * as core from '../core';
 import intro from './intro';
 
 const controller = {
   /**
-   * 
+   *
    * @public
    * @method init
    * @memberof controller
@@ -18,6 +19,8 @@ const controller = {
    */
   init() {
     intro.init();
+    // emit intro teardown
+    core.emitter.emit('app--intro-teardown');
   }
 };
 

@@ -28,13 +28,23 @@ class App {
    *
    */
   initModules() {
-    this.core.log('App: environment is ' + this.core.env.ENV);    
+    // Log environment
+    this.core.log('App: environment is ' + this.core.env.ENV);
+
+    // core
+    this.core.detect.init();
+
+    // utility
+    this.core.util.loadFonts();
+
+    // controller
+    this.controller.init();
+
+    // misc/test
     let images = document.querySelectorAll('img[data-src]');
     this.core.util.loadImages(images);
-    this.core.detect.init();
-    this.core.util.loadFonts();
-    this.controller.init();
-    this.core.emitter.emit('app--intro-teardown');
+
+    // Log when finished
     this.core.log('App: all modules initialized');
   }
 
