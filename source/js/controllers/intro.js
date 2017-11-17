@@ -22,7 +22,7 @@ const intro = {
   },
 
   /**
-   * 
+   *
    * @private
    * @method teardown
    * @memberof intro.teardown
