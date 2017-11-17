@@ -7,7 +7,7 @@
  */
 
 import * as core from './core';
-import intro from './controllers/intro';
+import Intro from './controllers/Intro';
 
 // controller modules
 function test(element) {
@@ -24,7 +24,7 @@ const controller = {
    */
   init() {
     // Initialize or register controller modules
-    intro.init();
+    Intro.init();
     core.util.sqscontroller.register('test', test);
 
     // Emit events

@@ -3,12 +3,12 @@ import * as core from '../core/';
 /**
  *
  * @public
- * @namespace intro
+ * @namespace Intro
  * @description Performs the branded load-in screen sequence.
  * @memberof controller
  *
  */
-const intro = {
+const Intro = {
   /**
    *
    * @public
@@ -40,4 +40,4 @@ const intro = {
   }
 };
 
-export default intro;
+export default Intro;
