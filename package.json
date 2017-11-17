@@ -51,7 +51,9 @@
     "webpack": "^3.8.1"
   },
   "dependencies": {
+    "@squarespace/controller": "^1.0.3",
     "@squarespace/core": "^1.0.1",
+    "eventemitter3": "^2.0.3",
     "normalize.css": "^7.0.0",
     "webfontloader": "^1.6.28"
   }
