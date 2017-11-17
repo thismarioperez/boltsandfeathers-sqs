@@ -29,9 +29,14 @@ const intro = {
    * @description removes active class from intro on a delay.
    */
   teardown() {
+    // remove active class
     setTimeout( () => {
       core.dom.intro.classList.remove( 'is-active' );
     }, 1000 );
+    // remove from dom
+    setTimeout( () => {
+      core.dom.intro.remove();
+    }, 2000 );
   }
 };
 
