@@ -5,7 +5,7 @@
     <meta name="viewport" content="initial-scale=1">
     {squarespace-headers}
   </head>
-  <body id="{squarespace.page-id}" class="{squarespace.page-classes}">
+  <body id="{squarespace.page-id}" class="{squarespace.page-classes}" data-controller="test">
 
     {@|apply app.block}
 
