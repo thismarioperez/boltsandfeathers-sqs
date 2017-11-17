@@ -1,5 +1,3 @@
-import log from './log';
-
 // access environment variable
 const DEV = 'development';
 const PROD = 'production';
