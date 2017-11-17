@@ -4,6 +4,7 @@
  * @description App-wide utility methods
  */
 import { ImageLoader } from '@squarespace/core';
+import controller from '@squarespace/controller';
 const WebFont = require('webfontloader');
 
 /**
@@ -80,8 +81,17 @@ const loadFonts = () => {
   return { init };
 };
 
+/**
+ *
+ * @name sqscontroller
+ * @memberof core.util
+ * @description a local namespaced version of @squarespace/controller for us in the app.
+ */
+const sqscontroller = controller;
+
 export {
   loadImages,
   isElementInViewport,
-  loadFonts
+  loadFonts,
+  sqscontroller
 };
