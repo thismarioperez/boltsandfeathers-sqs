@@ -2,13 +2,13 @@
   {.repeated section items}
     <li class="prim-nav--item wrapper">
       {.folder?}
-        <a href="{collection.fullUrl}">{collection.navigationTitle}</a>
+        <a class="h1" href="{collection.fullUrl}">{collection.navigationTitle}</a>
 
         <ul class="prim-nav--folder">
           {.repeated section items}
             <li class="prime-nav--folder-item">
               {.collection?}
-                <a href="{collection.fullUrl}">
+                <a class="{.section active} is-active{.end}" href="{collection.fullUrl}">
                   {collection.navigationTitle}
                 </a>
               {.end}
@@ -24,11 +24,11 @@
       {.or}
 
         {.section collection}
-          <a href="{fullUrl}">{navigationTitle}</a>
+          <a class="h1{.section active} is-active{.end}" href="{fullUrl}">{navigationTitle}</a>
         {.end}
 
         {.section externalLink}
-          <a href="{url}"{.section newWindow} target="_blank"{.end}>
+          <a class="h1" href="{url}"{.section newWindow} target="_blank"{.end}>
             {title}
           </a>
         {.end}
