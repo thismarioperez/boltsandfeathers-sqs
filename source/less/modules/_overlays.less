@@ -26,9 +26,16 @@
     background: @white;
   }
 
+  &--show-header {
+    top: @headerHeight;
+    @media @small {
+      top: @headerHeightSm;
+    }
+  }
+
   &--inner {
     opacity: 0;
-    transform: ~'translate3d(0, @{baseline-2}, 0)';
+    transform: ~'translate3d(0, @{baselineTwo}, 0)';
     transition: ~'transform @{baseDuration} @{ease},'
                 ~'opacity @{baseDuration} @{ease}';
                 
@@ -62,8 +69,11 @@
 }
 
 .navigation {
-  top: @headerHeight;
-  @media @small {
-    top: @headerHeightSm;
+  // Typography
+  .prim-nav {
+    &--item {
+      // Typography
+      .h1;
+    }
   }
 }
