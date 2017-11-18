@@ -1,8 +1,8 @@
 <div id="app">
   {@|apply _intro.block}
-  {@|apply _modal.block}
-  {@|apply _navigation.block}
   {@|apply _header.block}
+  {@|apply _navigation.block}
+  {@|apply _modal.block}
   {@|apply _view.block}
   {@|apply _footer.block}
 </div>
