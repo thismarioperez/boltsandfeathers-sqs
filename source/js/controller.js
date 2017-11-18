@@ -10,6 +10,7 @@ import * as core from './core';
 import AddScrollingClass from './controllers/AddScrollingClass';
 import Intro from './controllers/Intro';
 import LoadFonts from './controllers/LoadFonts';
+import Navigation from './controllers/Navigation';
 
 // controller modules
 function test(element) {
@@ -29,6 +30,7 @@ const controller = {
     LoadFonts.init();
     AddScrollingClass.init();
     Intro.init();
+    Navigation.init();
     core.util.sqscontroller.register('test', test);
 
     // Emit events
