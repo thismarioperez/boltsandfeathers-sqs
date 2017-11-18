@@ -11,14 +11,14 @@ import * as core from '../core';
 const Navigation = {
   open() {
     core.dom.nav.classList.add('is-active');
-    core.dom.html.classList.add('nav-is-active');
+    core.dom.html.classList.add('is-nav-open');
 
     core.log('Navigation: open');
   },
 
   close() {
     core.dom.nav.classList.remove('is-active');
-    core.dom.html.classList.remove('nav-is-active');
+    core.dom.html.classList.remove('is-nav-open');
 
     core.log('Navigation: closed');
   },
@@ -27,7 +27,7 @@ const Navigation = {
     e.preventDefault();
     e.stopPropagation();
 
-    if (core.dom.nav.classList.contains('is-active')) {
+    if (core.dom.nav.classList.contains('is-active') && core.dom.html.classList.contains('is-nav-open')) {
       core.emitter.emit('app--navigation-close');
     } else {
       core.emitter.emit('app--navigation-open');
