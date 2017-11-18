@@ -12,9 +12,9 @@
   overflow-x: hidden;
   overflow-y: scroll;
   opacity: 0;
-  transition: opacity @baseDuration @ease,
-              z-index @baseDuration @ease,
-              visibility @baseDuration @ease;
+  transition: ~'opacity @{baseDuration} @{ease},'
+              ~'z-index @{baseDuration} @{ease},'
+              ~'visibility @{baseDuration} @{ease}';
   visibility: hidden;
   z-index: @zLayerBehind;
 
@@ -26,11 +26,25 @@
     background: @white;
   }
 
+  &--inner {
+    opacity: 0;
+    transform: ~'translate3d(0, @{baseline-2}, 0)';
+    transition: ~'transform @{baseDuration} @{ease},'
+                ~'opacity @{baseDuration} @{ease}';
+                
+  }
+
+  // Active State
   &.is-active {
     opacity: 1;
     visibility: visible;
     z-index: @zLayerInfront;
     -webkit-overflow-scrolling: touch;
+  }
+
+  &.is-active &--inner {
+    opacity: 1;
+    transform: ~'translate3d(0, 0, 0)';
   }
 }
 
