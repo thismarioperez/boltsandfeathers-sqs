@@ -1,2 +1,5 @@
-{#  <squarespace:navigation navigationId="primary-nav" template="navigation" />  }
-<nav class="navigation js-navigation screen screen--light"></nav>
+<nav class="navigation js-navigation screen screen--light wrapper">
+  <div class="navigation--inner">
+    <squarespace:navigation navigationId="site-nav" template="_site-nav" />
+  </div>
+</nav>
