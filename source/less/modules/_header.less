@@ -26,8 +26,10 @@
     position: relative;
     height: 100%;
     opacity: 1;
-    transition: ~'opacity @{baseDuration} @{ease}',
-                ~'visbility @{baseDuration} @{ease}';
+    transform: ~'translate3d(0, 0, 0)';
+    transition: ~'opacity @{baseDuration} @{ease},'
+                ~'transform @{baseDuration} @{ease},'
+                ~'visibility @{baseDuration} @{ease}';
     visibility: visible;
 
     @media @small {
