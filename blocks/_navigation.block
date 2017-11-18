@@ -1,5 +1,5 @@
 <nav class="navigation js-navigation screen screen--light wrapper">
-  <div class="navigation--inner">
+  <div class="screen--inner">
     <squarespace:navigation navigationId="site-nav" template="_site-nav" />
   </div>
 </nav>
