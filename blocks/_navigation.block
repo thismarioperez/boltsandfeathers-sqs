@@ -1,4 +1,4 @@
-<nav class="navigation js-navigation screen screen--light screen--tuck-header wrapper -space-t">
+<nav class="navigation js-navigation screen screen--light screen--show-header wrapper -space-t">
   <div class="screen--inner">
     <squarespace:navigation navigationId="site-nav" template="_site-nav" />
   </div>
