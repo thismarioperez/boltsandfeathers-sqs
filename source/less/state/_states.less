@@ -1,5 +1,32 @@
 /******************************************************************************
  * State/States
 *******************************************************************************/
-// .is-menu-open {
-// }
+// Navigation Open
+.is-nav-open {
+
+  // Menu Icon
+  .icon--menu {
+    > span {
+      opacity: 0;
+    }
+    &:before,
+    &:after {
+      width: 75%;
+      top: 50%;      
+    }
+    &:before {
+      top: 50%;
+      transform: ~'translate3d(-50%, -50%, 0)rotate(45deg)';
+    }
+    &:after {
+      bottom: unset;
+      transform: ~'translate3d(-50%, -50%, 0)rotate(-45deg)';
+    }
+  }
+
+  // Page Title In Header
+  .header--title {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
