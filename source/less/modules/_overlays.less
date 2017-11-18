@@ -22,6 +22,10 @@
     .gradient(linear; ~'@{green}, @{blue}'; 45deg);
   }
 
+  &--light {
+    background: @white;
+  }
+
   &.is-active {
     opacity: 1;
     visibility: visible;
@@ -40,5 +44,12 @@
     path.bfLogoPath {
       fill: @white;
     }
+  }
+}
+
+.navigation {
+  top: @headerHeight;
+  @media @small {
+    top: @headerHeightSm;
   }
 }
