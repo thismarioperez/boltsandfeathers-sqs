@@ -25,7 +25,7 @@ LoadFonts.config = {
   },
   active: () => {
     core.log('LoadFonts: fonts loaded from google fonts CDN');
-    LoadFonts.handleActive;
+    LoadFonts.handleActive();
   },
   // If CDN fails, use local fallback
   fontinactive: (family, fvd) => {
