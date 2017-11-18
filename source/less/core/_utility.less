@@ -6,6 +6,41 @@
   padding-right: @inset;
 }
 
+.-space {
+  padding: @baseline;
+  @media @small {
+    padding: @baselineTwo;
+  }
+
+  &-t {
+    padding-top: @baseline;
+    @media @small {
+      padding-top: @baselineTwo;
+    }
+  }
+
+  &-r {
+    padding-right: @baseline;
+    @media @small {
+      padding-right: @baselineTwo;
+    }
+  }
+
+  &-b {
+    padding-bottom: @baseline;
+    @media @small {
+      padding-bottom: @baselineTwo;
+    }
+  }
+
+  &-l {
+    padding-left: @baseline;
+    @media @small {
+      padding-left: @baselineTwo;
+    }
+  }
+}
+
 // Use this heirarchy to center elements inside fluid containers with unknown widths
 .ghost {
   font-size: 0;
