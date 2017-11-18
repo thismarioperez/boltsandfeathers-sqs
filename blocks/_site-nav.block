@@ -1,22 +1,25 @@
-<nav data-content-field="navigation-primary-nav">
+<ul class="prim-nav" data-content-field="navigation-primary-nav">
   {.repeated section items}
+    <li class="prim-nav--item wrapper">
       {.folder?}
         <a href="{collection.fullUrl}">{collection.navigationTitle}</a>
 
-        <span>
+        <ul class="prim-nav--folder">
           {.repeated section items}
-            {.collection?}
+            <li class="prime-nav--folder-item">
+              {.collection?}
                 <a href="{collection.fullUrl}">
                   {collection.navigationTitle}
                 </a>
-            {.end}
-            {.section externalLink}
+              {.end}
+              {.section externalLink}
                 <a href="{url}"{.section newWindow} target="_blank"{.end}>
                   {title}
                 </a>
-            {.end}
+              {.end}
+            </li>
           {.end}
-        </span>
+        </ul>
 
       {.or}
 
@@ -31,6 +34,6 @@
         {.end}
 
       {.end}
-
+    </li>
   {.end}
-</nav>
+</ul>
