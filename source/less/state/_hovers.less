@@ -4,10 +4,14 @@
 // Browsers devoid of touch interfaces
 .is-hoverable:not(.is-scrolling) {
   // Links inside paragraphs
-  p a:hover {
-    &:after {
-      min-height: 100%;
-    }
+  p a:hover:after {
+    min-height: 100%;
+  }
+
+  // Navigation Links
+  .prim-nav--item a:hover:after {
+    opacity: 1;
+    transform: ~'translate3d(0, -50%, 0)';
   }
 }
 
@@ -16,5 +20,10 @@
   // Links inside paragraphs
   p a:after {
     min-height: 40%;    
+  }
+
+  // Active Navigation Links
+  .prim-nav--item a.is-active:after {
+    left: 0;
   }
 }
