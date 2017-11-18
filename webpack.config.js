@@ -3,17 +3,19 @@ const root = path.resolve(__dirname);
 const source = path.join(root, 'source');
 const nodeModules = 'node_modules';
 const webpack = require('webpack');
+const BabiliPlugin = require('babili-webpack-plugin');
 const IS_PRODUCTION = process.env.NODE_ENV === 'production';
 
 module.exports = {
   devtool: IS_PRODUCTION ? false : 'inline-source-map',
 
   plugins: [
-    new webpack.optimize.UglifyJsPlugin({
+    new BabiliPlugin({
+      mangle: IS_PRODUCTION ? { blacklist: ['_'] } : false // don't mangle lodash
+    },
+    {
       sourceMap: IS_PRODUCTION ? false : true, // must be enabled here for devtool source-map to work.
-      output: { comments: !IS_PRODUCTION, beautify: !IS_PRODUCTION },
       compress: IS_PRODUCTION ? true : false, // eslint-disable-line camelcase
-      mangle: IS_PRODUCTION ? { except: ['_'] } : false // don't mangle lodash
     }),
     // Give the app scripts access to node environment variable.
     new webpack.DefinePlugin({
