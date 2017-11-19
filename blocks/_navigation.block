@@ -1,5 +1,6 @@
 <nav class="navigation js-navigation screen screen--light screen--keep-header wrapper -space-t">
   <div class="screen--inner">
     <squarespace:navigation navigationId="site-nav" template="_site-nav" />
+    {@|apply social-links.block}
   </div>
 </nav>
