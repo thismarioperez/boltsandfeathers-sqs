@@ -20,4 +20,11 @@
     });
   });
 })([Element.prototype, CharacterData.prototype, DocumentType.prototype]);
+
+/**
+ *
+ * @description CHammertime-js 300ms click delay polyfill
+ * @see http://hammerjs.github.io/
+ */
+import 'hammer-timejs';
 /*eslint-enable */
