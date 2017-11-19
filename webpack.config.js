@@ -5,13 +5,14 @@ const nodeModules = 'node_modules';
 const webpack = require('webpack');
 const BabiliPlugin = require('babili-webpack-plugin');
 const IS_PRODUCTION = process.env.NODE_ENV === 'production';
+const browsers = ['last 2 versions', 'ios >= 9'];
 
 module.exports = {
   devtool: IS_PRODUCTION ? false : 'inline-source-map',
 
   plugins: [
     new BabiliPlugin({
-      mangle: IS_PRODUCTION ? { blacklist: ['_'] } : false // don't mangle lodash
+      // mangle: IS_PRODUCTION ? { blacklist: ['_'] } : false // don't mangle lodash
     },
     {
       sourceMap: IS_PRODUCTION ? false : true, // must be enabled here for devtool source-map to work.
@@ -59,8 +60,15 @@ module.exports = {
         use: [
           { loader: 'babel-loader',
             options: {
-              presets: ['env'],
-              plugins: [require('babel-plugin-add-module-exports'), require('babel-plugin-transform-runtime')]
+              presets: [
+                ['env', {
+                  'targets': {
+                    'browsers': browsers
+                  },
+                  'debug': IS_PRODUCTION ? false : true
+                }]
+              ],
+              plugins: [require('babel-plugin-transform-runtime')]
             }
           }
         ]
@@ -73,7 +81,7 @@ module.exports = {
             options: { name: '[name].css', outputPath: '../styles/' }
           },
           { loader: 'postcss-loader',
-            options: { plugins: () => [require('autoprefixer')({ browsers: ['last 2 versions'] })] }
+            options: { plugins: () => [require('autoprefixer')({ browsers: browsers })] }
           },
           { loader: 'less-loader' }
         ]
