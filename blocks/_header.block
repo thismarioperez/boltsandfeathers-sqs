@@ -16,7 +16,13 @@
     </div>
     {#  menu toggle  }
     <div class="menu-trigger js-menu-trigger">
-      <span class="icon icon--menu"><span></span></span>
+      <span class="icon icon--menu">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
     </div>
   </div>
 </header>

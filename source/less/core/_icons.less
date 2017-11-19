@@ -21,36 +21,48 @@
 
     > span {
       display: block;
-      width: 75%;
       top: 50%;
-      transform: ~'translate3d(-50%, -50%, 0)';
-    }
-
-    &:before,
-    &:after {
-      content: "";
-      width: 25%;
-      transform: ~'translate3d(-50%, 0, 0)';
-    }
-
-    
-    > span,
-    &:before,
-    &:after {
       position: absolute;
       left: 50%;      
       display: block;
       height: 4px;
       background: @black;
+      transform: ~'translate3d(-50%, -50%, 0)';      
       transition: ~'all @{baseDuration} @{ease}';
-    }
 
-    &:before {
-      top: 0;
-    }
+      &:nth-child(1),
+      &:nth-child(3),{
+        width: 25%;
+      }
 
-    &:after {
-      bottom: 0;
+      &:nth-child(2),
+      &:nth-child(4) {
+        width: 100%;
+        opacity: 0;
+      }
+
+      &:nth-child(2),
+      &:nth-child(4),
+      &:nth-child(5) {
+        width: 75%;        
+      }
+  
+      &:nth-child(1),
+      &:nth-child(2) {
+        top: 0;
+      }
+  
+      &:nth-child(3),
+      &:nth-child(4) {
+        top: 85%;
+      }
+
+      &:nth-child(1),
+      &:nth-child(2),
+      &:nth-child(3),
+      &:nth-child(4) {
+        transform: ~'translate3d(-50%, 0, 0)';        
+      }
     }
 
   }

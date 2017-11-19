@@ -7,20 +7,29 @@
   // Menu Icon
   .icon--menu {
     > span {
-      opacity: 0;
-    }
-    &:before,
-    &:after {
-      width: 75%;
-      top: 50%;      
-    }
-    &:before {
-      top: 50%;
-      transform: ~'translate3d(-50%, -50%, 0)rotate(45deg)';
-    }
-    &:after {
-      bottom: unset;
-      transform: ~'translate3d(-50%, -50%, 0)rotate(-45deg)';
+      &:nth-child(1),
+      &:nth-child(3) {
+        opacity: 0;
+      }
+
+      &:nth-child(2),
+      &:nth-child(4) {
+        top: 50%;
+        opacity: 1;    
+      }
+
+      &:nth-child(2) {
+        top: 50%;
+        transform: ~'translate3d(-50%, -50%, 0)rotate(45deg)';
+      }
+
+      &:nth-child(4) {
+        transform: ~'translate3d(-50%, -50%, 0)rotate(-45deg)';
+      }
+
+      &:nth-child(5) {
+        opacity: 0;
+      }
     }
   }
 
