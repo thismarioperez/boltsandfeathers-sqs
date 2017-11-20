@@ -25,7 +25,7 @@ const controller = {
    * @description initializes controller modules.
    */
   init() {
-    // Initialize or register controller modules
+    // Initialize controller or register sqscontroller modules
     LoadFonts.init();
     AddScrollingClass.init();
     Intro.init();
