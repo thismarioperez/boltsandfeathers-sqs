@@ -1,6 +1,6 @@
 <ul class="prim-nav" data-content-field="navigation-primary-nav">
   {.repeated section items}
-    <li class="prim-nav--item wrapper">
+    <li class="prim-nav--item">
       {.folder?}
         <a class="h1" href="{collection.fullUrl}">{collection.navigationTitle}</a>
 
