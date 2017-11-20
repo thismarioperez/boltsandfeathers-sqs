@@ -37,7 +37,7 @@ const dom = {
    * @memberof core.dom
    * @description the cached <header> node
    */
-  header: document.querySelector('js-header'),
+  header: document.querySelector('.js-header'),
 
   /**
    * @public
