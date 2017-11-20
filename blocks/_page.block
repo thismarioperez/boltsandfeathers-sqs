@@ -1,4 +1,4 @@
-<section class="page js-page">
+<section class="page" data-controller="AccountForHeader">
   <main class="wrapper" data-content-field="main-content">
     {squarespace.main-content}
   </main>
