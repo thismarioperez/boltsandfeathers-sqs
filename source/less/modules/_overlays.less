@@ -50,10 +50,9 @@
 
 .intro {
   &--logo {
-    width: @logoWidth * 1.5;
-    @media @small {
-      width: @logoWidthSm * 2;
-    }
+    width: 50vw;
+    min-width: @logoWidth;
+    max-width: @logoWidthSm * 2;
 
     path.bfLogoPath {
       fill: @white;
