@@ -4,7 +4,6 @@
  * @description App-wide utility methods
  */
 import { ImageLoader } from '@squarespace/core';
-import controller from '@squarespace/controller';
 
 /**
  * @public
@@ -35,16 +34,7 @@ const isElementInViewport = (el) => {
   }
 };
 
-/**
- *
- * @description a local namespaced version of @squarespace/controller for us in the app.
- * @method sqscontroller
- * @memberof util
- */
-const sqscontroller = controller;
-
 export {
   loadImages,
   isElementInViewport,
-  sqscontroller
 };

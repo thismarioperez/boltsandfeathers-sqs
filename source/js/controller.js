@@ -7,6 +7,7 @@
  */
 
 import * as core from './core';
+import sqscontroller from '@squarespace/controller';
 
 // controller modules
 import AddScrollingClass from './controllers/AddScrollingClass';
@@ -29,7 +30,7 @@ const controller = {
     AddScrollingClass.init();
     Intro.init();
     Navigation.init();
-    core.util.sqscontroller.register('AccountForHeader', AccountForHeader);
+    sqscontroller.register('AccountForHeader', AccountForHeader);
 
     // Emit events
     core.emitter.emit('app--intro-teardown');
