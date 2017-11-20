@@ -1,12 +1,12 @@
-<ul class="prim-nav" data-content-field="navigation-primary-nav">
+<ul class="site-nav" data-content-field="navigation-site-nav">
   {.repeated section items}
-    <li class="prim-nav--item">
+    <li class="site-nav--item">
       {.folder?}
         <a class="h1" href="{collection.fullUrl}">{collection.navigationTitle}</a>
 
-        <ul class="prim-nav--folder">
+        <ul class="site-nav--folder">
           {.repeated section items}
-            <li class="prime-nav--folder-item">
+            <li class="site-nav--folder-item">
               {.collection?}
                 <a class="{.if active} is-active{.end}" href="{collection.fullUrl}">
                   {collection.navigationTitle}
