@@ -1,3 +1,14 @@
+/******************************************************************************
+ * Squarespace Blocks Grid Breaker
+*******************************************************************************/
 @media screen and (max-width: 640px) {
   @import 'sqs-grid-breaker';
+}
+
+/******************************************************************************
+ * Override social icons color in navigation
+*******************************************************************************/
+@navigationSocialIconsColor: rgba(255,255,255,0);
+.navigation--social {
+  .mixin-template-social-icons-color(@navigationSocialIconsColor);
 }
