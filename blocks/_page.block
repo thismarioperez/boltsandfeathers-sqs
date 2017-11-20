@@ -1,4 +1,4 @@
-<section class="view">
+<section class="page js-page">
   <main class="wrapper" data-content-field="main-content">
     {squarespace.main-content}
   </main>
