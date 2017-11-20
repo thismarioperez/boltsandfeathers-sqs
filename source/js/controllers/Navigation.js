@@ -33,21 +33,17 @@ const Navigation = {
     });
 
     // sort through the body classnames and save the tweak name for later
-    if (iconClassname.length > 0 && iconClassname[0] !== navSocialIconsStyle) {
-      let classNameToCache = bodyClassnames.filter((className) => {
-        return !className.indexOf('tweak-social-icons-style-');
-      });
+    let classNameToCache = bodyClassnames.filter((className) => {
+      return !className.indexOf('tweak-social-icons-style-');
+    });
 
-      currentIconStyle = classNameToCache[0];
-      needsIconStyleReset = true;
+    currentIconStyle = classNameToCache[0];
+    // if the correct tweak name exists, no need to reset.
+    needsIconStyleReset = (currentIconStyle === navSocialIconsStyle) ? false : true;
 
-      core.log('Navigation: icon style [' + currentIconStyle + '] will be reset on nav open.');
-      return;
+    if (needsIconStyleReset) {
+      core.log('Navigation: icon style tweak [' + currentIconStyle + '] will be reset on nav open');
     }
-
-    // social icon tweak is not active, or the target tweak name is already in play
-    needsIconStyleReset = false;
-    return;
   },
 
   /**
@@ -88,6 +84,13 @@ const Navigation = {
     core.log('Navigation: closed');
   },
 
+  /**
+   *
+   * @private
+   * @description Emits navigation events on click
+   * @method handleClick
+   * @memberof Navigation
+   */
   handleClick(e) {
     e.preventDefault();
     e.stopPropagation();
@@ -101,6 +104,13 @@ const Navigation = {
     core.log('Navigation: menu trigger clicked');
   },
 
+  /**
+   *
+   * @private
+   * @description Binds event handlers with event listeners.
+   * @method bindListeners
+   * @memberof Navigation
+   */
   bindListeners() {
     document.querySelector('.js-menu-trigger').addEventListener('click', this.handleClick.bind(this));
     core.emitter.on('app--navigation-open', this.open.bind(this));
