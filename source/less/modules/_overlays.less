@@ -85,7 +85,7 @@
                     ~'opacity @{baseDurationTwo} @{ease},'
                     ~'left @{baseDurationTwo} @{ease},'
                     ~'width @{baseDurationTwo} @{ease}';
-        width: ~'calc(@{inset} + 100%)';
+        width: calc(@inset + 100%);
         .gradient(linear; ~'@{green} ,@{blue}'; 90deg);
         height: .4vw;
         min-height: 7px;
@@ -96,7 +96,7 @@
       &.is-active:not(:hover):after {
         opacity: 1;
         transform: ~'translate3d(0, -50%, 0)';
-        width: ~'calc(@{insetTwo} + 100%)';
+        width: calc(@insetTwo + 100%);
         left: -1 * @insetTwo;
       }
     }
