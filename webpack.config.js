@@ -78,7 +78,7 @@ module.exports = {
       { test: /\.(css|less)$/,
         use: [
           { loader: 'file-loader',
-            options: { name: '[name].css', outputPath: '../styles/' }
+            options: { name: '[name].css', outputPath: '../assets/styles/' }
           },
           { loader: 'postcss-loader',
             options: { plugins: () => [require('autoprefixer')({ browsers: browsers })] }
