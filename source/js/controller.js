@@ -7,15 +7,13 @@
  */
 
 import * as core from './core';
+
+// controller modules
 import AddScrollingClass from './controllers/AddScrollingClass';
 import Intro from './controllers/Intro';
 import LoadFonts from './controllers/LoadFonts';
 import Navigation from './controllers/Navigation';
-
-// controller modules
-function test(element) {
-  core.log(element);
-}
+import AccountForHeader from './controllers/AccountForHeader';
 
 const controller = {
   /**
@@ -31,7 +29,7 @@ const controller = {
     AddScrollingClass.init();
     Intro.init();
     Navigation.init();
-    core.util.sqscontroller.register('test', test);
+    core.util.sqscontroller.register('AccountForHeader', AccountForHeader);
 
     // Emit events
     core.emitter.emit('app--intro-teardown');
