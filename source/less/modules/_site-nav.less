@@ -1,0 +1,40 @@
+ /******************************************************************************
+ * _site-nav.block styles
+*******************************************************************************/
+ .site-nav {
+  &--item {
+
+    a {
+      display: inline-block;
+      width: 100%;
+      position: relative;
+      
+      &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: -1 * @inset;
+        opacity: 0;
+        transform: ~'translate3d(100%, -50%, 0)';
+        transition: ~'transform @{baseDurationTwo} @{easeThree},'
+                    ~'opacity @{baseDurationTwo} @{ease},'
+                    ~'left @{baseDurationTwo} @{ease},'
+                    ~'width @{baseDurationTwo} @{ease}';
+        width: calc(@inset + 100%);
+        .gradient(linear; ~'@{green} ,@{blue}'; 90deg);
+        height: .4vw;
+        min-height: 7px;
+        z-index: @zLayerBehind;
+      }
+
+      // Active state
+      &.is-active:not(:hover):after {
+        opacity: 1;
+        transform: ~'translate3d(0, -50%, 0)';
+        width: calc(@insetTwo + 100%);
+        left: -1 * @insetTwo;
+      }
+    }
+  }
+}
