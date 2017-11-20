@@ -1,0 +1,9 @@
+{.section websiteSettings.contactEmail}
+<p><a href="mailto:{@}">{@}</a></p>
+{.end}
+{.section website.location}
+  <p>
+    <span class="addressLine1">{addressLine1}</span><br>
+    <span class="addressLine2">{addressLine2}</span>
+  </p>
+{.end}
