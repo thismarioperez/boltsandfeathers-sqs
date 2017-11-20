@@ -2,10 +2,14 @@
   <div class="screen--inner wrapper">
     <squarespace:navigation navigationId="site-nav" template="_site-nav" />
     {.if websiteSettings.contactEmail || website.location}
-      <div class="navigation--contact">
+      <div class="navigation--contact -space-t">
         {@|apply _contact.block}
       </div>
     {.end}
-    {@|apply social-links.block}
+    {.if website.socialAccounts}
+      <div class="navigation--social -space-t">
+        {@|apply social-links.block}
+      </div>    
+    {.end}
   </div>
 </nav>
