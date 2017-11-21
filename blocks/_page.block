@@ -1,4 +1,4 @@
-<section class="page" data-controller="AccountForHeader">
+<section class="page" data-controller="AccountForHeader, ImageController">
   <main class="wrapper" data-content-field="main-content">
     {squarespace.main-content}
   </main>
