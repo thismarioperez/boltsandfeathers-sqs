@@ -16,7 +16,7 @@ class ImageHandler {
   constructor(element) {
     this.root = element;
     this.loadQueue = [];
-    this.handleScroll = throttle(this.handleLoading, 180);
+    this.handleScroll = throttle(this.handleLoading, 100);
     this.handleResize = debounce(this.handleLoading, 120);
 
     this.init();
@@ -34,7 +34,7 @@ class ImageHandler {
     // normalize event object
     evt = evt || { type: 'load' };
 
-    const query = (evt.type === 'resize') ? 'img[data-load="true"]' : 'img[data-src]:not([data-load="true"])';
+    const query = (evt.type !== 'resize') ? 'img[data-load="false"]' : 'img[data-src]:not([data-load="false"])';
 
     this.loadQueue = Array.from(this.root.querySelectorAll(query));
   }
@@ -65,6 +65,8 @@ class ImageHandler {
     }
 
     // handle any other type of event
+    // strip src attribute to prevent image loading before appropriate time.
+    this.loadQueue.forEach((img) => { img.removeAttribute('src'); });
     util.loadImages(this.loadQueue, util.isElementVisible);
   }
 
