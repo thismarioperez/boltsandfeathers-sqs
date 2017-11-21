@@ -1,7 +1,7 @@
 /**
  *
  * @public
- * @module controller
+ * @module router
  * @description Holds the initializer for controller modules.
  *
  */
@@ -17,7 +17,7 @@ import Navigation from './controllers/Navigation';
 import NavSocialIcons from './controllers/NavSocialIcons';
 import AccountForHeader from './controllers/AccountForHeader';
 
-const controller = {
+const router = {
   /**
    *
    * @public
@@ -39,4 +39,4 @@ const controller = {
   }
 };
 
-export default controller;
+export default router;

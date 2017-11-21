@@ -5,7 +5,7 @@ require( '../less/app.less' );
 import './polyfill';
 
 import * as core from './core';
-import controller from './controller';
+import router from './router';
 
 /**
  *
@@ -17,7 +17,7 @@ import controller from './controller';
 class App {
   constructor() {
     this.core = core;
-    this.controller = controller;
+    this.router = router;
     this.initModules();
     this.bindEvents();
   }
@@ -40,8 +40,8 @@ class App {
 
     // utility
 
-    // controller
-    this.controller.init();
+    // router
+    this.router.init();
 
     // misc/test
     let images = document.querySelectorAll('img[data-src]');
