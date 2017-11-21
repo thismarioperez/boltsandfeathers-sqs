@@ -14,6 +14,7 @@ import AddScrollingClass from './controllers/AddScrollingClass';
 import Intro from './controllers/Intro';
 import LoadFonts from './controllers/LoadFonts';
 import Navigation from './controllers/Navigation';
+import NavSocialIcons from './controllers/NavSocialIcons';
 import AccountForHeader from './controllers/AccountForHeader';
 
 const controller = {
@@ -30,6 +31,7 @@ const controller = {
     AddScrollingClass.init();
     Intro.init();
     Navigation.init();
+    NavSocialIcons.init();
     sqscontroller.register('AccountForHeader', AccountForHeader);
 
     // Emit events
