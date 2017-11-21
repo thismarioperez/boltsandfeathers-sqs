@@ -53,10 +53,6 @@ function ImageController (element) {
    */
   const reloadImages = () => {
     loadedImages = getLoadedImages();
-    // stop here if no images exist
-    if (loadedImages.length <= 0) {
-      return false;
-    }
     core.log('ImageController: resize queue: ' + loadedImages.length);
     core.util.loadImages(getLoadedImages());
   };
