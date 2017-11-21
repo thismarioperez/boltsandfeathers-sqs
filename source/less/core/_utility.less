@@ -72,3 +72,19 @@
     text-align: right;
   }
 }
+
+// Lazy loaded images
+img {
+  &[data-load="false"] {
+    opacity: 0;
+    visibility: hidden;    
+    transition: ~'opacity @{baseDuration} @{ease},'
+                ~'visibility 0ms @{baseDuration} @{ease}';
+  }
+  &[data-load="true"] {
+    opacity: 1;
+    visibility: visible;
+    transition: ~'opacity @{baseDuration} @{baseDuration} @{ease},'
+                ~'visibility 0ms @{ease}';
+  }
+}
