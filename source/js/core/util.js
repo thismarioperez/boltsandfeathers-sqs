@@ -3,6 +3,7 @@
  * @module util
  * @description App-wide utility methods
  */
+import dom from './dom';
 import { ImageLoader } from '@squarespace/core';
 
 /**
@@ -19,36 +20,72 @@ const px = function ( str ) {
 };
 
 /**
- * @public
- * @method loadImages
- * @memberof util
- * @param  {[array]} images An array of image elements to load
+ *
+ * @description Module onImageLoadHander method, handles event
+ * @method isElementLoadable
+ * @param {object} el The DOMElement to check the offset of
+ * @memberof core.util
+ * @returns {boolean}
+ *
  */
-const loadImages = (images) => {
-  images.forEach((image) => {
-    ImageLoader.load(image, { load: true });
-  });
+const isElementLoadable = function ( el ) {
+  let ret = false;
+
+  if ( el ) {
+    const bounds = el.getBoundingClientRect();
+
+    ret = ( bounds.top < (window.innerHeight * 2) );
+  }
+
+  return ret;
 };
 
 /**
  *
- * @description Module isElementInViewport method, handles element boundaries
- * @method isElementInViewport
+ * @description Module isElementVisible method, handles element boundaries
+ * @method isElementVisible
  * @param {object} el The DOMElement to check the offsets of
- * @memberof util
+ * @memberof core.util
  * @returns {boolean}
  *
  */
-const isElementInViewport = (el) => {
-  if (el) {
+const isElementVisible = function ( el ) {
+  let ret = false;
+
+  if ( el ) {
     const bounds = el.getBoundingClientRect();
 
-    return (bounds.top < window.innerHeight && bounds.bottom > 0);
+    ret = ( bounds.top < window.innerHeight && bounds.bottom > 0 );
   }
+
+  return ret;
+};
+
+/**
+ * @public
+ * @description Easily load images with a filter option
+ * @method loadImages
+ * @memberof util
+ * @param  {[array]} images Optional array of images to load
+ * @param {function} handler Optional handler for load conditions
+ */
+const loadImages = (images, handler) => {
+  // Normalize the handler
+  handler = (handler || isElementLoadable);
+
+  // Normalize the images
+  images = (images || Array.from(dom.doc.querySelectorAll('img[data-src]')));
+
+  // Load images that pass the filter test.
+  images.filter((img) => handler(img)).forEach((img) => {
+    ImageLoader.load(img, { load: true });
+    img.setAttribute('data-load', true);
+  });
 };
 
 export {
   px,
   loadImages,
-  isElementInViewport,
+  isElementLoadable,
+  isElementVisible,
 };
