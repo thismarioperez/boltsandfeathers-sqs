@@ -50,7 +50,7 @@ const router = {
   initPage() {
     this.initControllers();
 
-    // ajax page load events
+    // handle ajax page load events
     window.addEventListener('mercury:unload', () => {
       core.emitter.emit('app--navigation-close');
       core.emitter.emit('app--page-loading');
