@@ -55,7 +55,7 @@ class ImageHandler {
 
     // log the amount of images in the queue
     if (this.loadQueue.length > 0) {
-      log('ImageController: ' + evt.type + ' queue: ' + this.loadQueue.length);      
+      log('ImageController: ' + evt.type + ' queue: ' + this.loadQueue.length);
     }
 
     // handle the resize event
@@ -86,7 +86,7 @@ class ImageHandler {
    * @description start everything
    */
   init () {
-    this.getImagesToLoad();    
+    this.getImagesToLoad();
     this.handleLoading();
     this.bindListeners();
   }
