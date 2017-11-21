@@ -1,6 +1,24 @@
 /******************************************************************************
  * Modules/Footer
 *******************************************************************************/
-footer {
+.footer {
   font-size: 80%;
+  height: @footerHeight;
+
+  @media @small {
+    height: @footerHeightSm;
+  }
+
+  &--inner {
+    display: flex;
+    height: 100%;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+
+    @media @small {
+      flex-flow: row nowrap;
+      justify-content: space-between;
+    }
+  }
 }
