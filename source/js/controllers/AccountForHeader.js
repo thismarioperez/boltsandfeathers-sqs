@@ -18,7 +18,7 @@ function AccountForHeader(element) {
    * @description sets the element's target property to the height value of the header
    */
   const syncWithHeader = () => {
-    element.style[target] = core.dom.header.offsetHeight + 'px';
+    element.style[target] = core.util.px(core.dom.header.offsetHeight);
   };
 
   const handleResize = (e) => {
