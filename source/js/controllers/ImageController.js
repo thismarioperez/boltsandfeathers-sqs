@@ -8,6 +8,8 @@ import debounce from 'lodash/debounce';
  * @description Lazy loads images if they are in the viewport
  */
 function ImageController (element) {
+  let imagesToLoad,
+    loadedImages;
   /**
    * @private
    * @name getImagesToLoad
@@ -34,7 +36,13 @@ function ImageController (element) {
    * @description detects if image is in viewport, and loads it if true.
    */
   const initialLoad = () => {
-    core.util.loadImages(getImagesToLoad(), core.util.isElementVisible);
+    imagesToLoad = getImagesToLoad();
+    // stop here if no images exist
+    if (imagesToLoad.length <= 0) {
+      return false;
+    }
+    core.log('ImageController: load queue: ' + imagesToLoad.length);
+    core.util.loadImages(imagesToLoad, core.util.isElementVisible);
   };
 
   /**
@@ -44,6 +52,12 @@ function ImageController (element) {
    *              Use this on window resize
    */
   const reloadImages = () => {
+    loadedImages = getLoadedImages();
+    // stop here if no images exist
+    if (loadedImages.length <= 0) {
+      return false;
+    }
+    core.log('ImageController: resize queue: ' + loadedImages.length);
     core.util.loadImages(getLoadedImages());
   };
 
@@ -65,10 +79,6 @@ function ImageController (element) {
   };
 
   const init = () => {
-    // stop here if no images exist
-    if (!getImagesToLoad()) {
-      return false;
-    }
     bindListeners();
     initialLoad();
   };
