@@ -65,7 +65,7 @@ function ImageController (element) {
     initialLoad();
   };
 
-  const throttledScroll = throttle(handleScroll, 10);
+  const throttledScroll = throttle(handleScroll, 180);
 
   const handleResize = () => {
     reloadImages();
