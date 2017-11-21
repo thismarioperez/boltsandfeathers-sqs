@@ -6,6 +6,19 @@
 import { ImageLoader } from '@squarespace/core';
 
 /**
+ *
+ * @description Add pixel units when inline styling
+ * @method px
+ * @param {string} str The value to pixel-ify
+ * @memberof util
+ * @returns {string}
+ *
+ */
+const px = function ( str ) {
+  return `${str}px`;
+};
+
+/**
  * @public
  * @method loadImages
  * @memberof util
@@ -35,6 +48,7 @@ const isElementInViewport = (el) => {
 };
 
 export {
+  px,
   loadImages,
   isElementInViewport,
 };
