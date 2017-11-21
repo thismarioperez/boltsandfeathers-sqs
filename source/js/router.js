@@ -7,7 +7,7 @@
  */
 
 import * as core from './core';
-import sqscontroller from '@squarespace/controller';
+import controller from '@squarespace/controller';
 
 // controller modules
 import AddScrollingClass from './controllers/AddScrollingClass';
@@ -16,6 +16,7 @@ import LoadFonts from './controllers/LoadFonts';
 import Navigation from './controllers/Navigation';
 import NavSocialIcons from './controllers/NavSocialIcons';
 import AccountForHeader from './controllers/AccountForHeader';
+import ImageController from './controllers/ImageController';
 
 const router = {
   /**
@@ -23,7 +24,7 @@ const router = {
    * @private
    * @method execControllers
    * @memberof router
-   * @description initializes controller or register sqscontroller modules.
+   * @description initializes controller or register controller modules.
    */
   initControllers() {
     LoadFonts.init();
@@ -31,7 +32,8 @@ const router = {
     Intro.init();
     Navigation.init();
     NavSocialIcons.init();
-    sqscontroller.register('AccountForHeader', AccountForHeader);
+    controller.register('AccountForHeader', AccountForHeader);
+    controller.register('ImageController', ImageController);
 
     // Emit events
     core.emitter.emit('app--intro-teardown');
