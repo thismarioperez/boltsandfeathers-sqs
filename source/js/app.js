@@ -43,11 +43,6 @@ class App {
     this.router.init();
 
     // misc/test
-    let images = document.querySelectorAll('img[data-src]');
-    this.core.util.loadImages(images);
-    window.addEventListener('resize', function() {
-      core.util.loadImages(document.querySelectorAll('img[src]'));
-    });
 
     // Log when finished
     this.core.log('App: modules initialized');
