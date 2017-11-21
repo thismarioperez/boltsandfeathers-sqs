@@ -1,3 +1,14 @@
-<footer>
-  <squarespace:block-field id="footer-blocks" columns="12" />
+<footer class="footer">
+  <div class="footer--inner wrapper -space-t -space-b">
+    <div class="footer--copyright">
+    <p>
+    &copy; <script>new Date().getFullYear()>2010&&document.write(new Date().getFullYear());</script> | {website.siteTitle}.
+    </p>
+    </div>
+    {.if website.socialAccounts}
+      <div class="footer--social">
+        {@|apply social-links.block}
+      </div>    
+    {.end}
+  </div>
 </footer>
