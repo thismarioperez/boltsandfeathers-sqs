@@ -63,13 +63,33 @@ const isElementVisible = function ( el ) {
 
 /**
  * @public
+ * @description Easily determine what elements are in view from a given array.
+ * @method getElementsInView
+ * @memberof util
+ * @param  {[array]} nodes An array of nodes to check if they are in view.
+ */
+const getElementsInView = function ( nodes ) {
+  let i = nodes.length;
+  const ret = [];
+
+  for ( i; i--; ) {
+    if ( isElementVisible( nodes[ i ] ) ) {
+      ret.push( nodes[ i ] );
+    }
+  }
+
+  return ret;
+};
+
+/**
+ * @public
  * @description Easily load images with a filter option
  * @method loadImages
  * @memberof util
  * @param  {[array]} images Optional array of images to load
  * @param {function} handler Optional handler for load conditions
  */
-const loadImages = (images, handler) => {
+const loadImages = ( images, handler ) => {
   // Normalize the handler
   handler = (handler || isElementLoadable);
 
@@ -83,9 +103,13 @@ const loadImages = (images, handler) => {
   });
 };
 
+/*******************************************************************************
+ * Export
+ ******************************************************************************/
 export {
   px,
-  loadImages,
   isElementLoadable,
   isElementVisible,
+  getElementsInView,
+  loadImages
 };
