@@ -2,13 +2,9 @@
  * Overlays
 *******************************************************************************/
 .overlay {
-  .gradient(linear; '@{green}, @{blue}'; 45deg);
+  .gradient(linear; @green, mix(@green, @blue), @blue; 45deg);
   z-index: @zLayer01;
   opacity: .5;
-
-  .is-bgblendmode & {
-    background-blend-mode: overlay;
-  }
 }
 
 .screen {
