@@ -1,6 +1,16 @@
 /******************************************************************************
  * Overlays
 *******************************************************************************/
+.overlay {
+  .gradient(linear; '@{green}, @{blue}'; 45deg);
+  z-index: @zLayer01;
+  opacity: .5;
+
+  .is-bgblendmode & {
+    background-blend-mode: overlay;
+  }
+}
+
 .screen {
   position: fixed;
   top: 0;
@@ -73,7 +83,10 @@
   width: 100vw;
 
   &--banner {
-    height: 70vh;
+    height: 60vh;
+    @media @small {
+      height: 70vh;
+    }
   }
 
   &--bg,
@@ -89,6 +102,7 @@
   &--bg {
     background-color: @gray;
     overflow: hidden;
+    z-index: @zLayerBehind;
   }
 
   &--content {
