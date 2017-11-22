@@ -5,7 +5,7 @@
   {.var @bannerImage collection.mainImage}
 {.end}
 
-<section class="cover cover--banner wrapper -text--center">
+<section class="cover cover--banner wrapper -text--center" data-controller="ImageController">
   <div class="cover--bg content-fill">
     {.section item}{.main-image?}
       <img data-load="viewport" {@|image-meta}/>
