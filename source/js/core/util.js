@@ -88,6 +88,7 @@ const getElementsInView = function ( nodes ) {
  * @memberof util
  * @param  {[array]} images Optional array of images to load
  * @param {function} handler Optional handler for load conditions
+ * @param {string|boolean} loadMode Optional loadMode value for ImageLoader
  */
 const loadImages = ( images, handler, loadMode) => {
   // Normalize the handler
