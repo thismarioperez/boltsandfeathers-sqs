@@ -5,16 +5,16 @@
   {.var @bannerImage collection.mainImage}
 {.end}
 
-<section class="cover cover--banner wrapper ghost -text--center">
+<section class="cover cover--banner wrapper -text--center">
   <div class="cover--bg content-fill">
     {.section item}{.main-image?}
-      <img {@|image-meta}/>
+      <img data-load="viewport" {@|image-meta}/>
     {.end}{.or}{.section collection.mainImage}
-      <img {@|image-meta}/>
+      <img data-load="viewport" {@|image-meta}/>
     {.end}{.end}
     <div class="cover--screen overlay"></div>
   </div>
-  <div class="cover--content wrapper ghost--child -align-b -text--left -wrap-copy -wrap-mobile">
+  <div class="cover--content wrapper -text--left -wrap-copy -wrap-mobile">
     {.if item} {# item #}
       <h2 class="h1">{item.title}</h2>
     {.or} {# collection #}
