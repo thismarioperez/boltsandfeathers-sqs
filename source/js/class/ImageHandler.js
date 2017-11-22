@@ -37,7 +37,7 @@ class ImageHandler {
     util.loadImages(this.images, util.isElementLoadable, false);
     this.images.forEach((img) => {
       img.removeAttribute('src');
-      img.setAttribute('data-lazy-load', false);
+      img.setAttribute('data-preload', '');
     });
   }
 
@@ -53,7 +53,7 @@ class ImageHandler {
     // normalize event object
     evt = evt || { type: 'load' };
 
-    const query = (evt.type === 'resize') ? 'img[data-lazy-load="true"]' : 'img[data-lazy-load="false"]';
+    const query = (evt.type === 'resize') ? 'img[src]' : 'img[data-preload]';
 
     this.loadQueue = Array.from(this.images.filter((img) => img.matches(query)));
   }

@@ -89,21 +89,18 @@ const getElementsInView = function ( nodes ) {
  * @param  {[array]} images Optional array of images to load
  * @param {function} handler Optional handler for load conditions
  */
-const loadImages = ( images, handler, loadMode ) => {
+const loadImages = ( images, handler ) => {
   // Normalize the handler
   handler = (handler || isElementLoadable);
 
   // Normalize the images
   images = (images || Array.from(dom.doc.querySelectorAll('img[data-src]')));
 
-  // Normalize load mode
-  loadMode = (loadMode || true);
-
   // Load images that pass the filter test.
   images.filter((img) => handler(img)).forEach((img) => {
-    ImageLoader.load(img, { load: loadMode });
+    ImageLoader.load(img, { load: true });
     img.addEventListener('load', function handleLoad() {
-      img.setAttribute('data-lazy-load', 'true');
+      img.setAttribute('data-loaded', '');
       img.removeEventListener('load', handleLoad);
     });
   });
