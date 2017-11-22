@@ -1,5 +1,5 @@
-<div class="intro js-intro screen screen--gradient is-active text--center ghost">
-  <div class="ghost--child">
+<div class="intro js-intro screen screen--gradient is-active -text--center -ghost">
+  <div class="-ghost--child">
     <div class="intro--logo">
       {@|apply _logo.block}
     </div>

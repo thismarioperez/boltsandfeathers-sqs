@@ -1,6 +1,6 @@
 <section class="page" data-controller="AccountForHeader, ImageController">
   {@|apply _banner.block}
-  <main class="wrapper" data-content-field="main-content">
+  <main class="-wrapper" data-content-field="main-content">
     {squarespace.main-content}
   </main>
 </section>
