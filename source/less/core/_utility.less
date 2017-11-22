@@ -72,3 +72,17 @@
     text-align: right;
   }
 }
+
+
+// Loaded Images. Style the scan in effect
+img {
+  transition: ~'opacity @{baseDuration} @{ease}';
+
+  &[data-preload] {
+    opacity: 0;
+  }
+
+  &[data-loaded] {
+    opacity: 1;
+  }
+}
