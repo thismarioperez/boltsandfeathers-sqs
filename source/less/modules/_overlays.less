@@ -63,3 +63,41 @@
 .navigation {
   .type-spacing;
 }
+
+/******************************************************************************
+ * Banner masthead
+*******************************************************************************/
+.cover {
+  height: 100vh;
+  position: relative;
+  width: 100vw;
+
+  &--banner {
+    height: 70vh;
+  }
+
+  &--bg,
+  &--screen {
+    position: absolute;    
+    height: 100%;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: ~'translate3d(-50%,-50%,0)';
+  }
+
+  &--bg {
+    background-color: @gray;
+    overflow: hidden;
+  }
+
+  &--content {
+    position: relative;
+    width: 100%;
+  }
+
+  &--blocks {
+    height: 100%;
+    width: 100%;
+  }
+}
