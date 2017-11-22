@@ -15,11 +15,30 @@ import debounce from 'lodash/debounce';
 class ImageHandler {
   constructor(element) {
     this.root = element;
+    this.images = [];
     this.loadQueue = [];
     this.handleScroll = throttle(this.handleLoading, 100);
     this.handleResize = debounce(this.handleLoading, 120);
 
     this.init();
+  }
+
+  /**
+   * @private
+   * @method preLoad
+   * @memberof ImageHandler
+   * @description Caches images to load.
+   *              Prevents images from loading by calling ImageLoader with loadMode = false.
+   *              Strips src attributes.
+   *              Adds lazy load attribute.
+   */
+  preLoad () {
+    this.images = Array.from(this.root.querySelectorAll('img[src]'));
+    util.loadImages(this.images, util.isElementLoadable, false);
+    this.images.forEach((img) => {
+      img.removeAttribute('src');
+      img.setAttribute('data-lazy-load', false);
+    });
   }
 
   /**
@@ -34,9 +53,9 @@ class ImageHandler {
     // normalize event object
     evt = evt || { type: 'load' };
 
-    const query = (evt.type !== 'resize') ? 'img[data-load="false"]' : 'img[data-src]:not([data-load="false"])';
+    const query = (evt.type === 'resize') ? 'img[data-lazy-load="true"]' : 'img[data-lazy-load="false"]';
 
-    this.loadQueue = Array.from(this.root.querySelectorAll(query));
+    this.loadQueue = Array.from(this.images.filter((img) => img.matches(query)));
   }
 
   /**
@@ -65,8 +84,6 @@ class ImageHandler {
     }
 
     // handle any other type of event
-    // strip src attribute to prevent image loading before appropriate time.
-    this.loadQueue.forEach((img) => { img.removeAttribute('src'); });
     util.loadImages(this.loadQueue, util.isElementVisible);
   }
 
@@ -88,6 +105,7 @@ class ImageHandler {
    * @description start everything
    */
   init () {
+    this.preLoad();
     this.getImagesToLoad();
     this.handleLoading();
     this.bindListeners();
@@ -111,8 +129,9 @@ class ImageHandler {
    * @description resets class elements. Call this after ajax load.
    */
   sync () {
+    this.images = [];
     this.loadQueue = [];
-    this.reloadQueue = [];
+    this.preLoad();
     this.getImagesToLoad();
     this.handleLoading();
   }
