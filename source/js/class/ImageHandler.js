@@ -28,13 +28,13 @@ class ImageHandler {
    * @method preLoad
    * @memberof ImageHandler
    * @description Caches images to load.
-   *              Prevents images from loading by calling ImageLoader with loadMode = false.
-   *              Strips src attributes.
+   *              Prevents images from loading by calling ImageLoader with loadMode = 'viewport'.
+   *              Strips src attributes to prevent network requests.
    *              Adds lazy load attribute.
    */
   preLoad () {
-    this.images = Array.from(this.root.querySelectorAll('img[src]'));
-    util.loadImages(this.images, util.isElementLoadable, false);
+    this.images = Array.from(this.root.querySelectorAll('img[data-src]'));
+    util.loadImages(this.images, util.isElementLoadable, 'viewport');
     this.images.forEach((img) => {
       img.removeAttribute('src');
       img.setAttribute('data-preload', '');
