@@ -34,10 +34,6 @@ const router = {
     NavSocialIcons.init();
     controller.register('AccountForHeader', AccountForHeader);
     controller.register('ImageController', ImageController);
-
-    // Emit events
-    core.emitter.emit('app--intro-teardown');
-    core.emitter.emit('app--page-ready');
   },
 
   /**
@@ -50,11 +46,18 @@ const router = {
   initPage() {
     this.initControllers();
 
+    // Emit events on document load
+    document.addEventListener('DOMContentLoaded', () => {
+      core.emitter.emit('app--intro-teardown');
+      core.emitter.emit('app--page-ready');
+    });
+
     // handle ajax page load events
     window.addEventListener('mercury:unload', () => {
       core.emitter.emit('app--navigation-close');
       core.emitter.emit('app--page-loading');
     });
+
     window.addEventListener('mercury:load', () => {
       core.emitter.emit('app--page-ready');
     });
