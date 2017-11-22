@@ -22,7 +22,6 @@ const detect = {
   init() {
     this._isTouch = ('ontouchstart' in window || 'DocumentTouch' in window);
     this._isMobile = (/Android|BlackBerry|iPhone|iPad|iPod|IEMobile|Opera Mini/gi.test(window.navigator.userAgent));
-    this._isBgBlendMode = ('backgroundBlendMode' in document.body.style);
 
     // Touch support mode
     if (this._isTouch) {
@@ -31,11 +30,6 @@ const detect = {
       // Mouse support mode
     } else {
       dom.html.classList.add('is-hoverable');
-    }
-
-    // CSS backgroundBlendMode support mode
-    if (this._isBgBlendMode) {
-      dom.html.classList.add('is-bgblendmode');
     }
 
     log('detect: initialized');
