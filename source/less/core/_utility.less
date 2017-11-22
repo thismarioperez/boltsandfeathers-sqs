@@ -72,16 +72,3 @@
     text-align: right;
   }
 }
-
-// Lazy loaded images
-img {
-  transition: ~'opacity 100ms @{ease},';
-  
-  &[data-preload] {
-    opacity: 0;
-  }
-
-  &[data-loaded] {
-    opacity: 1;
-  }
-}
