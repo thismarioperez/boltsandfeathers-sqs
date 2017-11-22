@@ -1,7 +1,7 @@
 /******************************************************************************
  * Core/Utility
 *******************************************************************************/
-.wrapper {
+.-wrapper {
   padding-left: @inset;
   padding-right: @inset;
 }
@@ -42,7 +42,7 @@
 }
 
 // Use this heirarchy to center elements inside fluid containers with unknown widths
-.ghost {
+.-ghost {
   font-size: 0;
 
   &:before {
@@ -61,7 +61,7 @@
 }
 
 // Text align property
-.text {
+.-text {
   &--left {
     text-align: left;
   }
@@ -70,25 +70,6 @@
   }
   &--right {
     text-align: right;
-  }
-}
-
-.-align {
-  &,
-  &-m {
-    vertical-align: middle;    
-  }
-
-  &-t {
-    vertical-align: top;
-  }
-
-  &-b {
-    vertical-align: bottom;
-  }
-
-  &-bl{
-    vertical-align: baseline
   }
 }
 
