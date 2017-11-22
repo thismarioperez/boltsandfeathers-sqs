@@ -75,16 +75,18 @@
 
 // Lazy loaded images
 img {
-  &[data-load="false"] {
-    opacity: 0;
-    visibility: hidden;    
+  &[data-lazy-load] {
     transition: ~'opacity @{baseDuration} @{ease},'
-                ~'visibility 0ms @{baseDuration} @{ease}';
+    ~'visibility @{baseDuration} @{ease}';
   }
-  &[data-load="true"] {
+  
+  &[data-lazy-load="false"] {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &[data-lazy-load="true"] {
     opacity: 1;
     visibility: visible;
-    transition: ~'opacity @{baseDuration} @{baseDuration} @{ease},'
-                ~'visibility 0ms @{ease}';
   }
 }
