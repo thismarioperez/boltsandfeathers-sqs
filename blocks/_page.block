@@ -1,5 +1,9 @@
 <section class="page" data-controller="AccountForHeader">
-  {@|apply _banner.block}
+  {.section item}{.main-image?}
+    {@|apply _banner.block}
+  {.end}{.or}{.section collection.mainImage}
+    {@|apply _banner.block}
+  {.end}{.end}
   <main class="-wrapper" data-content-field="main-content" data-controller="ImageController">
     {squarespace.main-content}
   </main>

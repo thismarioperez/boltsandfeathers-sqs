@@ -1,11 +1,7 @@
 <header class="banner">
   <section class="cover cover--banner wrapper -text--center" data-controller="ImageController">
     <div class="cover--bg content-fill">
-      {.section item}{.main-image?}
         <img data-load="viewport" {@|image-meta}/>
-      {.end}{.or}{.section collection.mainImage}
-        <img data-load="viewport" {@|image-meta}/>
-      {.end}{.end}
     </div>
     <div class="cover--screen overlay"></div>
   </section>
