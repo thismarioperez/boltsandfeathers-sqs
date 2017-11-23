@@ -104,7 +104,7 @@ const loadImages = ( images, handler, loadMode) => {
   images.filter((img) => handler(img)).forEach((img) => {
     ImageLoader.load(img, { load: loadMode });
     img.addEventListener('load', function handleLoad() {
-      img.setAttribute('data-loaded', '');
+      img.setAttribute('data-lazy-loaded', true);
       img.removeEventListener('load', handleLoad);
     });
   });
