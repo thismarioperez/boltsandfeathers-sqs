@@ -1,24 +1,21 @@
-{.if item}
-  {.var @bannerImage item}
-{.or}
-  {# collection #}
-  {.var @bannerImage collection.mainImage}
-{.end}
-
-<section class="cover cover--banner wrapper -text--center" data-controller="ImageController">
-  <div class="cover--bg content-fill">
-    {.section item}{.main-image?}
-      <img data-load="viewport" {@|image-meta}/>
-    {.end}{.or}{.section collection.mainImage}
-      <img data-load="viewport" {@|image-meta}/>
-    {.end}{.end}
-  </div>
-  <div class="cover--screen overlay"></div>
-  <div class="cover--content wrapper -text--left -wrap-copy -wrap-mobile">
-    {.if item} {# item #}
-      <h2 class="h1">{item.title}</h2>
-    {.or} {# collection #}
-      <h2 class="h1">{collection.title}</h2>
-    {.end}
-  </div>
-</section>
+<header class="banner">
+  <section class="cover cover--banner wrapper -text--center" data-controller="ImageController">
+    <div class="cover--bg content-fill">
+      {.section item}{.main-image?}
+        <img data-load="viewport" {@|image-meta}/>
+      {.end}{.or}{.section collection.mainImage}
+        <img data-load="viewport" {@|image-meta}/>
+      {.end}{.end}
+    </div>
+    <div class="cover--screen overlay"></div>
+  </section>
+  <section class="-wrapper">
+    <div class="-wrap-copy -text--left">
+      {.if item} {# item #}
+        <h2 class="h1">{item.title}</h2>
+      {.or} {# collection #}
+        <h2 class="h1">{collection.title}</h2>
+      {.end}
+    </div>
+  </section>
+</header>
