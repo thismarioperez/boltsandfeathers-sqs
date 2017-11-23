@@ -12,24 +12,26 @@
   display: inline-block;
   float: none !important;
 }
+*/
+
 
 .sqs-block {
-  padding: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  @media @small {
+    padding-left: @sqsPadding !important;
+    padding-right: @sqsPadding !important;
+  }
 }
-*/
 
 // Block layouts
 .sqs-block {
   padding-left: @baseline;
-  padding-right: @baseline; // Limit width of block elements and center them
+  padding-right: @baseline;
+  // Limit width of block elements and center them
+  .contain-content;  
   margin: 0 auto;
-  max-width: 100%;
-  @media @small {
-    max-width: 75vw;
-  }
-  @media @large {
-    max-width: @maxContentWidth;
-  }
+
   &:first-child {
     padding-top: @baseline !important;
   }
