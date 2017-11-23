@@ -7,27 +7,14 @@
   margin: 0 !important;
 }
 
-/*
-[class*=sqs-col] {
-  display: inline-block;
-  float: none !important;
-}
-*/
-
-
+// Block layouts
 .sqs-block {
   padding-left: 0 !important;
   padding-right: 0 !important;
   @media @small {
-    padding-left: @sqsPadding !important;
-    padding-right: @sqsPadding !important;
+    padding-left: @baseline !important;
+    padding-right: @baseline !important;
   }
-}
-
-// Block layouts
-.sqs-block {
-  padding-left: @baseline;
-  padding-right: @baseline;
   // Limit width of block elements and center them
   .contain-content;  
   margin: 0 auto;
@@ -43,7 +30,7 @@
   }
 }
 
-// Block typography
+// Individual block styles
 .sqs-block {
   // adds margin above elements that are adjacent to like elements
   .type-spacing;
@@ -53,9 +40,7 @@
   &.sqs-block-quote {
     .sqs-block-content {
       padding: @baseline;
-      .gradient(linear;
-      ~"@{green}, @{blue}";
-      45deg);
+      .gradient(linear; ~"@{green}, @{blue}"; 45deg);
     }
     .source {
       margin: 0 @baseline 0 0;
