@@ -37,7 +37,7 @@ class ImageHandler {
     util.loadImages(this.images, util.isElementLoadable, 'viewport');
     this.images.forEach((img) => {
       img.removeAttribute('src');
-      img.setAttribute('data-preload', '');
+      img.setAttribute('data-lazy-loaded', false);
     });
   }
 
@@ -53,9 +53,9 @@ class ImageHandler {
     // normalize event object
     evt = evt || { type: 'load' };
 
-    const query = (evt.type === 'resize') ? 'img[src]' : 'img[data-preload]';
+    const query = (evt.type === 'resize') ? 'img[data-lazy-loaded="true"]' : 'img[data-lazy-loaded="false"]';
 
-    this.loadQueue = Array.from(this.images.filter((img) => img.matches(query)));
+    this.loadQueue = this.images.filter((img) => img.matches(query));
   }
 
   /**
