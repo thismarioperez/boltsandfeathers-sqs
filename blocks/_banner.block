@@ -1,3 +1,5 @@
+{.var @desc collection.description}
+
 <header class="banner">
   <section class="cover cover--banner wrapper -text--center" data-controller="ImageController">
     <div class="cover--bg content-fill">
@@ -5,12 +7,15 @@
     </div>
     <div class="cover--screen overlay"></div>
   </section>
-  <section class="-wrapper">
+  <section class="banner--callout -wrapper">
     <div class="-wrap-copy -text--left">
       {.if item} {# item #}
         <h2 class="h1">{item.title}</h2>
       {.or} {# collection #}
-        <h2 class="h1">{collection.title}</h2>
+        {.if @desc}
+          <div class="banner--desc page-desc">{@desc}</div>
+        {.or}
+        {.end}
       {.end}
     </div>
   </section>
