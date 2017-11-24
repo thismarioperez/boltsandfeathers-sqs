@@ -1,7 +1,7 @@
 {.var @desc collection.description}
 
-<header class="banner" data-controller="Banner" data-content-field="main-image"{.if item} data-item-id="{item.id}"{.or} data-collection-id="{collection.id}"{.end} data-edit-main-image="Banner" data-annotation-alignment="bottom left">
-  <section class="cover cover--banner wrapper -text--center">
+<header class="banner" data-controller="Banner">
+  <section class="cover cover--banner wrapper -text--center" data-content-field="main-image"{.if item} data-item-id="{item.id}"{.or} data-collection-id="{collection.id}"{.end} data-edit-main-image="Banner" data-annotation-alignment="top left">
     <div class="cover--bg content-fill">
         <img data-load="viewport" {@|image-meta}/>
     </div>
