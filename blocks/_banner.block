@@ -3,7 +3,7 @@
 <header class="banner" data-controller="Banner">
   <section class="cover cover--banner wrapper -text--center" data-content-field="main-image"{.if item} data-item-id="{item.id}"{.or} data-collection-id="{collection.id}"{.end} data-edit-main-image="Banner" data-annotation-alignment="top left">
     <div class="cover--bg content-fill">
-        <img data-load="viewport" {@|image-meta}/>
+        <img data-load="viewport" data-lazy-loaded="false" {@|image-meta}/>
     </div>
     <div class="cover--screen overlay"></div>
   </section>
