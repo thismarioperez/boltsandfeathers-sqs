@@ -9,7 +9,6 @@ import debounce from 'lodash/debounce';
  * @class ImageHandler
  * @param {el} element The element that has images to handle.
  * @classdesc Handles initial load, lazy loading, and resize loading of images.
- * @memberof core
  *
  */
 class ImageHandler {
