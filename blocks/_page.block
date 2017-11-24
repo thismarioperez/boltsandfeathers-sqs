@@ -1,10 +1,10 @@
-<section class="page" data-controller="AccountForHeader">
+<section class="page" data-controller="AccountForHeader, ImageController">
   {.section item}{.main-image?}
     {@|apply _banner.block}
   {.end}{.or}{.section collection.mainImage}
     {@|apply _banner.block}
   {.end}{.end}
-  <main class="-wrapper -space-t -space-b" role="main" data-content-field="main-content" data-controller="ImageController">
+  <main class="-wrapper -space-t -space-b" role="main" data-content-field="main-content">
     {squarespace.main-content}
   </main>
 </section>
