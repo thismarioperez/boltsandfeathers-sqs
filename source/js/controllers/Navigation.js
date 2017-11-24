@@ -1,6 +1,6 @@
 import * as core from '../core';
 
-const menuOpen = 'is-menu-open';
+const navOpen = 'is-nav-open';
 const isActive = 'is-active';
 
 /**
@@ -21,7 +21,7 @@ const Navigation = {
    */
   open() {
     core.dom.nav.classList.add(isActive);
-    core.dom.html.classList.add(menuOpen);
+    core.dom.html.classList.add(navOpen);
 
     core.log('Navigation: open');
   },
@@ -35,7 +35,7 @@ const Navigation = {
    */
   close() {
     core.dom.nav.classList.remove(isActive);
-    core.dom.html.classList.remove(menuOpen);
+    core.dom.html.classList.remove(navOpen);
 
     core.log('Navigation: closed');
   },
@@ -51,7 +51,7 @@ const Navigation = {
     e.preventDefault();
     e.stopPropagation();
 
-    if (!(core.dom.nav.classList.contains(isActive) && core.dom.html.classList.contains(menuOpen))) {
+    if (!(core.dom.nav.classList.contains(isActive) && core.dom.html.classList.contains(navOpen))) {
       core.emitter.emit('app--navigation-open');
     } else {
       core.emitter.emit('app--navigation-close');
