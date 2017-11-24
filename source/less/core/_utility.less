@@ -88,12 +88,6 @@ img {
   &[data-lazy-loaded='false'] {
     opacity: 0;
 
-    // Keep elements visible when logged in.
-    [data-authenticated-account] &[src] {
-      opacity: 1;
-    }
-  }
-
   &[data-lazy-loaded='true'] {
     opacity: 1;
   }
