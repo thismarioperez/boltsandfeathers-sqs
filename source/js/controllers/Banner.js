@@ -1,4 +1,3 @@
-import ImageHandler from '../class/ImageHandler';
 import * as core from '../core';
 
 /**
@@ -12,8 +11,7 @@ import * as core from '../core';
  */
 function Banner(element) {
   // handler variables
-  let resizeHandler = null,
-    handleBannerImage = null;
+  let resizeHandler = null;
 
   // the callout element
   const callout = element.querySelector('.js-banner--callout');
@@ -53,7 +51,6 @@ function Banner(element) {
    */
   const init = () => {
     core.log(callout);
-    handleBannerImage = new ImageHandler(element);
     resizeHandler = new core.anim();
     setCalloutMargin();
     bindListeners();
@@ -65,7 +62,6 @@ function Banner(element) {
    * @memberof Banner
    */
   const sync = () => {
-    handleBannerImage.sync();
     resizeHandler.pause();
     setCalloutMargin();
     resizeHandler.play();
@@ -78,8 +74,6 @@ function Banner(element) {
    */
   const destroy = () => {
     unbindListeners();
-    handleBannerImage.destroy();
-    handleBannerImage = null;
     resizeHandler = null;
   };
 
