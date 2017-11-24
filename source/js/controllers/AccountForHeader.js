@@ -11,7 +11,7 @@ const DEFAULT_TARGET = 'paddingTop';
  * @returns {sync, destroy}
  */
 function AccountForHeader(element) {
-  let resizeTimeout;
+  let resizeHandler;
   const target = element.getAttribute('data-controller-accountForHeader-target') || DEFAULT_TARGET;
 
   /**
@@ -21,19 +21,12 @@ function AccountForHeader(element) {
     element.style[target] = core.util.px(core.dom.header.offsetHeight);
   };
 
-  const handleResize = (e) => {
-    if (resizeTimeout) {
-      window.cancelAnimationFrame(resizeTimeout);
-    }
-    resizeTimeout = window.requestAnimationFrame(syncWithHeader);
-  };
-
   const bindListeners = () => {
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', resizeHandler.go(syncWithHeader));
   };
 
   const unbindListeners = () => {
-    window.removeEventListener('resize', handleResize);
+    window.removeEventListener('resize', resizeHandler.stop(syncWithHeader));
   };
 
   /**
@@ -41,15 +34,19 @@ function AccountForHeader(element) {
    */
   const init = () => {
     syncWithHeader();
+    resizeHandler = new core.anim();
     bindListeners();
   };
 
   const sync = () => {
+    resizeHandler.pause();
     syncWithHeader();
+    resizeHandler.play();
   };
 
   const destroy = () => {
     unbindListeners();
+    resizeHandler = null;
   };
 
   init();
