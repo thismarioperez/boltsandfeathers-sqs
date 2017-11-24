@@ -83,8 +83,11 @@
 
 // contains content to site max width values
 .contain-content {
-  max-width: @maxContentWidth;
+  width: 100%;
+  @media @small {
+    width: 83.3333%;
+  }
   @media @large {
-    max-width: @maxContentWidthLg;
+    width: 66.6667%;
   }
 }
