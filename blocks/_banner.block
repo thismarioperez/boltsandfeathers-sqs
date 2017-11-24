@@ -1,13 +1,13 @@
 {.var @desc collection.description}
 
-<header class="banner">
-  <section class="cover cover--banner wrapper -text--center" data-controller="ImageController">
+<header class="banner" data-controller="Banner">
+  <section class="cover cover--banner wrapper -text--center">
     <div class="cover--bg content-fill">
         <img data-load="viewport" {@|image-meta}/>
     </div>
     <div class="cover--screen overlay"></div>
   </section>
-  <section class="banner--callout -wrapper">
+  <section class="banner--callout js-banner--callout -wrapper">
     <div class="-wrap-copy -text--left">
       {.if item} {# item #}
         <h2 class="h1">{item.title}</h2>
