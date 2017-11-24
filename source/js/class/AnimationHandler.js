@@ -1,3 +1,5 @@
+import log from '../core/log';
+
 // Private animation functions
 const raf = window.requestAnimationFrame,
   caf = window.cancelAnimationFrame;
@@ -92,9 +94,16 @@ class AnimationHandler {
     return this;
   }
 
+  /**
+   *
+   *
+   * @method init
+   * @memberof AnimationHandler
+   * @description Starts animation handler
+   */
   init() {
     this._started = true;
-    console.log('AnimationHandler started');
+    log('AnimationHandler started');
   }
 }
 
