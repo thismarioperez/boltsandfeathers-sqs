@@ -11,6 +11,7 @@ import log from './log';
 import detect from './detect';
 import * as util from './util';
 import emitter from './emitter';
+import anim from './anim';
 
 export {
   dom,
@@ -18,5 +19,6 @@ export {
   log,
   detect,
   util,
-  emitter
+  emitter,
+  anim
 };
