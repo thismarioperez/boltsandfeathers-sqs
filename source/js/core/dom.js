@@ -33,6 +33,14 @@ const dom = {
 
   /**
    * @public
+   * @member app
+   * @memberof core.dom
+   * @description the cached app node
+   */
+  app: document.getElementById('app'),
+
+  /**
+   * @public
    * @member header
    * @memberof core.dom
    * @description the cached <header> node
