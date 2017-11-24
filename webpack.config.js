@@ -3,8 +3,8 @@ const root = path.resolve(__dirname);
 const source = path.join(root, 'source');
 const nodeModules = 'node_modules';
 const webpack = require('webpack');
-const BabiliPlugin = require('babili-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const BabiliPlugin = require('babili-webpack-plugin');
 const IS_PRODUCTION = process.env.NODE_ENV === 'production';
 const browsers = ['last 2 versions', 'ios >= 9'];
 const extractLess = new ExtractTextPlugin({
