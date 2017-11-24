@@ -4,25 +4,32 @@ const source = path.join(root, 'source');
 const nodeModules = 'node_modules';
 const webpack = require('webpack');
 const BabiliPlugin = require('babili-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const IS_PRODUCTION = process.env.NODE_ENV === 'production';
 const browsers = ['last 2 versions', 'ios >= 9'];
+const extractCritical = new ExtractTextPlugin({
+  filename: '../assets/styles/critical.css'
+});
 
 module.exports = {
   devtool: IS_PRODUCTION ? false : 'inline-source-map',
 
   plugins: [
+    // Give the app scripts access to node environment variable.
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+      }
+    }),
+
+    extractCritical,
+
     new BabiliPlugin({
       // mangle: IS_PRODUCTION ? { blacklist: ['_'] } : false // don't mangle lodash
     },
     {
       sourceMap: IS_PRODUCTION ? false : true, // must be enabled here for devtool source-map to work.
       compress: IS_PRODUCTION ? true : false, // eslint-disable-line camelcase
-    }),
-    // Give the app scripts access to node environment variable.
-    new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-      }
     })
   ],
 
@@ -76,15 +83,39 @@ module.exports = {
 
       // Handle Less files
       { test: /\.(css|less)$/,
+        exclude: /critical\.less$/,
         use: [
-          { loader: 'file-loader',
-            options: { name: '[name].css', outputPath: '../assets/styles/' }
+          { loader: 'style-loader' },
+          {
+            loader: 'css-loader',
+            options: {
+              minimize: IS_PRODUCTION ? true : false
+            }
           },
           { loader: 'postcss-loader',
             options: { plugins: () => [require('autoprefixer')({ browsers: browsers })] }
           },
           { loader: 'less-loader' }
         ]
+      },
+
+      // Handle Critical files
+      { test: /critical\.less$/,
+        use: extractCritical.extract({
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                minimize: IS_PRODUCTION ? true : false
+              }
+            },
+            { loader: 'postcss-loader',
+              options: { plugins: () => [require('autoprefixer')({ browsers: browsers })] }
+            },
+            { loader: 'less-loader' }
+          ],
+          fallback: 'style-loader'
+        })
       }
     ]
   }
