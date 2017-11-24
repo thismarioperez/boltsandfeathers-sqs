@@ -7,8 +7,8 @@ const BabiliPlugin = require('babili-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const IS_PRODUCTION = process.env.NODE_ENV === 'production';
 const browsers = ['last 2 versions', 'ios >= 9'];
-const extractCritical = new ExtractTextPlugin({
-  filename: '../assets/styles/critical.css'
+const extractLess = new ExtractTextPlugin({
+  filename: '../assets/styles/[name].css'
 });
 
 module.exports = {
@@ -22,7 +22,7 @@ module.exports = {
       }
     }),
 
-    extractCritical,
+    extractLess,
 
     new BabiliPlugin({
       // mangle: IS_PRODUCTION ? { blacklist: ['_'] } : false // don't mangle lodash
@@ -83,25 +83,7 @@ module.exports = {
 
       // Handle Less files
       { test: /\.(css|less)$/,
-        exclude: /critical\.less$/,
-        use: [
-          { loader: 'style-loader' },
-          {
-            loader: 'css-loader',
-            options: {
-              minimize: IS_PRODUCTION ? true : false
-            }
-          },
-          { loader: 'postcss-loader',
-            options: { plugins: () => [require('autoprefixer')({ browsers: browsers })] }
-          },
-          { loader: 'less-loader' }
-        ]
-      },
-
-      // Handle Critical files
-      { test: /critical\.less$/,
-        use: extractCritical.extract({
+        use: extractLess.extract({
           use: [
             {
               loader: 'css-loader',
