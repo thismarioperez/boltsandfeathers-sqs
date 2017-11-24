@@ -11,6 +11,7 @@ import controller from '@squarespace/controller';
 
 // controller modules
 import AddScrollingClass from './controllers/AddScrollingClass';
+import AddNoScrollClass from './controllers/AddNoScrollClass';
 import Intro from './controllers/Intro';
 import LoadFonts from './controllers/LoadFonts';
 import Navigation from './controllers/Navigation';
@@ -30,6 +31,7 @@ const router = {
   initControllers() {
     LoadFonts.init();
     AddScrollingClass.init();
+    AddNoScrollClass.init();
     Intro.init();
     Navigation.init();
     NavSocialIcons.init();
