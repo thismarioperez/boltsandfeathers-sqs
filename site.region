@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="dns-prefetch" href="//static1.squarespace.com">
     <!-- critical stylesheet -->
-    <link rel="stylesheet" href="/assets/styles/critical.css?v={squarespace.template-revision}">
+    <link rel="stylesheet" href="/assets/styles/app.css?v={squarespace.template-revision}">
     {squarespace-headers}
   </head>
   <body id="{squarespace.page-id}" class="{squarespace.page-classes}" data-controller="test">

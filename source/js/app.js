@@ -1,5 +1,4 @@
 // stylesheet
-require( '../less/critical.less' );
 require( '../less/app.less' );
 
 // polyfills
