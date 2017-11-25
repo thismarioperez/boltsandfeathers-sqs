@@ -80,14 +80,3 @@
 .gradient(@type; @colors; @dir: 0deg;) {
   background-image: ~"@{type}-gradient(@{dir}, @{colors})";
 }
-
-// contains content to site max width values
-.contain-content {
-  width: 100%;
-  @media @small {
-    width: 83.3333%;
-  }
-  @media @large {
-    width: 66.6667%;
-  }
-}
