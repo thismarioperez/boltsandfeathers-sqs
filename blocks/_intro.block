@@ -3,5 +3,8 @@
     <div class="intro--logo">
       {@|apply _logo.block}
     </div>
+    <div class="intro--feather">
+      {@|apply _feather.block}
+    </div>
   </div>
 </div>
