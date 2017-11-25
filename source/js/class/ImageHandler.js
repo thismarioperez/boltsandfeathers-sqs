@@ -1,3 +1,4 @@
+import env from '../core/env';
 import * as util from '../core/util';
 import log from '../core/log';
 import debounce from 'lodash/debounce';
@@ -31,6 +32,10 @@ class ImageHandler {
    */
   preLoad () {
     this.images = Array.from(this.root.querySelectorAll('img[data-src]'));
+    this.images.forEach((img) => {
+      img.removeAttribute('src');
+      img.setAttribute('data-lazy-loaded', false);
+    });
   }
 
   /**
@@ -46,13 +51,11 @@ class ImageHandler {
     // normalize event object
     evt = evt || { type: '' };
 
-    if (evt.type === 'resize') {
-      // We need to resize all images, even those loaded by squarespace
-      this.loadQueue = this.images.filter((img) => img.matches('img[data-src]'));
-    } else {
-      // Allows us to target our own images to lazy load.
-      this.loadQueue = this.images.filter((img) => !img.matches('img[src]'));
-    }
+    // If logged in, don't worry about lazy loading.
+    // Otherwise, select images to lazy load on scroll, and only resize loaded images on window resize.
+    let query = (env.isAuth()) ? 'img[data-src]' : (evt.type === 'resize') ? 'img[data-lazy-loaded="true"]' : 'img[data-lazy-loaded="false"]';
+
+    this.loadQueue = this.images.filter((img) => img.matches( query ));
 
     // log the amount of images in the queue
     if (this.loadQueue.length > 0) {
@@ -83,7 +86,7 @@ class ImageHandler {
     }
 
     // not resizing, so only lazy load our own images.
-    util.loadImages(this.loadQueue, util.isElementVisible);
+    util.loadImages(this.loadQueue, util.isElementVisible, true);
   }
 
   /**
