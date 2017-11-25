@@ -6,6 +6,20 @@
   padding-right: @inset;
 }
 
+.-limitter {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media @small {
+    max-width: ~'calc(100% - @{insetTwo})';
+  }
+
+  @media only screen and (min-width: @maxContentWidth) {
+    max-width: ~'calc(@{maxContentWidth} - @{insetTwo})';
+  }
+}
+
 .-space {
   padding: @baseline;
   @media @small {
@@ -78,7 +92,6 @@
   display: block;
   width: 100%;
   margin: 0 auto;
-  .contain-content;
 }
 
 // Loaded Images. Style the scan in effect
