@@ -1,5 +1,5 @@
-<nav class="navigation js-navigation screen screen--light -wrapper -limitter -space-t" data-controller="AccountForHeader" data-controller-accountForHeader-target="top">
-  <div class="screen--inner -wrap-copy">
+<nav class="navigation js-navigation screen screen--light -space-t" data-controller="AccountForHeader" data-controller-accountForHeader-target="top">
+  <div class="screen--inner -wrapper -limitter">
     <squarespace:navigation navigationId="site-nav" template="_site-nav" />
     {.if websiteSettings.contactEmail || website.location}
       <div class="navigation--contact -space-t">
