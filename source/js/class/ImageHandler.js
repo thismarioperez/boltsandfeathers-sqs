@@ -1,4 +1,3 @@
-import env from '../core/env';
 import * as util from '../core/util';
 import log from '../core/log';
 import debounce from 'lodash/debounce';
@@ -10,6 +9,7 @@ import throttle from 'lodash/throttle';
  * @class ImageHandler
  * @param {el} element The element that has images to handle.
  * @classdesc Handles initial load, lazy loading, and resize loading of images.
+ *            Does not handle intial loading of images in sqs-block containers (but does resize them).
  *
  */
 class ImageHandler {
@@ -32,10 +32,6 @@ class ImageHandler {
    */
   preLoad () {
     this.images = Array.from(this.root.querySelectorAll('img[data-src]'));
-    this.images.forEach((img) => {
-      img.removeAttribute('src');
-      img.setAttribute('data-lazy-loaded', false);
-    });
   }
 
   /**
@@ -51,9 +47,8 @@ class ImageHandler {
     // normalize event object
     evt = evt || { type: '' };
 
-    // If logged in, don't worry about lazy loading.
     // Otherwise, select images to lazy load on scroll, and only resize loaded images on window resize.
-    let query = (env.isAuth()) ? 'img[data-src]' : (evt.type === 'resize') ? 'img[data-lazy-loaded="true"]' : 'img[data-lazy-loaded="false"]';
+    let query = (evt.type === 'resize') ? 'img[src]' : 'img.lazy-load';
 
     this.loadQueue = this.images.filter((img) => img.matches( query ));
 
