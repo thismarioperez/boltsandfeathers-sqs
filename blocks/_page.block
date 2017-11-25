@@ -4,7 +4,7 @@
   {.end}{.or}{.section collection.mainImage}
     {@|apply _banner.block}
   {.end}{.end}
-  <main class="-wrapper -space-t -space-b" role="main" data-content-field="main-content">
+  <main class="-wrapper -limitter -space-t -space-b" role="main" data-content-field="main-content">
     {squarespace.main-content}
   </main>
 </section>

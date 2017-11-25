@@ -7,7 +7,7 @@
     </div>
     <div class="cover--screen overlay"></div>
   </section>
-  <section class="banner--callout js-banner--callout -wrapper">
+  <section class="banner--callout js-banner--callout -wrapper -limitter">
     <div class="-wrap-copy -text--left">
       {.if item} {# item #}
         <h2 class="h1">{item.title}</h2>
