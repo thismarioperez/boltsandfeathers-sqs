@@ -87,8 +87,15 @@ img {
 
   &[data-lazy-loaded='false'] {
     opacity: 0;
+    top: 0 !important; // keeps img bounds inside containing element to prevent false negatives
+  }
 
   &[data-lazy-loaded='true'] {
+    opacity: 1;
+  }
+
+  // Keep all images visible when logged in.
+  .squarespace-damask &[src] {
     opacity: 1;
   }
 }
