@@ -51,36 +51,8 @@
   }
 }
 
-// First Page Load
-.is-page-loading--first-instance {
-  .intro {
-    &--logo {
-      display: block
-    }
-    &--feather {
-      display: none;
-    }
-  }
-
-  .page {
-    opacity: 0;
-  }
-}
-
-
 // Page Loading screen
 .is-page-loading {
-  
-  .intro {
-    &--logo {
-      display: none
-    }
-    &--feather {
-      display: block;
-      animation: ~'spin 1250ms infinite linear';      
-    }
-  }
-
   .page {
     opacity: 0;
   }
@@ -90,5 +62,17 @@
 .is-page-ready {
   .page {
     opacity: 1;
+  }
+}
+
+// Initial Page Load
+.is-first-page-load {
+  .intro {
+    &--logo {
+      display: block;
+    }
+    &--feather {
+      display: none;
+    }
   }
 }

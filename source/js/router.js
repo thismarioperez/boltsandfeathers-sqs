@@ -40,6 +40,19 @@ const router = {
     controller.register('Banner', Banner);
   },
 
+  pageController() {
+    core.emitter.on('app--intro-teardown', () => {
+      core.dom.html.classList.remove('is-page-loading--first-instance');
+    });
+    core.emitter.on('app--page-ready', () => {
+      core.dom.html.classList.add('is-page-ready');
+    });
+    core.emitter.on('app--page-loading', () => {
+      core.dom.html.classList.remove('is-page-ready');
+      core.dom.html.classList.add('is-page-loading');
+    });
+  },
+
   /**
    *
    * @private
@@ -49,6 +62,7 @@ const router = {
    */
   initPage() {
     this.initControllers();
+    this.pageController();
 
     // Emit events on document load
     document.addEventListener('DOMContentLoaded', () => {

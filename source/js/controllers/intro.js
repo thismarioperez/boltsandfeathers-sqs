@@ -29,12 +29,17 @@ const Intro = {
    * @method teardown
    * @memberof intro.teardown
    * @description removes active class from intro on a delay.
+   * @todo use promises instead of timeouts
    */
   teardown() {
     // remove active class
     setTimeout( () => {
       core.dom.intro.classList.remove( 'is-active' );
     }, 1000 );
+    // remove first instance class
+    setTimeout(() => {
+      core.dom.html.classList.remove('is-first-page-load');
+    }, 1500);
   },
 
   /**

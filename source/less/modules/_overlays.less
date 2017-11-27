@@ -56,6 +56,7 @@
 
 .intro {
   &--logo {
+    display: none;
     width: 50vw;
     min-width: @logoWidth;
     max-width: @logoWidthSm * 2;
@@ -65,11 +66,14 @@
     }
   }
   &--feather {
+    display: block;
     width: .3vw;
     min-width: 15px;
+
     svg {
       fill: @white;
     }
+    animation: spin 1250ms infinite;
   }
 }
 
