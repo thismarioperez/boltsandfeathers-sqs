@@ -7,8 +7,10 @@
     <link rel="dns-prefetch" href="//static1.squarespace.com">
     <!-- critical stylesheet -->
     <link rel="stylesheet" href="/assets/styles/app.css?v={squarespace.template-revision}">
-    <link rel="stylesheet" href="/assets/fonts/fonts.css?v={squarespace.template-revision}">
     {squarespace-headers}
+    <!-- fallback font source -->
+    <link rel="stylesheet" href="/assets/fonts/fonts.css?v={squarespace.template-revision}">
+
   </head>
   <body id="{squarespace.page-id}" class="{squarespace.page-classes}" data-controller="test">
 
