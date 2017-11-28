@@ -17,7 +17,7 @@ let scrollPos;
 const AddNoScrollClass = {
   addNoScroll() {
     // stash scroll position for later
-    scrollPos = html.scrollTop;
+    scrollPos = Math.max(window.pageYOffset, html.scrollTop, body.scrollTop);
     // add no scroll state
     html.classList.add(noScroll);
     body.style.top = core.util.px(-1 * scrollPos);
