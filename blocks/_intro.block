@@ -3,8 +3,8 @@
     <div class="intro--logo">
       {@|apply _logo.block}
     </div>
-    <div class="intro--feather">
-      {@|apply _feather.block}
+    <div class="intro--spinner">
+      {@|apply _spinner.block}
     </div>
   </div>
 </div>
