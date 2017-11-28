@@ -65,6 +65,7 @@ function PageLoader() {
     onClickExceptions: onClickExceptions,
     onRequestExceptions: onRequestExceptions,
     onLoad: () => {
+      core.log('pageLoader: Ajax page loaded');
       Lifecycle.init();
       refresh();
       core.emitter.emit('app--page-ready');
