@@ -1,4 +1,4 @@
-<section class="page" data-controller="AccountForHeader, ImageController">
+<section class="page js-page" data-controller="AccountForHeader, ImageController">
   {.section item}{.main-image?}
     {@|apply _banner.block}
   {.end}{.or}{.section collection.mainImage}
