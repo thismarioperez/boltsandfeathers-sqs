@@ -41,8 +41,21 @@ const router = {
     controller.register('Banner', Banner);
   },
 
+  /**
+   *
+   * @public
+   * @method topout
+   * @memberof router
+   * @description Method set scroll position to zero.
+   *
+   */
+  topout() {
+    window.scrollTo(0, 0);
+  },
+
   pageController() {
     core.emitter.on('app--page-ready', () => {
+      this.topout();
       let delay = core.dom.html.classList.contains('is-first-page-load') ?
         (core.config.pageTransition + core.config.baseTransition) : core.config.pageTransition;
       setTimeout(() => {
