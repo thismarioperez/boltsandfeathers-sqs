@@ -44,7 +44,7 @@ const updateMatrix = [
   { selector: 'body', updateAttrs: true },
   { selector: '.js-header--title', updateHTML: true },
   { selector: '.js-navigation', updateHTML: true },
-  { selector: '.js-page', updateHTML: true }
+  { selector: '.js-page', updateHTML: true, updateAttrs: true }
 ];
 
 /**
