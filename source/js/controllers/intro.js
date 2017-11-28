@@ -19,8 +19,8 @@ const Intro = {
    */
   init() {
     core.emitter.on('app--intro-teardown', this.teardown.bind(this));
-    window.addEventListener('mercury:load', this.teardown.bind(this));
-    window.addEventListener('mercury:unload', this.load.bind(this));
+    core.emitter.on('app--page-ready', this.teardown.bind(this));
+    core.emitter.on('app--page-loading', this.load.bind(this));
   },
 
   /**
@@ -35,11 +35,14 @@ const Intro = {
     // remove active class
     setTimeout( () => {
       core.dom.intro.classList.remove( 'is-active' );
-    }, 1000 );
-    // remove first instance class
-    setTimeout(() => {
-      core.dom.html.classList.remove('is-first-page-load');
-    }, 1500);
+    }, core.config.pageTransition );
+
+    // remove first instance class after page is visible
+    if (core.dom.html.classList.contains('is-first-page-load')) {
+      setTimeout(() => {
+        core.dom.html.classList.remove('is-first-page-load');
+      }, core.config.pageTransition + core.config.baseTransition);
+    }
   },
 
   /**
