@@ -43,7 +43,8 @@ const router = {
 
   pageController() {
     core.emitter.on('app--page-ready', () => {
-      let delay = core.dom.html.classList.contains('is-first-page-load') ? (core.config.pageTransition + core.config.baseTransition) : core.config.pageTransition;
+      let delay = core.dom.html.classList.contains('is-first-page-load') ?
+        (core.config.pageTransition + core.config.baseTransition) : core.config.pageTransition;
       setTimeout(() => {
         core.dom.html.classList.add('is-page-ready');
         core.dom.html.classList.remove('is-page-loading');
