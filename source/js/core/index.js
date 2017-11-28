@@ -5,6 +5,7 @@
  * @description Holds the different core modules.
  *
  */
+import config from './config';
 import dom from './dom';
 import env from './env';
 import log from './log';
@@ -14,6 +15,7 @@ import emitter from './emitter';
 import anim from './anim';
 
 export {
+  config,
   dom,
   env,
   log,
