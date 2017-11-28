@@ -50,7 +50,6 @@ function Banner(element) {
    * @memberof Banner
    */
   const init = () => {
-    core.log(callout);
     resizeHandler = new core.anim();
     setCalloutMargin();
     bindListeners();
