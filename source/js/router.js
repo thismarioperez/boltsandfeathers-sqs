@@ -19,6 +19,7 @@ import NavSocialIcons from './controllers/NavSocialIcons';
 import AccountForHeader from './controllers/AccountForHeader';
 import ImageController from './controllers/ImageController';
 import Banner from './controllers/Banner';
+import pageLoader from './pageLoader';
 
 const router = {
   /**
@@ -41,15 +42,17 @@ const router = {
   },
 
   pageController() {
-    core.emitter.on('app--intro-teardown', () => {
-      core.dom.html.classList.remove('is-page-loading--first-instance');
-    });
     core.emitter.on('app--page-ready', () => {
-      core.dom.html.classList.add('is-page-ready');
+      let delay = core.dom.html.classList.contains('is-first-page-load') ? (core.config.pageTransition + core.config.baseTransition) : core.config.pageTransition;
+      core.log(delay);
+      setTimeout(() => {
+        core.dom.html.classList.add('is-page-ready');
+        core.dom.html.classList.remove('is-page-loading');
+      }, delay);
     });
     core.emitter.on('app--page-loading', () => {
-      core.dom.html.classList.remove('is-page-ready');
       core.dom.html.classList.add('is-page-loading');
+      core.dom.html.classList.remove('is-page-ready');
     });
   },
 
@@ -63,21 +66,12 @@ const router = {
   initPage() {
     this.initControllers();
     this.pageController();
+    pageLoader();
 
     // Emit events on document load
     document.addEventListener('DOMContentLoaded', () => {
+      core.emitter.emit('app--page-ready');
       core.emitter.emit('app--intro-teardown');
-      core.emitter.emit('app--page-ready');
-    });
-
-    // handle ajax page load events
-    window.addEventListener('mercury:unload', () => {
-      core.emitter.emit('app--navigation-close');
-      core.emitter.emit('app--page-loading');
-    });
-
-    window.addEventListener('mercury:load', () => {
-      core.emitter.emit('app--page-ready');
     });
   },
 
