@@ -59,7 +59,7 @@ function PageLoader() {
     return false;
   }
 
-  const mercury = new Mercury({
+  const mercury = new Mercury({ // eslint-disable-line no-unused-vars
     enableCache: true,
     updateMatrix: updateMatrix,
     onClickExceptions: onClickExceptions,
