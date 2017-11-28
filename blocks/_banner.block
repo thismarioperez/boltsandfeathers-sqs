@@ -4,7 +4,7 @@
   {.var @callout collection.description}
 {.end}
 
-<header class="banner" data-controller="Banner">
+<header class="banner">
   <section class="cover cover--banner wrapper -text--center" data-controller="AccountForHeader" data-content-field="main-image"{.if item} data-item-id="{item.id}"{.or} data-collection-id="{collection.id}"{.end} data-edit-main-image="Banner" data-annotation-alignment="top left">
     <div class="cover--bg content-fill">
         <img class="lazy-load" data-load="viewport" {@|image-meta}/>
@@ -12,7 +12,7 @@
     <div class="cover--screen overlay"></div>
   </section>
   {.if @callout}
-  <section class="banner--callout js-banner--callout -wrapper -limitter">
+  <section class="banner--callout js-banner--callout -wrapper -limitter" data-controller="BannerCallout">
     <div class="-wrap-copy -text--left">
     {.if item} {# item #}
       <h2 class="h1">{@callout}</h2>
