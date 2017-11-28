@@ -1,4 +1,5 @@
 import * as core from '../core';
+import debounce from 'lodash/debounce';
 
 /**
  *
@@ -10,9 +11,6 @@ import * as core from '../core';
  * @returns {object} sync, destroy
  */
 function Banner(element) {
-  // handler variables
-  let resizeHandler = null;
-
   // the callout element
   const callout = element.querySelector('.js-banner--callout');
 
@@ -26,13 +24,15 @@ function Banner(element) {
     callout.style.marginTop = margin;
   };
 
+  const handleResize = debounce(setCalloutMargin, 200);
+
   /**
    * @description binds event listeners
    * @method bindListeners
    * @memberof Banner
    */
   const bindListeners = () => {
-    window.addEventListener('resize', resizeHandler.go(setCalloutMargin));
+    window.addEventListener('resize', handleResize);
   };
 
   /**
@@ -41,7 +41,7 @@ function Banner(element) {
    * @memberof Banner
    */
   const unbindListeners = () => {
-    window.addEventListener('resize', resizeHandler.stop(setCalloutMargin));
+    window.addEventListener('resize', handleResize);
   };
 
   /**
@@ -50,7 +50,6 @@ function Banner(element) {
    * @memberof Banner
    */
   const init = () => {
-    resizeHandler = new core.anim();
     setCalloutMargin();
     bindListeners();
   };
@@ -61,9 +60,7 @@ function Banner(element) {
    * @memberof Banner
    */
   const sync = () => {
-    resizeHandler.pause();
     setCalloutMargin();
-    resizeHandler.play();
   };
 
   /**
@@ -73,7 +70,6 @@ function Banner(element) {
    */
   const destroy = () => {
     unbindListeners();
-    resizeHandler = null;
   };
 
   // kick it off
