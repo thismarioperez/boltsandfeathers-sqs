@@ -6,6 +6,7 @@
   z-index: @zLayer02;
   background: fade(@white, 100%);
   height: @headerHeight;
+  transition: ~'transform @{baseDuration} @{ease}';  
 
   @media @small {
     height: @headerHeightSm;
@@ -31,6 +32,7 @@
                 ~'transform @{baseDuration} @{ease},'
                 ~'visibility @{baseDuration} @{ease}';
     visibility: visible;
+    transition-delay: @baseDuration;
 
     @media @small {
       margin-right: 10vw;
