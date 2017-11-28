@@ -9,7 +9,7 @@
     </h1>
     {.end}
     {#  page title  }
-    <div class="header--title page-title">
+    <div class="header--title js-header--title page-title">
       <span>
         <span>{collection.title}</span>
       </span>
