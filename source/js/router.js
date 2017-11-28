@@ -18,7 +18,7 @@ import Navigation from './controllers/Navigation';
 import NavSocialIcons from './controllers/NavSocialIcons';
 import AccountForHeader from './controllers/AccountForHeader';
 import ImageController from './controllers/ImageController';
-import Banner from './controllers/Banner';
+import BannerCallout from './controllers/BannerCallout';
 import pageLoader from './pageLoader';
 
 const router = {
@@ -38,7 +38,7 @@ const router = {
     NavSocialIcons.init();
     controller.register('AccountForHeader', AccountForHeader);
     controller.register('ImageController', ImageController);
-    controller.register('Banner', Banner);
+    controller.register('BannerCallout', BannerCallout);
   },
 
   /**

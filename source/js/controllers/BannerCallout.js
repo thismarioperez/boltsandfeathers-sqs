@@ -14,12 +14,8 @@ import AnimateEls from '../class/AnimateEls';
 function Banner(element) {
   let handleAnimations = null;
   // the callout element
-  const callout = Array.from(element.querySelectorAll('.js-banner--callout'));
-
-  // stop here if no callout exists
-  if (callout.length <= 0) {
-    return false;
-  }
+  const callout = [];
+  callout.push(element);
 
   /**
    * @description sets a negative margin of the callout element to half it's height
