@@ -12,7 +12,6 @@ import log from './log';
 import detect from './detect';
 import * as util from './util';
 import emitter from './emitter';
-import anim from './anim';
 
 export {
   config,
@@ -21,6 +20,5 @@ export {
   log,
   detect,
   util,
-  emitter,
-  anim
+  emitter
 };
