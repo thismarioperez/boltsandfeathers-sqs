@@ -40,6 +40,7 @@
     opacity: 0;
     transform: ~'translate3d(0, @{baselineTwo}, 0)';
     visibility: hidden;
+    transition-delay: 0ms;
   }
 }
 
@@ -53,8 +54,21 @@
 
 // Page Loading screen
 .is-page-loading {
-  .page {
+  .page,
+  .navigation {
     opacity: 0;
+    transition: ~'opacity 0ms @{ease}'; // fixes glitch where you see content before page is ready
+  }
+  .header {
+    transform: translate3d(0, -100%, 0);
+    // Page Title In Header
+    &--title {
+      opacity: 0;
+      transform: ~'translate3d(0, @{baselineTwo}, 0)';
+      visibility: hidden;
+      transition-duration: 0ms;
+      transition-delay: 0ms;
+    }
   }
 }
 
@@ -62,6 +76,10 @@
 .is-page-ready {
   .page {
     opacity: 1;
+    transition: ~'opacity @{baseDuration} @{ease}';
+  }
+  .header {
+    transform: translate3d(0, 0, 0);
   }
 }
 
