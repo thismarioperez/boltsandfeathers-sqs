@@ -8,11 +8,17 @@
     <!-- critical stylesheet -->
     <link rel="stylesheet" href="/assets/styles/app.css?v={squarespace.template-revision}">
     {squarespace-headers}
-    <!-- fallback font source -->
-    <link rel="stylesheet" href="/assets/fonts/fonts.css?v={squarespace.template-revision}">
+    <!-- fallback font source for ie9 > -->
+    <!--[if IE]>
+      <link rel="stylesheet" href="/assets/fonts/fonts.css?v={squarespace.template-revision}">
+    <![endif]-->
 
   </head>
   <body id="{squarespace.page-id}" class="{squarespace.page-classes}" data-controller="test">
+    <!-- async load fallback font source -->
+    <!--[if !IE]> -->
+      <link rel="stylesheet" href="/assets/fonts/fonts.css?v={squarespace.template-revision}">
+    <!-- <![endif]-->
 
     {@|apply app.block}
 
