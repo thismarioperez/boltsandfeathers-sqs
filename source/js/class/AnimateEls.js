@@ -7,14 +7,6 @@ class AnimateEls extends AnimationHandler {
 
     this.elements = elements;
 
-    this.init();
-  }
-
-  init() {
-    this.elements.forEach((el, i) => {
-      this.elements[i].classList.add('js-animate');
-    });
-
     this.start();
   }
 
@@ -27,14 +19,19 @@ class AnimateEls extends AnimationHandler {
    *
    */
   start() {
+    // First add animation class name
+    this.elements.forEach((el) => {
+      el.classList.add('js-animate');
+    });
     // Call on parent cycle
     this.go(() => {
-      this.elements.forEach((el, i) => {
+      // toggle active class name
+      this.elements.forEach((el) => {
         if (core.util.isElementVisible(el)) {
-          this.elements[i].classList.add('is-active');
+          el.classList.add('is-active');
 
         } else {
-          this.elements[i].classList.remove('is-active');
+          el.classList.remove('is-active');
         }
       });
     });
