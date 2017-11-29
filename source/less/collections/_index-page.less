@@ -1,0 +1,15 @@
+/******************************************************************************
+ * Collections/Index-Page
+*******************************************************************************/
+
+.index {
+  // Every other index section
+  &--section:nth-child(even) &--banner {
+    > .cover--banner {
+      margin-left: calc(-1 * @inset);
+      @media small {
+        margin-left: calc(-1 * @insetTwo);
+      }
+    }
+  }
+}
