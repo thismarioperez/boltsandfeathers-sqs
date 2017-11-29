@@ -9,7 +9,7 @@
   {.var @callout collection.description}
 {.end}{.end}
 
-<header class="banner">
+<header class="banner {collection.typeName}--banner">
   <section class="cover cover--banner wrapper -text--center" data-controller="AccountForHeader">
     <div class="cover--bg content-fill">
         <img class="lazy-load" data-load="viewport" {@|image-meta}/>
