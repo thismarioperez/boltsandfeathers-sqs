@@ -1,6 +1,5 @@
 import * as core from '../core';
 import debounce from 'lodash/debounce';
-import AnimateEls from '../class/AnimateEls';
 
 /**
  *
@@ -12,10 +11,8 @@ import AnimateEls from '../class/AnimateEls';
  * @returns {object} sync, destroy
  */
 function Banner(element) {
-  let handleAnimations = null;
   // the callout element
-  const callout = [];
-  callout.push(element);
+  const callout = element;
 
   /**
    * @description sets a negative margin of the callout element to half it's height
@@ -23,8 +20,8 @@ function Banner(element) {
    * @memberof Banner
    */
   const setCalloutMargin = () => {
-    let margin = core.util.px( callout[0].offsetHeight / 2 * -1);
-    callout[0].style.marginTop = margin;
+    let margin = core.util.px( callout.offsetHeight / 2 * -1);
+    callout.style.marginTop = margin;
   };
 
   const handleResize = debounce(setCalloutMargin, 200);
@@ -55,7 +52,6 @@ function Banner(element) {
   const init = () => {
     setCalloutMargin();
     bindListeners();
-    handleAnimations = new AnimateEls(callout);
   };
 
   /**
@@ -65,8 +61,6 @@ function Banner(element) {
    */
   const sync = () => {
     setCalloutMargin();
-    handleAnimations.destroy();
-    handleAnimations = new AnimateEls(callout);
   };
 
   /**
@@ -75,8 +69,6 @@ function Banner(element) {
    * @memberof Banner
    */
   const destroy = () => {
-    handleAnimations.destroy();
-    handleAnimations = null;
     unbindListeners();
   };
 

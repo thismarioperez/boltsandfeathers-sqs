@@ -1,17 +1,17 @@
 import * as core from '../core';
 import AnimateEls from '../class/AnimateEls';
 
-const SQS_SELECTOR = '.sqs-block:not(.html-block)';
+const SELECTORS = '.sqs-block:not(.html-block), .js-banner--callout';
 
 /**
  *
  * @public
- * @namespace AnimateSqsBlocks
+ * @namespace Animate
  * @description Adds a scrolling class to sqs block elements
  * @memberof controller
  *
  */
-function AnimateSqsBlocks(element) {
+function Animate(element) {
   // if logged in, disable this
   if (core.env.isAuth()) {
     return false;
@@ -21,7 +21,7 @@ function AnimateSqsBlocks(element) {
     animatedEls = null;
 
   const getElsToAnimate = () => {
-    return Array.from(element.querySelectorAll(SQS_SELECTOR));
+    return Array.from(element.querySelectorAll(SELECTORS));
   };
 
   const init = () => {
@@ -50,4 +50,4 @@ function AnimateSqsBlocks(element) {
   };
 }
 
-export default AnimateSqsBlocks;
+export default Animate;
