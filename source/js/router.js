@@ -19,7 +19,7 @@ import NavSocialIcons from './controllers/NavSocialIcons';
 import AccountForHeader from './controllers/AccountForHeader';
 import ImageController from './controllers/ImageController';
 import BannerCallout from './controllers/BannerCallout';
-import Animate from './controllers/Animate';
+import AnimateController from './controllers/AnimateController';
 import pageLoader from './pageLoader';
 
 const router = {
@@ -40,7 +40,7 @@ const router = {
     controller.register('AccountForHeader', AccountForHeader);
     controller.register('ImageController', ImageController);
     controller.register('BannerCallout', BannerCallout);
-    controller.register('Animate', Animate);
+    controller.register('AnimateController', AnimateController);
   },
 
   /**

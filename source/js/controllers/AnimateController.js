@@ -6,12 +6,12 @@ const SELECTORS = '.sqs-block, .js-banner--callout';
 /**
  *
  * @public
- * @namespace Animate
+ * @namespace AnimateController
  * @description Adds a scrolling class to sqs block elements
  * @memberof controller
  *
  */
-function Animate(element) {
+function AnimateController(element) {
   // if logged in, disable this
   if (core.env.isAuth()) {
     return false;
@@ -50,4 +50,4 @@ function Animate(element) {
   };
 }
 
-export default Animate;
+export default AnimateController;
