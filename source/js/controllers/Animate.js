@@ -1,7 +1,7 @@
 import * as core from '../core';
 import AnimateEls from '../class/AnimateEls';
 
-const SELECTORS = '.sqs-block:not(.html-block), .js-banner--callout';
+const SELECTORS = '.sqs-block, .js-banner--callout';
 
 /**
  *
