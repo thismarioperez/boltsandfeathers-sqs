@@ -1,5 +1,5 @@
 <section class="page js-page" data-controller="{.section item}{.main-image?}{.or}AccountForHeader, {.end}{.or}{.section collection.mainImage}{.or}AccountForHeader, {.end}{.end}
-ImageController">
+ImageController, AnimateSqsBlocks">
   {.section item}{.main-image?}
     {@|apply _banner.block}
   {.end}{.or}{.section collection.mainImage}
