@@ -1,10 +1,10 @@
 {.var @pageBanner collection.mainImage}
 
-<article class="cms" {.if @pageBanner}{.or}data-controller="AccountForHeader"{.end}>
+<article{.if @pageBanner}{.or} data-controller="AccountForHeader"{.end}>
   {.if @pageBanner}
     {@pageBanner|apply _banner.block}
   {.end}{.end}
-  <section class="-wrapper -limitter -space-t -space-b">
+  <section class="cms cms--{collection.id} -wrapper -limitter -space-t -space-b" data-collection-id="{collection.id}">
     {squarespace.main-content}
   </section>
 </article>
