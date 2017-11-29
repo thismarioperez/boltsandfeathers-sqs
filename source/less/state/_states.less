@@ -94,3 +94,21 @@
     }
   }
 }
+
+// Animated Elements
+.js-animate {
+  &,
+  &.sqs-block {
+    position: relative;
+    display: block;
+    opacity: 0;
+    transform: ~'translate3d(0, 40px, 0)';
+    transition: ~'opacity @{baseDuration} @{baseDuration} @{ease},'
+                ~'transform @{baseDuration} @{baseDuration} @{ease}';
+  }
+
+  .is-page-ready &.is-active {
+    opacity: 1;
+    transform: ~'translate3d(0,0,0)';
+  }
+}
