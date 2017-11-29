@@ -5,7 +5,7 @@
 {.end}
 
 <header class="banner">
-  <section class="cover cover--banner wrapper -text--center" data-controller="AccountForHeader" data-content-field="main-image"{.if item} data-item-id="{item.id}"{.or} data-collection-id="{collection.id}"{.end} data-edit-main-image="Banner" data-annotation-alignment="top left">
+  <section class="cover cover--banner wrapper -text--center" data-controller="AccountForHeader">
     <div class="cover--bg content-fill">
         <img class="lazy-load" data-load="viewport" {@|image-meta}/>
     </div>

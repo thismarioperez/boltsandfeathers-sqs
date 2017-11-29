@@ -1,11 +1,10 @@
-<section class="page js-page" data-controller="{.section item}{.main-image?}{.or}AccountForHeader, {.end}{.or}{.section collection.mainImage}{.or}AccountForHeader, {.end}{.end}
-ImageController, Animate">
-  {.section item}{.main-image?}
-    {@|apply _banner.block}
-  {.end}{.or}{.section collection.mainImage}
-    {@|apply _banner.block}
+{.var @pageBanner collection.mainImage}
+
+<article class="cms" {.if @pageBanner}{.or}data-controller="AccountForHeader"{.end}>
+  {.if @pageBanner}
+    {@pageBanner|apply _banner.block}
   {.end}{.end}
-  <main class="-wrapper -limitter -space-t -space-b" role="main" data-content-field="main-content">
+  <section class="-wrapper -limitter -space-t -space-b">
     {squarespace.main-content}
-  </main>
-</section>
+  </section>
+</article>

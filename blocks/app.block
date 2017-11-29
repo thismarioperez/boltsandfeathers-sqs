@@ -2,7 +2,12 @@
   {@|apply _intro.block}
   {@|apply _header.block}
   {@|apply _navigation.block}
-  {@|apply _modal.block}
-  {@|apply _page.block}
+  <main class="page js-page" role="main" data-content-field="main-content" data-controller="ImageController, AnimateController">
+    {.equal? collection.typeName "page"}
+      {@|apply _page.block}
+    {.or}
+      {squarespace.main-content}
+    {.end}
+  </main>
   {@|apply _footer.block}
 </div>
