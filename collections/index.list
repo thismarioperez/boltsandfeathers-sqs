@@ -1,11 +1,11 @@
-<article class="index-page--{collection.id} cms" data-collection-id="{collection.id}">
+<article class="index index--{collection.id} cms" data-collection-id="{collection.id}">
   {.section collection}
     {.repeated section collections}
-      <article{.section mainImage}{.or} data-controller="AccountForHeader"{.end}>
+      <article class="index--section index--section--{id}" {.section mainImage}{.or} data-controller="AccountForHeader"{.end}>
       {.section mainImage}
         {@|apply _banner.block}
       {.end}
-        <section class="index-section index-section--{id} -wrapper -limitter -space-t -space-b" data-collection-id="{id}">
+        <section class="index--content -wrapper -limitter -space-t -space-b" data-collection-id="{id}">
           {mainContent}
         </section>
       </article>
