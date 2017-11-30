@@ -80,3 +80,37 @@
 .gradient(@type; @colors; @dir: 0deg;) {
   background-image: ~"@{type}-gradient(@{dir}, @{colors})";
 }
+
+
+// Link Mixin
+.gradient-link {
+  position: relative;
+  text-decoration: none;
+  display: inline-block;
+  color: @black;
+  padding: 0 1px;
+  transition: color ease-in-out 0.3s;
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    min-height: 5px;
+    left: 0;
+    bottom: 0;
+    transition: all ease-in-out 0.18s;
+    .gradient(linear;~'@{green}, @{blue}';90deg);
+  }
+}
+
+.gradient-link-hover {
+  &:after {
+    min-height: 100%;
+  }
+}
+
+.gradient-link-touch {
+  &:after {
+    min-height: 40%;    
+  }
+}
