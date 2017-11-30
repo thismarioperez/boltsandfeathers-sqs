@@ -1,6 +1,6 @@
 import { ImageLoader } from '@squarespace/core';
 // import debounce from 'lodash/debounce';
-import { getImageRatio } from '../utils/getImageRatio';
+import * as core from '../core';
 
 const MODULE_CLASSES = {
   wrapperSelector: 'top-align-wrapper',
@@ -68,7 +68,7 @@ class TopAlign {
     } else if (this.config.imageCropping === 'vertical') {
       return 133;
     }
-    return getImageRatio(img);
+    return core.util.getImageRatio(img);
   }
 
   /**

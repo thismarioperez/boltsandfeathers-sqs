@@ -44,6 +44,17 @@ class Ajax {
   }
 
   /*
+  * Removes the correct event listener
+  */
+  unbindEventListener () {
+    if (this.isInfiniteScroll) {
+      window.removeEventListener('scroll', this.boundDebouncedInfiniteScrollHandler)
+    } else if (this.loadMoreBtn) {
+      this.loadMoreBtn.removeEventListener('click', this.boundLoadNextPage);
+    }
+  }
+
+  /*
   * XHR request for the next page. Returns a promise.
   */
   requestNextPage (url) {

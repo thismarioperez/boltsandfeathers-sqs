@@ -20,6 +20,7 @@ import AccountForHeader from './controllers/AccountForHeader';
 import ImageController from './controllers/ImageController';
 import BannerCallout from './controllers/BannerCallout';
 import AnimateController from './controllers/AnimateController';
+import BlogLayout from './controllers/BlogLayout';
 import TypeAnim from './controllers/TypeAnim';
 import pageLoader from './pageLoader';
 
@@ -43,6 +44,7 @@ const router = {
     controller.register('BannerCallout', BannerCallout);
     controller.register('AnimateController', AnimateController);
     controller.register('TypeAnim', TypeAnim);
+    controller.register('BlogLayout', BlogLayout);
   },
 
   /**

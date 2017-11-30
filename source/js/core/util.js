@@ -110,6 +110,22 @@ const loadImages = ( images, handler, loadMode) => {
   });
 };
 
+/**
+ * Returns an img's dimensions as a % of height/width from it's data-image-dimenstions attribute
+ *
+ * @param {HTMLElement}  img   Required
+ */
+const getImageRatio = (img) => {
+  // this conditional is a hack to get around the fact that system placeholder
+  // images get their data-image-dimensions attr set late
+  if (img.getAttribute('data-image-dimensions') !== '') {
+    const [ x, y ] = img.getAttribute('data-image-dimensions').split('x').map(dim => parseFloat(dim, 10));
+    return 100 * y / x;
+  }
+
+  return 100;
+};
+
 /*******************************************************************************
  * Export
  ******************************************************************************/
@@ -118,5 +134,6 @@ export {
   isElementLoadable,
   isElementVisible,
   getElementsInView,
-  loadImages
+  loadImages,
+  getImageRatio
 };

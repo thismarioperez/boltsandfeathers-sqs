@@ -23,12 +23,12 @@
 </div>
 {.end}
 
-<div class="blog-list blog-wrapper" id="BlogList" data-controller="BlogLayout">{.repeated section items}<article class="entry entry--list h-entry grid-hidden {@|item-classes}" id="article-{id}" label="Blog Post" data-item-id="{id}" data-offset="{addedOn}"{.if pagination.nextPage}{.or} data-last-page{.end}>
+<div class="blog-list blog-wrapper -space-t -space-b" id="BlogList" data-controller="BlogLayout">{.repeated section items}<article class="entry entry--list h-entry grid-hidden {@|item-classes}" id="article-{id}" label="Blog Post" data-item-id="{id}" data-offset="{addedOn}"{.if pagination.nextPage}{.or} data-last-page{.end}>
   <div class="thumbnail-title-wrapper">
     {.main-image?}
     <div class="excerpt-thumb">
       <a href="{fullUrl}" class="excerpt-image content-fill">
-        <img {@|image-meta} data-load="false" />
+        <img {@|image-meta} data-load="viewport" />
         <div class="thumb-overlay"></div>
       </a>
     </div>
@@ -86,7 +86,7 @@
 
 </div>
 {.if pagination}
-{.if pagination.nextPage}<div class="load-more-wrapper"><a class="load-more" href="{pagination.nextPageUrl}">Load More</a></div>{.end}
+{.if pagination.nextPage}<div class="load-more-wrapper"><a class="load-more" href="{pagination.nextPageUrl}" data-no-ajax>Load More</a></div>{.end}
 {.end}
 <div class="breaker"></div>
 </section>
