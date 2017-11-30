@@ -8,12 +8,14 @@
 @metaPadding: @baseline * 2;
 
 // Thumbnail
-@tweak-thumb-overlay-background-color: @blue;
+.tweak-thumb-overlay-background-color {
+  .gradient(linear; @green, @blue; 45deg);
+}
 @tweak-thumb-overlay-opacity: .8;
 
 // Read More Link
 @tweak-read-more-font-letter-spacing: 0px;
-@tweak-read-more-font-color: @blue;
+@tweak-read-more-font-color: @black;
 @tweak-read-more-background-color: @white;
 @tweak-read-more-font-font-size: 14px;
 .tweak-read-more-font {
@@ -26,7 +28,7 @@
 }
 
 // Titles
-@tweak-entry-title-font-color: @blue;
+@tweak-entry-title-font-color: @black;
 @tweak-entry-title-font-font-size: 16px;
 @tweak-entry-title-font-font-size-min: 14px;
 @tweak-entry-title-font-font-size-no-main-image: 28px;
@@ -86,7 +88,9 @@
 
 // Load More
 @tweak-load-more-color: @white;
-@tweak-load-more-background-color: @blue;
+.tweak-load-more-background-color {
+  .gradient(linear; @green, @blue; 90deg);  
+}
 @tweak-load-more-font-font-size: 16px;
 @tweak-load-more-font-font-size-min: 14px;
 @tweak-load-more-font-letter-spacing: 0px;
@@ -437,7 +441,7 @@
   &:before {
     content: "";
     display: block;
-    background-color: @tweak-thumb-overlay-background-color;
+    .tweak-thumb-overlay-background-color;
     opacity: @tweak-thumb-overlay-opacity;
     height: 100%;
     width: 100%;
@@ -586,19 +590,10 @@ article.entry--list {
 
 // Load More
 .load-more-wrapper {
-  background-color: @tweak-load-more-background-color;
+  .tweak-load-more-background-color;
   text-align: center;
   padding-top: @baseline;
   padding-bottom: @baseline;
-  margin-left: -1 * @baseline;
-  margin-right: -1 * @baseline;
-  margin-bottom: -1 * @headerHeight;
-
-  @media @medium {
-    margin-left: -1 * @baselineTwo;
-    margin-right: -1 * @baselineTwo;
-    margin-bottom: -1 * @headerHeightSm;
-  }
 
   // Hide if on last page
   .last-page~& {
