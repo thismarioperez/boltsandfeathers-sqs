@@ -31,8 +31,9 @@ function TypeAnim(element) {
     setupLink();
     typed = new Typed('.typed-active', {
       strings: strings,
-      typeSpeed: 70,
+      typeSpeed: 75,
       backSpeed: 40,
+      backDelay: 1000,
       startDelay: core.config.pageTransition,
       loop: true
     });
