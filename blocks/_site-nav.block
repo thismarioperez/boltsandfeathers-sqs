@@ -1,8 +1,13 @@
 <ul class="site-nav" data-content-field="navigation-site-nav">
-  {.repeated section items}
+  {.section items}{.repeated section @}
     <li class="site-nav--item">
-      {.folder?}
-        <a class="h1" href="{collection.fullUrl}">{collection.navigationTitle}</a>
+      {.collection?}{.index?}
+        {#  index page  }
+        <a class="h1 site-nav--index-link{.if active} is-active{.end}" href="{collection.fullUrl}">{collection.navigationTitle}</a>
+
+      {.or}{.folder?}
+        {#  folder  }
+        <a class="h1 site-nav--folder-link" href="{collection.fullUrl}">{collection.navigationTitle}</a>
 
         <ul class="site-nav--folder">
           {.repeated section items}
@@ -21,19 +26,16 @@
           {.end}
         </ul>
 
-      {.or}
+      {.or}{.section collection}
+        {#  collection  }
+        <a class="h1 site-nav--collection-link{.if active} is-active{.end}" href="{fullUrl}">{navigationTitle}</a>
 
-        {.section collection}
-          <a class="h1{.if active} is-active{.end}" href="{fullUrl}">{navigationTitle}</a>
-        {.end}
-
-        {.section externalLink}
-          <a class="h1" href="{url}"{.section newWindow} target="_blank"{.end}>
-            {title}
-          </a>
-        {.end}
-
-      {.end}
+      {.end}{# .section collection}{.end}{# folder?}{.end}{# index?}{.or}{.section externalLink}
+        {#  external link  }
+        <a class="h1 site-nav--external-link" href="{url}"{.section newWindow} target="_blank"{.end}>
+          {title}
+        </a>
+      {.end}{# .section externalLink}{.end}{# collection?}
     </li>
-  {.end}
+  {.end}{.end}
 </ul>
