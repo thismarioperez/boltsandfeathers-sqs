@@ -1,3 +1,4 @@
+<section class="blog -wrapper -limitter" data-controller="AccountForHeader">
 {# Show active filters }
 {.section categoryFilter}
 <p class="filter-heading filter-by-category loading" data-controller="FadeInContent">
@@ -22,7 +23,7 @@
 </div>
 {.end}
 
-<div class="blog-list blog-wrapper" id="BlogList" data-controller="BlogLayout">{.repeated section items}<article class="entry entry--list h-entry grid-hidden {.main-image?} has-main-image {.end}{@|item-classes}" id="article-{id}" label="Blog Post" data-item-id="{id}" data-offset="{addedOn}"{.if pagination.nextPage}{.or} data-last-page{.end}>
+<div class="blog-list blog-wrapper" id="BlogList" data-controller="BlogLayout">{.repeated section items}<article class="entry entry--list h-entry grid-hidden {@|item-classes}" id="article-{id}" label="Blog Post" data-item-id="{id}" data-offset="{addedOn}"{.if pagination.nextPage}{.or} data-last-page{.end}>
   <div class="thumbnail-title-wrapper">
     {.main-image?}
     <div class="excerpt-thumb">
@@ -88,3 +89,4 @@
 {.if pagination.nextPage}<div class="load-more-wrapper"><a class="load-more" href="{pagination.nextPageUrl}">Load More</a></div>{.end}
 {.end}
 <div class="breaker"></div>
+</section>
