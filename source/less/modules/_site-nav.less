@@ -22,7 +22,7 @@
                     ~'left @{baseDurationTwo} @{ease},'
                     ~'width @{baseDurationTwo} @{ease}';
         width: calc(@inset + 100%);
-        .gradient(linear; ~'@{green} ,@{blue}'; 90deg);
+        .gradient(linear; @green 0%, mix(@green, @blue) 50%, @blue 100%; 90deg);
         height: .4vw;
         min-height: 7px;
         z-index: @zLayerBehind;

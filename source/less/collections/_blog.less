@@ -9,7 +9,7 @@
 
 // Thumbnail
 .tweak-thumb-overlay-background-color {
-  .gradient(linear; @green, @blue; 45deg);
+  .gradient(linear; @green 0%, mix(@green, @blue) 50%, @blue 100%; 90deg);  
 }
 @tweak-thumb-overlay-opacity: .8;
 
@@ -89,7 +89,7 @@
 // Load More
 @tweak-load-more-color: @white;
 .tweak-load-more-background-color {
-  .gradient(linear; @green, @blue; 90deg);
+  .gradient(linear; @green 0%, mix(@green, @blue) 50%, @blue 100%; 90deg);  
 }
 @tweak-load-more-font-font-size: 16px;
 @tweak-load-more-font-font-size-min: 14px;

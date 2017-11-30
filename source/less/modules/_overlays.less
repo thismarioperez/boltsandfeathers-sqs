@@ -2,9 +2,9 @@
  * Overlays
 *******************************************************************************/
 .overlay {
-  .gradient(linear; @green, mix(@green, @blue), @blue; 45deg);
+  .gradient(linear; @green 0%, mix(@green, @blue) 50%, @blue 100%; 90deg);
   z-index: @zLayer01;
-  opacity: .5;
+  opacity: .7;
 }
 
 .screen {
@@ -25,7 +25,7 @@
   z-index: @zLayerBehind;
 
   &--gradient {
-    .gradient(linear; ~'@{green}, @{blue}'; 45deg);
+    .gradient(linear; @green 0%, mix(@green, @blue) 50%, @blue 100%; 90deg);
   }
 
   &--light {

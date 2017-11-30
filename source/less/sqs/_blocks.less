@@ -37,7 +37,7 @@
   &.sqs-block-quote {
     .sqs-block-content {
       padding: @baseline;
-      .gradient(linear; ~"@{green}, @{blue}"; 45deg);
+      .gradient(linear; @green 0%, mix(@green, @blue) 50%, @blue 100%; 90deg);
     }
     .source {
       margin: 0 @baseline 0 0;
@@ -63,9 +63,8 @@
           left: 0;
           bottom: 0;
           width: 5px;
-          .gradient(linear;
-          ~"@{blue}, @{green}";
-          0deg);
+          .gradient(linear; @green 0%, mix(@green, @blue) 50%, @blue 100%; 90deg);
+          
         }
       }
       // Ordered Lists
