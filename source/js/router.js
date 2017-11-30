@@ -20,6 +20,7 @@ import AccountForHeader from './controllers/AccountForHeader';
 import ImageController from './controllers/ImageController';
 import BannerCallout from './controllers/BannerCallout';
 import AnimateController from './controllers/AnimateController';
+import TypeAnim from './controllers/TypeAnim';
 import pageLoader from './pageLoader';
 
 const router = {
@@ -41,6 +42,7 @@ const router = {
     controller.register('ImageController', ImageController);
     controller.register('BannerCallout', BannerCallout);
     controller.register('AnimateController', AnimateController);
+    controller.register('TypeAnim', TypeAnim);
   },
 
   /**
