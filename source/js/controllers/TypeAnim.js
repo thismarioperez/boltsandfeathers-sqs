@@ -54,7 +54,7 @@ function TypeAnim(element) {
   return {
     destroy
   };
-  
+
 }
 
 export default TypeAnim;
