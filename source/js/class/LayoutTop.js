@@ -96,7 +96,8 @@ class TopAlign {
    */
   getNumberOfColumns(wrapperWidth) {
     // first divide available width by minColumnWidth setting
-    let calculatedCols = Math.floor((wrapperWidth + this.config.gutter) / (this.config.minColumnWidth + this.config.gutter));
+    let calculatedCols = Math.floor((wrapperWidth + this.config.gutter) /
+      (this.config.minColumnWidth + this.config.gutter));
     // then, get the min of columns that fit vs. the max number of columns specified...
     calculatedCols = Math.min(calculatedCols, this.config.maxColumns);
     // then make sure you don't end up with 0 columns.

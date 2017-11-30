@@ -37,7 +37,7 @@ class Ajax {
   */
   bindEventListener () {
     if (this.isInfiniteScroll) {
-      window.addEventListener('scroll', this.boundDebouncedInfiniteScrollHandler)
+      window.addEventListener('scroll', this.boundDebouncedInfiniteScrollHandler);
     } else if (this.loadMoreBtn) {
       this.loadMoreBtn.addEventListener('click', this.boundLoadNextPage);
     }
@@ -48,7 +48,7 @@ class Ajax {
   */
   unbindEventListener () {
     if (this.isInfiniteScroll) {
-      window.removeEventListener('scroll', this.boundDebouncedInfiniteScrollHandler)
+      window.removeEventListener('scroll', this.boundDebouncedInfiniteScrollHandler);
     } else if (this.loadMoreBtn) {
       this.loadMoreBtn.removeEventListener('click', this.boundLoadNextPage);
     }
