@@ -7,7 +7,7 @@
 {.or}{.if collection.description}
   {# normal collection #}
   {.var @callout collection.description}
-{.end}{.end}
+{.end}{.end}{.end}
 
 <header class="banner {collection.typeName}--banner">
   <section class="cover cover--banner wrapper -text--center" data-controller="AccountForHeader">
