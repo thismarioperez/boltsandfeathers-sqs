@@ -57,7 +57,7 @@ const dom = {
 
   /**
    * @public
-   * @member doc
+   * @member page
    * @memberof core.dom
    * @description the cached <page> node
    */
