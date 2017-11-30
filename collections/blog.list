@@ -1,4 +1,4 @@
-<section class="blog -wrapper -limitter" data-controller="AccountForHeader">
+<section class="blog -wrapper -limitter -space-b" data-controller="AccountForHeader">
 {# Show active filters }
 {.section categoryFilter}
 <p class="filter-heading filter-by-category loading" data-controller="FadeInContent">
