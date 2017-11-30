@@ -4,8 +4,8 @@
 // Browsers devoid of touch interfaces
 .is-hoverable:not(.is-scrolling) {
   // Links inside paragraphs
-  p a:hover:after {
-    min-height: 100%;
+  p a:hover {
+    .gradient-link-hover;
   }
 
   // Navigation Links
@@ -18,8 +18,8 @@
 // Browsers with touch interfaces
 .is-touchable {
   // Links inside paragraphs
-  p a:after {
-    min-height: 40%;    
+  p a {
+    .gradient-link-touch;
   }
 
   // Active Navigation Links
