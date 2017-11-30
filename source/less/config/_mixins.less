@@ -81,7 +81,6 @@
   background-image: ~"@{type}-gradient(@{dir}, @{colors})";
 }
 
-
 // Link Mixin
 .gradient-link {
   position: relative;
@@ -113,4 +112,13 @@
   &:after {
     min-height: 40%;    
   }
+}
+
+// expand to parent container
+.fill-space {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
