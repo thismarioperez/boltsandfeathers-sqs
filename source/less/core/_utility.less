@@ -98,14 +98,14 @@
 img {
 
   &.lazy-load {
+    opacity: 0;
     transition: ~'opacity @{baseDuration} @{ease}';
 
     &:not([src]) {
-      opacity: 0;
-      top: 0 !important; // keeps img bounds inside containing element to prevent false negatives
+      top: 0 !important; // keeps img bounds inside containing element to prevent false negatives      
     }
   
-    &[src] {
+    &[src][data-lazy-loaded="true"] {
       opacity: 1;
     }
   }
