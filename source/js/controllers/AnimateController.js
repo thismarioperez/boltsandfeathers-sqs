@@ -24,9 +24,22 @@ function AnimateController(element) {
     return Array.from(element.querySelectorAll(SELECTORS));
   };
 
+  const bindListeners = () =>{
+    // Pause animations when navigation is open
+    core.emitter.on('app--navigation-open', handleAnimations.pause);
+    core.emitter.on('app--navigation-close', handleAnimations.play);
+  };
+
+  const unbindListeners = () => {
+    // remove these listeners on destroy
+    core.emitter.removeListener('app--navigation-open', handleAnimations.pause);
+    core.emitter.removeListener('app--navigation-close', handleAnimations.play);
+  };
+
   const init = () => {
     animatedEls = getElsToAnimate();
     handleAnimations = new AnimateEls(animatedEls);
+    bindListeners();
   };
 
   const sync = () => {
@@ -37,6 +50,7 @@ function AnimateController(element) {
   };
 
   const destroy = () => {
+    unbindListeners();
     handleAnimations.destroy();
     handleAnimations = null;
     animatedEls = null;
