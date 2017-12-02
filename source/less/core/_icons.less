@@ -70,9 +70,12 @@
 }
 
 // Wrapper around Logo Icon
-.logo {
+a.logo {
   display: inline-block;
   width: @logoWidth;
+
+  // makes this 'hug' the svg
+  font-size: 0;
 
   @media @small {
     width: @logoWidthSm;
