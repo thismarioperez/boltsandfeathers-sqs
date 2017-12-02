@@ -5,3 +5,67 @@
   padding: @inset;
   border: 2px solid @black;
 }
+
+
+// Mastehead
+.banner--home {
+  margin-left: 0;
+
+  &--content {
+    position: relative;
+    z-index: @zLayer02;
+    min-height: 80vh;   
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.cover {
+  &--home {
+    margin-left: 0;
+    height: auto;
+  }
+}
+
+// TypedAnim
+a[data-typeanim-link] {
+  .gradient-link;
+  &:after {
+    opacity: 0;
+  }
+
+  .is-hoverable &:hover {
+    .gradient-link-hover;
+    &:after {
+      opacity: 1;
+    }
+  }
+
+  .is-toucheable & {
+    .gradient-link-touch;
+  }
+}
+
+.typed-active {
+  position: relative;
+  border-bottom: 6px solid @blue;
+  color: @white;
+  transition: border-color @baseDuration @ease;
+  
+  .is-hoverable &:hover {
+    border-color: transparent;
+  }
+
+  .is-toucheable & {
+    border-color: transparent;
+  }
+}
+
+// The cursor used for Typed.js
+.typed-cursor {
+  font-weight: lighter;
+  opacity: 1;
+  animation: blink 700ms infinite;
+}
