@@ -11,7 +11,7 @@ function BlogLayout (element) {
   let grid;
   let nextPageHandler;
   const gridWrapper = element;
-  const footer = document.querySelector('.footer');
+  // const footer = document.querySelector('.footer');
   let windowWidth = window.innerWidth;
 
 
@@ -21,7 +21,7 @@ function BlogLayout (element) {
    */
   const gridReveal = () => {
     // loadingSpinner.classList.add('hidden');
-    footer.classList.remove('show');
+    // footer.classList.remove('show');
     const items = element.querySelectorAll('.grid-hidden');
     let i = 0;
     const interval = setInterval(() => {
@@ -29,7 +29,7 @@ function BlogLayout (element) {
         items[i].classList.remove('grid-hidden');
         i++;
       } else {
-        footer.classList.add('show');
+        // footer.classList.add('show');
         clearInterval(interval);
       }
     }, 130);
@@ -81,6 +81,8 @@ function BlogLayout (element) {
       return;
     }
 
+    core.emitter.emit('blog--resize-start');
+
     const items = element.querySelectorAll('.entry--list');
     Array.from(items).forEach((item) => {
       item.classList.add('grid-hidden');
@@ -90,6 +92,8 @@ function BlogLayout (element) {
     }
     gridReveal();
     windowWidth = window.innerWidth;
+
+    core.emitter.emit('blog--resize-end');
   };
 
   const debouncedResize = debounce(resizeHandler, 120);
@@ -104,7 +108,7 @@ function BlogLayout (element) {
     nextPageHandler = new Ajax(element, {
       itemSelector: '.entry--list',
       loadMoreSelector: '.load-more',
-      pageEndSelector: '.footer',
+      // pageEndSelector: '.footer',
       renderCallback: () => {
         render();
         core.emitter.emit('blog--ajax-load');

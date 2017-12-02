@@ -372,7 +372,9 @@
     transform-origin: ~'0 0';
     transition: ~'opacity 360ms @{ease}, transform 160ms @{ease}';
 
-    &.grid-hidden {
+    &.grid-hidden,
+    // override js-animate styles
+    .is-page-ready &.grid-hidden.js-animate {
       visibility: hidden;
       opacity: 0;
       transform: scale(0.95);
@@ -459,14 +461,14 @@
     font-size: @tweak-read-more-font-font-size;
   }
 
-  // hover and touch styles
-  .no-touch & {
+  // states
+  .is-hoverable & {
     opacity: 0;
     transition: ~'opacity @{baseDuration} @{ease}';
   }
 
-  .no-touch &:hover,
-  .touch & {
+  .is-hoverable:not(.is-scrolling) &:hover,
+  .is-touchable & {
     opacity: 1;
   }
 }
