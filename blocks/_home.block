@@ -1,7 +1,3 @@
 <div class="home -text--center -space">
-  <h2>
-    We <a href="" data-typeanim-link><span data-controller="TypeAnim"></span></a>
-  </h2>
-  <squarespace:block-field id="homepage-type-source" columns="12" label="Homepage Type Source"/>
   <squarespace:block-field id="homepage-cta" columns="12" label="Homepage CTA"/>
 </div>
