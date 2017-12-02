@@ -17,8 +17,8 @@ class ImageHandler {
     this.root = element;
     this.images = [];
     this.loadQueue = [];
-    this.handleResize = debounce(this.handleLoading, 120);
-    this.handleScroll = throttle(this.handleLoading, 100);
+    this.handleResize = debounce(this.handleLoading.bind(this), 120);
+    this.handleScroll = throttle(this.handleLoading.bind(this), 100);
 
     this.init();
   }
@@ -92,8 +92,8 @@ class ImageHandler {
    * @description binds resize and scroll event handlers.
    */
   bindListeners () {
-    window.addEventListener('resize', this.handleResize.bind(this));
-    window.addEventListener('scroll', this.handleScroll.bind(this));
+    window.addEventListener('resize', this.handleResize);
+    window.addEventListener('scroll', this.handleScroll);
   }
 
   /**
@@ -117,8 +117,8 @@ class ImageHandler {
    * @description unbinds event handlers.
    */
   destroy () {
-    window.removeEventListener('resize', this.handleResize.bind(this));
-    window.removeEventListener('scroll', this.handleScroll.bind(this));
+    window.removeEventListener('resize', this.handleResize);
+    window.removeEventListener('scroll', this.handleScroll);
   }
 
   /**
