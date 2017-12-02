@@ -10,7 +10,7 @@
 {.end}{.end}{.end}
 
 <header class="banner {collection.typeName}--banner">
-  <section class="cover cover--banner {.equal? collection.homepage true}cover--home{.end} wrapper -text--center" data-controller="AccountForHeader">
+  <section class="cover cover--banner {.equal? collection.homepage true}cover--home{.end} wrapper -text--center" {.equal? collection.homepage true}{.or}data-controller="AccountForHeader"{.end}>
     <div class="cover--bg content-fill">
         <img class="lazy-load" data-load="viewport" {@|image-meta}/>
     </div>

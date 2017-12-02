@@ -1,5 +1,5 @@
 <div class="banner--home">
-  <div class="banner--home--content -wrapper" data-controller="TypeAnim">
+  <div class="banner--home--content -wrapper" data-controller="TypeAnim, AccountForHeader">
     <h2 data-typeanim-wrapper>
       We <a href="" data-typeanim-link><span data-typeanim-target></span></a>
     </h2>
