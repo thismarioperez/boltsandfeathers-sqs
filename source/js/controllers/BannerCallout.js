@@ -41,7 +41,7 @@ function Banner(element) {
    * @memberof Banner
    */
   const unbindListeners = () => {
-    window.addEventListener('resize', handleResize);
+    window.removeEventListener('resize', handleResize);
   };
 
   /**
