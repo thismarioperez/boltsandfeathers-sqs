@@ -1,7 +1,7 @@
 import * as core from '../core';
 import AnimateEls from '../class/AnimateEls';
 
-const SELECTORS = '.sqs-block, .js-banner--callout';
+const SELECTORS = '.sqs-block, .js-banner--callout, .entry--list';
 
 /**
  *
@@ -24,10 +24,18 @@ function AnimateController(element) {
     return Array.from(element.querySelectorAll(SELECTORS));
   };
 
+  const sync = () => {
+    handleAnimations.destroy();
+    handleAnimations = null;
+    animatedEls = getElsToAnimate();
+    handleAnimations = new AnimateEls(animatedEls);
+  };
+
   const bindListeners = () =>{
     // Pause animations when navigation is open
     core.emitter.on('app--navigation-open', handleAnimations.pause);
     core.emitter.on('app--navigation-close', handleAnimations.play);
+    core.emitter.on('blog--ajax-load', sync);
   };
 
   const unbindListeners = () => {
@@ -40,13 +48,6 @@ function AnimateController(element) {
     animatedEls = getElsToAnimate();
     handleAnimations = new AnimateEls(animatedEls);
     bindListeners();
-  };
-
-  const sync = () => {
-    handleAnimations.destroy();
-    handleAnimations = null;
-    animatedEls = getElsToAnimate();
-    handleAnimations = new AnimateEls(animatedEls);
   };
 
   const destroy = () => {

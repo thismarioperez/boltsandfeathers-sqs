@@ -105,7 +105,10 @@ function BlogLayout (element) {
       itemSelector: '.entry--list',
       loadMoreSelector: '.load-more',
       pageEndSelector: '.footer',
-      renderCallback: render,
+      renderCallback: () => {
+        render();
+        core.emitter.emit('blog--ajax-load');
+      },
     });
     nextPageHandler.bindEventListener();
   };
