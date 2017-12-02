@@ -10,11 +10,15 @@
 {.end}{.end}{.end}
 
 <header class="banner {collection.typeName}--banner">
-  <section class="cover cover--banner wrapper -text--center" data-controller="AccountForHeader">
+  <section class="cover cover--banner {.equal? collection.homepage true}cover--home{.end} wrapper -text--center" data-controller="AccountForHeader">
     <div class="cover--bg content-fill">
         <img class="lazy-load" data-load="viewport" {@|image-meta}/>
     </div>
     <div class="cover--screen overlay"></div>
+    {.equal? collection.homepage true}
+      {#  homepage banner content  }
+      {@|apply _home-banner.block}
+    {.end}
   </section>
   {.if @callout}
   <section class="banner--callout js-banner--callout -wrapper -limitter" data-controller="BannerCallout">
