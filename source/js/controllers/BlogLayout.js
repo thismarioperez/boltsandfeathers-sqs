@@ -31,6 +31,7 @@ function BlogLayout (element) {
       } else {
         // footer.classList.add('show');
         clearInterval(interval);
+        core.emitter.emit('blog--grid-revealed');
       }
     }, 130);
   };
@@ -81,7 +82,7 @@ function BlogLayout (element) {
       return;
     }
 
-    core.emitter.emit('blog--resize-start');
+    core.emitter.emit('blog--resize');
 
     const items = element.querySelectorAll('.entry--list');
     Array.from(items).forEach((item) => {
@@ -92,8 +93,6 @@ function BlogLayout (element) {
     }
     gridReveal();
     windowWidth = window.innerWidth;
-
-    core.emitter.emit('blog--resize-end');
   };
 
   const debouncedResize = debounce(resizeHandler, 120);

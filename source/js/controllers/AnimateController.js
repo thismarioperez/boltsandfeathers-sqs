@@ -36,8 +36,8 @@ function AnimateController(element) {
     core.emitter.on('app--navigation-open', handleAnimations.pause);
     core.emitter.on('app--navigation-close', handleAnimations.play);
     core.emitter.on('blog--ajax-load', sync);
-    core.emitter.on('blog--resize-start', handleAnimations.pause);
-    core.emitter.on('blog--resize-end', handleAnimations.play);
+    core.emitter.on('blog--resize', handleAnimations.pause);
+    core.emitter.on('blog--grid-revealed', handleAnimations.play);
   };
 
   const unbindListeners = () => {
@@ -45,8 +45,8 @@ function AnimateController(element) {
     core.emitter.removeListener('app--navigation-open', handleAnimations.pause);
     core.emitter.removeListener('app--navigation-close', handleAnimations.play);
     core.emitter.removeListener('blog--ajax-load', sync);
-    core.emitter.removeListener('blog--resize-start', handleAnimations.pause);
-    core.emitter.removeListener('blog--resize-end', handleAnimations.play);
+    core.emitter.removeListener('blog--resize', handleAnimations.pause);
+    core.emitter.removeListener('blog--grid-revealed', handleAnimations.play);
   };
 
   const init = () => {
