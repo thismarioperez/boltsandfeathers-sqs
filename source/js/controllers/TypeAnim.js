@@ -37,7 +37,6 @@ function TypeAnim(element) {
    */
   const setupLink = () => {
     if (urlSrc) {
-      core.log(urlSrc);
       link.setAttribute('href', urlSrc.getAttribute('href'));
     } else {
       link.setAttribute('href', '/contact');
