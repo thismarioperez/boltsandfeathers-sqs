@@ -12,13 +12,20 @@
 <header class="banner {collection.typeName}--banner">
   <section class="cover cover--banner {.equal? collection.homepage true}cover--home{.end} wrapper -text--center" {.equal? collection.homepage true}{.or}data-controller="AccountForHeader"{.end}>
     <div class="cover--bg content-fill">
-      {.if collection.video}
+      {.background-source-video?}
+        {#  for index pages  }
+        <div data-controller="BackgroundVideo">
+          {@|apply _bg-video.block}
+        </div>
+      {.or}{.if collection.video}
+        {#  for normal pages  }
         <div data-controller="BackgroundVideo">
           {collection|apply _bg-video.block}
         </div>
       {.or}
+        {#  for any other pages  }
       <img class="lazy-load" data-load="viewport" {@|image-meta}/>
-      {.end}
+      {.end}{.end}
     </div>
     <div class="cover--screen overlay"></div>
     {.equal? collection.homepage true}

@@ -2,9 +2,11 @@
   {.section collection}
     {.repeated section collections}
       <article class="index--section index--section--{id}" {.section mainImage}{.or} data-controller="AccountForHeader"{.end}>
-      {.section mainImage}
+      {.background-source-video?}
         {@|apply _banner.block}
-      {.end}
+      {.or}{.section mainImage}
+        {@|apply _banner.block}
+      {.end}{.end}
         <section class="index--content -wrapper -limitter -space-t -space-b" data-collection-id="{id}">
           {mainContent}
         </section>
