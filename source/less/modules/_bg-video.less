@@ -1,0 +1,74 @@
+/******************************************************************************
+ * Modules/Video Background
+*******************************************************************************/
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+
+  iframe {
+    border-width: 0;
+
+    &:not(.background-video) {
+      visibility: hidden;
+      opacity: 0;
+      transform: ~'translatex(-1000%)';
+    }
+  }
+
+  .background-video,
+  .default-fallback-image {
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    opacity: 0;
+    z-index: 0;
+    transition: opacity @baseDuration @ease;
+
+    &.ready,
+    &.loaded {
+      opacity: 1;
+    }
+  }
+
+  .default-fallback-image {
+    top: 50%;
+    left: 50%;
+    transform: ~'translate(-50%, -50%)';
+  }
+
+  .background-video.buffering {
+    opacity: 0;
+    transition: ~'none';
+  }
+
+  .default-fallback-image.buffering {
+    opacity: 1;
+    z-index: @zLayer02;
+    transition: ~'none';
+  }
+
+  .custom-fallback-image {
+    min-width: 100%;
+    min-height: 100%;
+    opacity: 0;
+    z-index: 0;
+    transition: opacity @baseDuration @ease;
+  }
+
+  &.mobile {
+    iframe,
+    .default-fallback-image {
+      display: none;
+    }
+
+    .custom-fallback-image {
+      opacity: 1;
+    }
+  }
+}
