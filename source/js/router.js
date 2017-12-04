@@ -31,7 +31,7 @@ const router = {
    * @private
    * @method execControllers
    * @memberof router
-   * @description initializes controller or register controller modules.
+   * @description initializes controller objects.
    */
   initControllers() {
     LoadFonts.init();
@@ -40,13 +40,23 @@ const router = {
     Intro.init();
     Navigation.init();
     NavSocialIcons.init();
+  },
+
+  /**
+   *
+   * @private
+   * @method registerControllers
+   * @memberof router
+   * @description registers controller functions with @squarespace/controller.
+   */
+  registerControllers() {
     controller.register('AccountForHeader', AccountForHeader);
     controller.register('ImageController', ImageController);
     controller.register('BannerCallout', BannerCallout);
     controller.register('AnimateController', AnimateController);
-    controller.register('TypeAnim', TypeAnim);
     controller.register('BlogLayout', BlogLayout);
     controller.register('BackgroundVideo', BackgroundVideo);
+    controller.register('TypeAnim', TypeAnim);
   },
 
   /**
@@ -61,16 +71,30 @@ const router = {
     window.scrollTo(0, 0);
   },
 
+  /**
+   *
+   * @public
+   * @method pageController
+   * @memberof router
+   * @description handles emmiter page events
+   *
+   */
   pageController() {
+    // when page is ready.
     core.emitter.on('app--page-ready', () => {
+      // make sure we start at the top of the next page
       this.topout();
+      // get the delay value from core.config
       let delay = core.dom.html.classList.contains('is-first-page-load') ?
         (core.config.pageTransition + core.config.baseTransition) : core.config.pageTransition;
+      // add page state classes on a delay
       setTimeout(() => {
         core.dom.html.classList.add('is-page-ready');
         core.dom.html.classList.remove('is-page-loading');
       }, delay);
     });
+
+    // when page is loading
     core.emitter.on('app--page-loading', () => {
       core.dom.html.classList.add('is-page-loading');
       core.dom.html.classList.remove('is-page-ready');
@@ -86,6 +110,7 @@ const router = {
    */
   initPage() {
     this.initControllers();
+    this.registerControllers();
     this.pageController();
     pageLoader();
 
