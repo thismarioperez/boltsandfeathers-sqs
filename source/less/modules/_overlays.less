@@ -91,7 +91,7 @@
 
   &--banner {
     height: 50vh;
-    margin-left: @inset;
+    margin-left: @inset + .07; // adding .07 fixes rounding calculations
     @media @small {
       height: 70vh;
     }
