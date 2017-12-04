@@ -47,7 +47,7 @@ class ImageHandler {
     // normalize event object
     evt = evt || { type: '' };
 
-    // Otherwise, select images to lazy load on scroll, and only resize loaded images on window resize.
+    // Select images to lazy load on scroll, and only resize loaded images on window resize.
     let query = (evt.type === 'resize') ? 'img[src]' : 'img.lazy-load:not([src])';
 
     this.loadQueue = this.images.filter((img) => img.matches( query ));
