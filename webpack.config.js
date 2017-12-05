@@ -10,6 +10,7 @@ const browsers = ['last 2 versions', 'ios >= 9'];
 const extractLess = new ExtractTextPlugin({
   filename: '../assets/styles/[name].css'
 });
+const CleanUpStatsPlugin = require('./webpack.cleanup-stats-plugin');
 
 module.exports = {
   devtool: IS_PRODUCTION ? false : 'inline-source-map',
@@ -21,6 +22,8 @@ module.exports = {
         'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
       }
     }),
+
+    new CleanUpStatsPlugin(),
 
     extractLess,
 
