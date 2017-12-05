@@ -59,6 +59,7 @@ class AnimationHandler {
    */
   pause() {
     this._paused = true;
+    log('AnimationHandler paused');
     return this;
   }
 
@@ -73,6 +74,7 @@ class AnimationHandler {
    */
   play() {
     this._paused = false;
+    log('AnimationHandler played');
     return this;
   }
 
@@ -91,6 +93,7 @@ class AnimationHandler {
     this._started = false;
     this._cycle = null;
 
+    log('AnimationHandler stopped');
     return this;
   }
 
