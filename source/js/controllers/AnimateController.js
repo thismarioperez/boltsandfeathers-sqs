@@ -1,7 +1,7 @@
 import * as core from '../core';
 import AnimateEls from '../class/AnimateEls';
 
-const SELECTORS = '.sqs-block, .js-banner--callout, .entry--list';
+const SELECTORS = '.sqs-block, .js-banner--callout';
 
 /**
  *
@@ -31,33 +31,13 @@ function AnimateController(element) {
     handleAnimations = new AnimateEls(animatedEls);
   };
 
-  const bindListeners = () =>{
-    // Pause/Pause animations when events are emitted.
-    core.emitter.on('app--navigation-open', handleAnimations.pause);
-    core.emitter.on('app--navigation-close', handleAnimations.play);
-    core.emitter.on('blog--ajax-load', sync);
-    core.emitter.on('blog--resize', handleAnimations.pause);
-    core.emitter.on('blog--grid-revealed', handleAnimations.play);
-  };
-
-  const unbindListeners = () => {
-    // remove these listeners on destroy
-    core.emitter.removeListener('app--navigation-open', handleAnimations.pause);
-    core.emitter.removeListener('app--navigation-close', handleAnimations.play);
-    core.emitter.removeListener('blog--ajax-load', sync);
-    core.emitter.removeListener('blog--resize', handleAnimations.pause);
-    core.emitter.removeListener('blog--grid-revealed', handleAnimations.play);
-  };
-
   const init = () => {
     animatedEls = getElsToAnimate();
     handleAnimations = new AnimateEls(animatedEls);
-    bindListeners();
   };
 
   const destroy = () => {
-    unbindListeners();
-    handleAnimations.destroy();
+    handleAnimations.stop();
     handleAnimations = null;
     animatedEls = null;
   };
