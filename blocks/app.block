@@ -2,7 +2,7 @@
   {@|apply _intro.block}
   {@|apply _header.block}
   {@|apply _navigation.block}
-  <main class="page js-page {.section item}{.main-image?}{.or} -alt-bg{.end}{.end}{.section collection}{.equal? typeName "index"}{.or}{.main-image?}{.or} -alt-bg{.end}{.end}{.end}" role="main" data-content-field="main-content" data-controller="ImageController, AnimateController">
+  <main class="page js-page {.section item}{.main-image?}{.or} -alt-bg{.end}{.end}{.section collection}{.equal? typeName "index"}{.or}{.main-image?}{.or} -alt-bg{.end}{.end}{.end}" role="main" data-content-field="main-content" data-controller="ImageController{.section collection}{.equal? typeName "blog"}{.or} , AnimateController{.end}{.end}">
     {.equal? collection.typeName "page"}
       {@|apply _page.block}
     {.or}
