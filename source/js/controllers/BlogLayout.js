@@ -2,6 +2,7 @@ import debounce from 'lodash/debounce';
 import * as core from '../core';
 import TopAlign from '../class/LayoutTop';
 import Ajax from '../class/BlogAjax';
+import AnimateEls from '../class/AnimateEls';
 
 /**
  * Handles building the blog grid, setting up ajax page loading, and tweak listeners.
@@ -9,31 +10,30 @@ import Ajax from '../class/BlogAjax';
 function BlogLayout (element) {
   // const loadingSpinner = document.querySelector('.loading-spinner');
   let grid;
+  let animationHandler;
   let nextPageHandler;
+  let animatedEls = [];
   const gridWrapper = element;
-  // const footer = document.querySelector('.footer');
   let windowWidth = window.innerWidth;
 
+  const getElsToAnimate = () => {
+    return Array.from(element.querySelectorAll('.entry--list'));
+  };
 
+  const startAnimations = () => {
+    animatedEls = getElsToAnimate();
+    animationHandler = new AnimateEls(animatedEls);
+  };
 
-  /**
-   * After all items are placed, remove the hidden class on each one at an interval.
-   */
-  const gridReveal = () => {
-    // loadingSpinner.classList.add('hidden');
-    // footer.classList.remove('show');
-    const items = element.querySelectorAll('.grid-hidden');
-    let i = 0;
-    const interval = setInterval(() => {
-      if (items[i]) {
-        items[i].classList.remove('grid-hidden');
-        i++;
-      } else {
-        // footer.classList.add('show');
-        clearInterval(interval);
-        core.emitter.emit('blog--grid-revealed');
-      }
-    }, 130);
+  const stopAnimations = () => {
+    animationHandler.stop();
+  };
+
+  const syncAnimations = () => {
+    animationHandler.destroy();
+    animationHandler = null;
+    animatedEls = getElsToAnimate();
+    animationHandler = new AnimateEls(animatedEls);
   };
 
   /**
@@ -52,10 +52,6 @@ function BlogLayout (element) {
    */
   const render = (shouldDestroy) => {
     if (shouldDestroy && grid) {
-      const items = element.querySelectorAll('.entry--list');
-      Array.from(items).forEach((item) => {
-        item.classList.add('grid-hidden');
-      });
       grid.destroy();
       grid = null;
     }
@@ -65,7 +61,7 @@ function BlogLayout (element) {
       maxColumns: core.config.maxNumberColumns,
       minColumnWidth: core.config.minColumnWidth,
       childSelector: 'entry--list',
-      afterLayout: gridReveal,
+      afterLayout: startAnimations,
       autoLoadImages: true,
       imageCropping: core.config.cropImagesSetting
     });
@@ -82,16 +78,16 @@ function BlogLayout (element) {
       return;
     }
 
-    core.emitter.emit('blog--resize');
+    stopAnimations();
 
-    const items = element.querySelectorAll('.entry--list');
-    Array.from(items).forEach((item) => {
-      item.classList.add('grid-hidden');
+    animatedEls.forEach((item) => {
+      item.classList.remove('is-active');
     });
+
     if (grid) {
       grid.afterResize();
     }
-    gridReveal();
+
     windowWidth = window.innerWidth;
   };
 
@@ -110,7 +106,7 @@ function BlogLayout (element) {
       // pageEndSelector: '.footer',
       renderCallback: () => {
         render();
-        core.emitter.emit('blog--ajax-load');
+        syncAnimations();
       },
     });
     nextPageHandler.bindEventListener();
@@ -120,6 +116,8 @@ function BlogLayout (element) {
     window.removeEventListener('resize', debouncedResize);
     nextPageHandler.unbindEventListener();
     nextPageHandler = null;
+    animationHandler.stop();
+    animationHandler = null;
   };
 
   init();
