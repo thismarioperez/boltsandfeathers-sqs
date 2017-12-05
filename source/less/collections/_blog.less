@@ -366,25 +366,13 @@
     width: 100%;
     padding: 0;
 
-
-    opacity: 1;
-    transform: scale(1);
-    transform-origin: ~'0 0';
-    transition: ~'opacity 360ms @{ease}, transform 160ms @{ease}';
-
-    &.grid-hidden,
-    // override js-animate styles
-    .is-page-ready &.grid-hidden.js-animate {
-      visibility: hidden;
-      opacity: 0;
-      transform: scale(0.95);
+    &:not(.js-animate) {
+      opacity: 0; // when items load in, they are not immediately visible
     }
   }
 
   // Entry in Blog Item view
-  &--item {
-
-  }
+  &--item {}
 
   // Titles
   &-title {
