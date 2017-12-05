@@ -8,9 +8,9 @@
 /******************************************************************************
  * Override social icons color in navigation
 *******************************************************************************/
-@navigationSocialIconsColor: #000000;
+@tweak-navigation-social-icons-color: #000000;
 .navigation--social {
-  .mixin-template-social-icons-color(@navigationSocialIconsColor);
+  .mixin-template-social-icons-color(@tweak-navigation-social-icons-color);
   .SocialLinks-link {
     background-color: transparent !important;
   }
@@ -19,9 +19,10 @@
 /******************************************************************************
  * Override social icons height in footer
 *******************************************************************************/
+@tweak-footer-social-icons-size: 30px;
 .footer--social {
   .SocialLinks-link {
-    height: 30px;
-    width: 30px;
+    height: @tweak-footer-social-icons-size;
+    width: @tweak-footer-social-icons-size;
   }
 }
