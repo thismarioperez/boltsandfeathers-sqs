@@ -13,12 +13,15 @@ const DEFAULT_TARGET = 'paddingTop';
  */
 function AccountForHeader(element) {
   const target = element.getAttribute('data-controller-accountForHeader-target') || DEFAULT_TARGET;
+  const isHalf = element.getAttribute('data-controller-accountForHeader-half') || false;
 
   /**
    * @description sets the element's target property to the height value of the header
    */
   const syncWithHeader = () => {
-    element.style[target] = core.util.px(core.dom.header.offsetHeight);
+    element.style[target] = isHalf ?
+      core.util.px(core.dom.header.offsetHeight / 2) :
+      core.util.px(core.dom.header.offsetHeight);
   };
 
   const handleResize = debounce(syncWithHeader, 200);
