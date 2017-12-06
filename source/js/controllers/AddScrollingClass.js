@@ -1,5 +1,4 @@
 import * as core from '../core';
-import debounce from 'lodash/debounce';
 import throttle from 'lodash/throttle';
 
 const html = core.dom.html;
