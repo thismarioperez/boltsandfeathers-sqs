@@ -8,11 +8,12 @@
   right: 0;
   z-index: @zLayer09;
   background: fade(@white, 100%);
-  height: @headerHeight;
+  // height: @headerHeight;
+  height: auto;
   transition: ~'transform @{baseDuration} @{ease}';  
 
   @media @small {
-    height: @headerHeightSm;
+    // height: @headerHeightSm;
   }
 
   &--inner {
@@ -20,6 +21,7 @@
     display: flex;    
     flex-flow: row nowrap;
     align-items: center;
+    padding: @baseline / 2 0;
 
     > *:nth-child(1) {
       margin-right: auto;
