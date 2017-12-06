@@ -1,5 +1,6 @@
 import * as core from '../core';
 import debounce from 'lodash/debounce';
+import throttle from 'lodash/throttle';
 
 const html = core.dom.html;
 const body = core.dom.body;
@@ -29,10 +30,10 @@ const AddScrollingClass = {
   isStillScrolling() {
     html.classList.remove('is-scrolling');
     let scrollTop = Math.max(window.pageYOffset, html.scrollTop, body.scrollTop);
-    if (scrollTop <= 0) {
+    if ( scrollTop <= 0 ) {
       html.classList.remove('is-scrolled-up');
       html.classList.remove('is-scrolled-down');
-    } else if (scrollTop > this.lastScrollTop) {
+    } else if ( scrollTop > this.lastScrollTop ) {
       html.classList.remove('is-scrolled-up');
       html.classList.add('is-scrolled-down');
     } else {
@@ -44,9 +45,9 @@ const AddScrollingClass = {
   },
 
   bindListeners() {
-    const debouncedScrollDetector = debounce(this.isStillScrolling.bind(this), 200);
+    const throttledScrollDetector = throttle(this.isStillScrolling.bind(this), 200);
     window.addEventListener('scroll', this.handleScroll.bind(this));
-    window.addEventListener('scroll', debouncedScrollDetector.bind(this));
+    window.addEventListener('scroll', throttledScrollDetector.bind(this));
   },
 
   init() {
