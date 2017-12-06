@@ -9,7 +9,7 @@
     </h1>
     {.end}
     {#  page title  }
-    <div class="header--title js-header--title page-title">
+    <div class="header--title js-header--title page-title" data-controller="AccountForHeader" data-controller-accountForHeader-target="top" data-controller-accountForHeader-half="true">
       <span>
         <span>{collection.title}</span>
       </span>
