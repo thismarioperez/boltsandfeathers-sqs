@@ -1,19 +1,19 @@
 <section class="blog -wrapper -limitter -space-b" data-controller="AccountForHeader">
 {# Show active filters }
 {.section categoryFilter}
-<p class="filter-heading filter-by-category loading" data-controller="FadeInContent">
+<p class="filter-heading filter-by-category loading">
   All in <span class="category-name">{@}</span>
 </p>
 {.end}
 
 {.section tagFilter}
-<p class="filter-heading filter-by-tag loading" data-controller="FadeInContent">
+<p class="filter-heading filter-by-tag loading">
   All tagged <span class="category-name">{@}</span>
 </p>
 {.end}
 
 {.if authorFilter}
-<div class="filter-heading filter-by-author loading" data-controller="FadeInContent">
+<div class="filter-heading filter-by-author loading">
   <p>All by {author.displayName}</p>
   {.if author.avatarId}
   <div class="author-avatar content-fill">
