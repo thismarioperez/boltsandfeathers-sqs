@@ -1,5 +1,6 @@
 {.section item}
-<div class="blog-wrapper loading" data-item-id="{id}" data-controller="FadeInContent">
+<div class="blog -wrapper -limitter -space-b">
+<div class="blog-inner" data-item-id="{id}">
   <div class="blog-item-back-link">
     <p><a href="{collection.fullUrl}">← Back to all posts</a></p>
   </div>
@@ -21,7 +22,7 @@
             </div>
           </time>
         </div>
-        <div class="blog-item-content e-content" data-controller="SimpleImageLoad">{.section body}{@}{.end}</div>
+        <div class="blog-item-content e-content">{.section body}{@}{.end}</div>
 
         <footer class="blog-item-footer">
 
@@ -108,9 +109,7 @@
 
       </div>
 
-      <aside id="blogItemSidebar" class="blog-item-sidebar" data-controller="SimpleImageLoad">
-        <squarespace:block-field id="blogItemSidebarContent" columns="12" label="Blog Item Sidebar" />
-      </aside>
-
     </article>
   </div>
+
+</div>
