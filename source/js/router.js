@@ -23,6 +23,7 @@ import AnimateController from './controllers/AnimateController';
 import BlogLayout from './controllers/BlogLayout';
 import BackgroundVideo from './controllers/BackgroundVideo';
 import TypeAnim from './controllers/TypeAnim';
+import ToggleContent from './controllers/ToggleContent';
 import pageLoader from './pageLoader';
 
 const router = {
@@ -56,6 +57,7 @@ const router = {
     controller.register('AnimateController', AnimateController);
     controller.register('BlogLayout', BlogLayout);
     controller.register('BackgroundVideo', BackgroundVideo);
+    controller.register('ToggleContent', ToggleContent);
     controller.register('TypeAnim', TypeAnim);
   },
 
