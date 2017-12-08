@@ -8,7 +8,9 @@
       display: inline-block;
       width: 100%;
       position: relative;
-      
+    }
+
+    > a {
       &:after {
         content: "";
         display: block;
@@ -34,6 +36,37 @@
         transform: ~'translate3d(0, -50%, 0)';
         width: calc(@insetTwo + 100%);
         left: -1 * @insetTwo;
+      }
+    }
+  }
+
+  &--folder {
+    &-item {
+      &:not(:last-child) {
+        margin-bottom: .5vw;
+      }
+      a {
+        position: relative;
+        padding-left: ~'calc(.75vw + 5px)';
+      }
+      // states
+      a:before {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 5px;
+        .gradient(linear; @green, @blue; 0deg);
+        opacity: 0;
+        max-height: 0%;
+        transition: ~'opacity @{baseDuration} @{ease},'
+                    ~'max-height @{baseDuration} @{ease}';
+      }
+      a.is-active:before {
+        opacity: 1;
+        max-height: 100%;
       }
     }
   }
