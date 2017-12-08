@@ -7,13 +7,13 @@
 
       {.or}{.folder?}
         {#  folder  }
-        <a class="h1 site-nav--folder-link" href="{collection.fullUrl}">{collection.navigationTitle}</a>
+        <a class="h1 site-nav--folder-link toggle js-toggle{.repeated section items}{.collection?}{.if active} is-active{.end}{.end}{.end}" data-controller="ToggleContent" data-no-ajax href="{collection.fullUrl}">{collection.navigationTitle}</a>
 
-        <ul class="site-nav--folder">
+        <ul class="site-nav--folder js-toggle-content">
           {.repeated section items}
             <li class="site-nav--folder-item">
               {.collection?}
-                <a class="{.if active} is-active{.end}" href="{collection.fullUrl}">
+                <a class="h3 {.if active} is-active{.end}" href="{collection.fullUrl}">
                   {collection.navigationTitle}
                 </a>
               {.end}
