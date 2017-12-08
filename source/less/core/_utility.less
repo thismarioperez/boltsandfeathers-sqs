@@ -114,3 +114,16 @@ img {
 .-alt-bg {
   background: @gray;
 }
+
+// Use this with ToggleContent controller to show and hide content
+.js-toggle-content {
+  display: none;
+  height: 0;
+  overflow: hidden;
+  transition: height @baseDuration @ease;
+
+  &.is-visible {
+    display: block;
+    height: auto;
+  }
+}
