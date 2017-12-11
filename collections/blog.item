@@ -1,13 +1,13 @@
 {.section item}
-<div class="blog -wrapper -limitter -space-b">
-<div class="blog-inner" data-item-id="{id}">
+<div class="blog blog-item -wrapper -limitter -space-b" data-controller="AccountForHeader, AnimateController, ImageController">
+<div class="blog-inner">
   <div class="blog-item-back-link">
     <p><a href="{collection.fullUrl}">← Back to all posts</a></p>
   </div>
 
   {.main-image?}
   <section class="blog-item-banner has-main-image">
-    <div class="blog-item-banner-image" data-controller="SetUpBlogItemImage"><img {@|image-meta} data-load="false" /></div>
+    <div class="blog-item-banner-image content-fit" data-controller="SetupBlogItemImage"><img {@|image-meta} data-load="false" data-item-banner/></div>
   </section>
   {.end}
 
