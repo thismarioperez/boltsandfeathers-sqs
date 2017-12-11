@@ -31,7 +31,7 @@ class ImageHandler {
    * @description Caches images to load.
    */
   preLoad () {
-    this.images = Array.from(this.root.querySelectorAll('img[data-src]'));
+    this.images = Array.from(this.root.querySelectorAll('img[data-src]:not([data-item-banner])'));
   }
 
   /**
