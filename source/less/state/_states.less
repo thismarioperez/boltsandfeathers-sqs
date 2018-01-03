@@ -101,6 +101,16 @@
   }
 }
 
+// Modal is visible
+.is-modal-visible {
+  .modal {
+    opacity: 1;
+    visibility: visible;
+    z-index: @zLayerInFront;
+    -webkit-overflow-scrolling: touch;
+  }  
+}
+
 // Animated Elements
 .js-animate {
   &,
