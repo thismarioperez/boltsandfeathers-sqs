@@ -1,0 +1,5 @@
+<article class="bio-item -wrapper -alt-bg -space-b" data-controller="AccountForHeader">
+  {.section item}
+    {@|apply _bio.block}
+  {.end}
+</article

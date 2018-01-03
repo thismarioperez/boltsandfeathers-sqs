@@ -1,0 +1,12 @@
+<article class="bio">
+  <a href="#modal-content-target-{@index}" data-no-ajax data-modal-open>
+    {.image?}<div class="bio-image content-fill"><img class="lazy-load" {@|image-meta} data-load="viewport" /></div>{.end}
+    {.section title}<h1>{@}</h1>{.end}
+    {.section body}<div>{@}</div>{.end}
+  </a>
+  <div id="modal-content-target-{@index}" class="-hidden">
+    {.section title}<h1>{@}</h1>{.end}
+    {.section body}<h3>{@}</h3>{.end}
+    {customContent.bioContent.html}
+  </div>
+</article>

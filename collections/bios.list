@@ -1,0 +1,7 @@
+<section class="bio-list -wrapper -space-b -alt-bg" data-controller="AccountForHeader">
+  <div class="bio-list-inner">
+    {.repeated section items}
+      {@|apply _bio.block}
+    {.end}
+  </div>
+</section>
