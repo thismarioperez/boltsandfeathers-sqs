@@ -8,6 +8,14 @@ function Modal(element) {
     page: 'html',
     loadClass: 'is-modal-active',
     class: 'is-modal-visible',
+    clickOutside: true,
+    transitions: false,
+    onOpen: () => {
+      core.emitter.emit('app--modal-open');
+    },
+    onClose: () => {
+      core.emitter.emit('app--modal-close');
+    }
   };
 
   const init = () => {

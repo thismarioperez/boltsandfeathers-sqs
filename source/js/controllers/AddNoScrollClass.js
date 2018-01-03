@@ -21,6 +21,7 @@ const AddNoScrollClass = {
     // add no scroll state
     html.classList.add(noScroll);
     body.style.top = core.util.px(-1 * scrollPos);
+
   },
 
   removeNoScroll() {
@@ -35,6 +36,8 @@ const AddNoScrollClass = {
   bindListeners() {
     core.emitter.on('app--navigation-open', this.addNoScroll.bind(this));
     core.emitter.on('app--navigation-close', this.removeNoScroll.bind(this));
+    // core.emitter.on('app--modal-open', this.addNoScroll.bind(this));
+    // core.emitter.on('app--modal-close', this.removeNoScroll.bind(this));
   },
 
   init() {
