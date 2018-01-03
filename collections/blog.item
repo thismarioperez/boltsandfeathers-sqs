@@ -1,7 +1,7 @@
 {.section item}
 <div class="blog blog-item -wrapper -limitter -space-b" data-controller="AccountForHeader, AnimateController, ImageController">
 <div class="blog-inner">
-  <div class="blog-item-back-link">
+  <div class="blog-item-back-link -space-t">
     <p><a href="{collection.fullUrl}">← Back to all posts</a></p>
   </div>
 

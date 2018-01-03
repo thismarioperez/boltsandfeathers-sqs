@@ -120,7 +120,7 @@
 // }
 
 // Back Link
-@tweak-blog-item-back-link-color: lighten(@gray, 50%);
+@tweak-blog-item-back-link-color: @black;
 
 
 // Blog Styles
@@ -609,6 +609,11 @@ article.entry--list {
   a:visited {
     color: @tweak-blog-item-back-link-color;
     text-decoration: none;
+
+    &:after {
+      content: none;
+      display: none;
+    }
   }
 
 }
