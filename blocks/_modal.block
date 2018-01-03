@@ -1,9 +1,8 @@
 <div class="modal screen -text--left" data-controller="Modal">
-    <div class="modal-inner">
-      <a class="modal-close modal-toggle -space-r -space-t" data-no-ajax data-modal-close>Close</a>
-      <div class="modal-wrapper -space">
-        <div class="modal-content -wrapper"></div>      
-      </div>
+  <div class="modal-inner">
+    <a class="modal-close modal-toggle -space-r -space-t" data-no-ajax data-modal-close>Close</a>
+    <div class="modal-wrapper -space">
+      <div class="modal-content -wrapper"></div>      
     </div>
   </div>
 </div>
