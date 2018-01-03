@@ -123,3 +123,27 @@
     width: 100%;
   }
 }
+
+/******************************************************************************
+ * Modal
+*******************************************************************************/
+.modal {
+  &-toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+  }
+
+  &-inner,
+  &-wrapper {
+    height: 100%;
+  }
+
+  &-wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+  }
+}
