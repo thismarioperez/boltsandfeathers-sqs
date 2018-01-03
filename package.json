@@ -64,6 +64,7 @@
     "lodash": "^4.17.4",
     "normalize.css": "^7.0.0",
     "typed.js": "^2.0.6",
+    "vanilla-modal": "^1.6.5",
     "webfontloader": "^1.6.28"
   }
 }
