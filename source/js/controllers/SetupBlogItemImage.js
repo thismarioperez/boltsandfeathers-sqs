@@ -33,10 +33,10 @@ function SetUpBlogItemImage (element) {
     loadImage();
   };
 
-  const debouncedResize = debounce(loadImage, 200);  
+  const debouncedResize = debounce(loadImage, 200);
 
   const bindListeners = () => {
-    window.addEventListener('resize', debouncedResize);    
+    window.addEventListener('resize', debouncedResize);
   };
 
   const init = () => {
