@@ -13,6 +13,7 @@ import controller from '@squarespace/controller';
 import AddScrollingClass from './controllers/AddScrollingClass';
 import AddNoScrollClass from './controllers/AddNoScrollClass';
 import Intro from './controllers/Intro';
+import Modal from './controllers/Modal';
 import LoadFonts from './controllers/LoadFonts';
 import Navigation from './controllers/Navigation';
 import NavSocialIcons from './controllers/NavSocialIcons';
@@ -61,6 +62,7 @@ const router = {
     controller.register('BackgroundVideo', BackgroundVideo);
     controller.register('ToggleContent', ToggleContent);
     controller.register('TypeAnim', TypeAnim);
+    controller.register('Modal', Modal);
   },
 
   /**
