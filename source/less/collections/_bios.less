@@ -1,0 +1,45 @@
+// Bio List
+.bio-list {
+  &,
+  &-inner {
+    width: 100%;
+  }
+
+  &-inner {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    justify-content: center;
+
+    > .bio {
+      width: 100%;
+  
+      @media @small {
+        width: ~'calc(50% - @{baseline})';
+
+        &:nth-child(odd) {
+          margin-right: @baseline;
+        }
+
+        &:nth-child(even) {
+          margin-left: @baseline;
+        }
+      }
+    }
+  }
+}
+
+// Bio Item
+
+// Bio Block
+.bio {
+  margin-top: @baseline;
+  margin-bottom: @baseline;
+
+  &-image {
+    width: 100%;
+    height: 0;
+    padding-bottom: 75%;
+    margin-bottom: @baseline;
+  }
+}
